@@ -1,6 +1,8 @@
 # Style Guide
 
-This style guide provides guidelines for maintaining consistent, high-quality code and documentation across our project. By following these guidelines, we ensure better readability, maintainability, and collaboration among team members.
+## Introduction
+
+This style guide is designed to help developers maintain consistent, high-quality code across our projects. By following these guidelines, we can improve code readability, reduce errors, and enhance collaboration among team members.
 
 ## Table of Contents
 
@@ -13,83 +15,103 @@ This style guide provides guidelines for maintaining consistent, high-quality co
 
 ## Naming Conventions
 
-### Use Clear and Descriptive Names
+### Use Descriptive Names
 
-- Choose meaningful names for variables, functions, and classes that accurately describe their purpose or functionality.
-- Avoid abbreviations or cryptic names that may confuse other developers.
+- Choose clear, descriptive names for variables, functions, and classes.
+- Avoid abbreviations unless they are widely understood.
 
-### Ensure Consistency in Component Naming
+### Follow Language-Specific Conventions
 
-- Use correct and consistent import names for components across the project.
-- Example: Use 'SignIn' instead of 'UserButton' for a sign-in component.
+- Use camelCase for variables and functions in JavaScript.
+- Use PascalCase for class names in most object-oriented languages.
+- Use snake_case for variables and functions in Python.
+
+### Consistency is Key
+
+- Maintain consistent naming patterns throughout the project.
+- Use singular nouns for objects and plural nouns for collections.
 
 ## Code Structure
 
-### Maintain Consistent Formatting
+### Keep Functions Small and Focused
 
-- Use consistent indentation and formatting throughout the codebase.
-- Follow established coding style guidelines for the programming language being used.
+- Aim for functions that do one thing well.
+- Limit function length to improve readability and maintainability.
 
-### Organize Imports and Components
+### Use Meaningful Indentation
 
-- Use appropriate imports from the correct packages (e.g., '@stackframe/stack').
-- Organize components into separate files or modules for better code organization and maintainability.
+- Consistently use either spaces or tabs for indentation.
+- Maintain proper indentation to clearly show code structure.
+
+### Organize Related Code
+
+- Group related functions and classes together.
+- Use modules or namespaces to organize larger codebases.
 
 ## Documentation
 
 ### Write Clear Comments
 
-- Provide clear and concise comments for complex code sections and functions.
-- Explain the purpose and functionality of the code, not just restate what the code does.
+- Use comments to explain complex logic or non-obvious code.
+- Avoid commenting on self-explanatory code.
 
-### Maintain Accurate Headers
+### Maintain Up-to-Date Documentation
 
-- Ensure header names and content in documentation are accurate and consistent.
-- Use appropriate heading levels to create a clear hierarchy of information.
+- Keep README files, API documentation, and inline comments current.
+- Document any changes to public interfaces or important internal logic.
 
-### Create Meaningful Pull Request Descriptions
+### Use JSDoc or Similar Tools
 
-- Write PR titles and bodies that directly address the documentation changes being made.
-- Clearly explain the purpose and impact of the changes.
-
-### Link to Relevant Discussions
-
-- Include links to relevant discussions in Discord or other communication channels.
-- Indicate where review and agreement on changes have taken place.
-
-### Ensure Accurate Code Snippets
-
-- Maintain up-to-date and accurate code snippets in documentation.
-- Test code snippets to ensure they work as intended.
-
-### Include Visual Representations
-
-- Add visual representations (images) alongside code examples when appropriate.
-- Use proper image references in Markdown format.
-- Example: `![Sign-in Component](../imgs/sign-in.png)`
+- Utilize documentation generators for consistent API documentation.
+- Include parameter types, return values, and brief descriptions.
 
 ## Error Handling
 
-### Implement Proper Error Handling
+### Use Specific Exception Types
 
-- Implement appropriate error handling and logging mechanisms throughout the codebase.
-- Catch and handle exceptions gracefully to prevent application crashes.
-- Log errors with sufficient detail to aid in debugging and troubleshooting.
+- Create or use specific exception types for different error scenarios.
+- Avoid using generic exceptions when more specific ones are available.
+
+### Provide Meaningful Error Messages
+
+- Include clear, actionable information in error messages.
+- Consider including error codes for easier troubleshooting.
+
+### Implement Proper Error Logging
+
+- Log errors with appropriate severity levels.
+- Include relevant context information in error logs.
 
 ## Performance
 
-### Optimize Critical Code Sections
+### Optimize Critical Paths
 
-- Identify and optimize critical sections of code for better performance.
-- Use profiling tools to identify bottlenecks and areas for improvement.
-- Consider factors such as time complexity, memory usage, and resource utilization.
+- Identify and optimize performance-critical sections of code.
+- Use profiling tools to identify bottlenecks.
+
+### Consider Resource Usage
+
+- Be mindful of memory usage, especially for large datasets.
+- Implement pagination or lazy loading for large collections.
+
+### Use Appropriate Data Structures
+
+- Choose the right data structure for the task to optimize performance.
+- Consider time and space complexity when selecting algorithms.
 
 ## Security
 
-### Follow Secure Coding Practices
+### Validate User Input
 
-- Adhere to best practices for secure coding to prevent common vulnerabilities.
-- Implement proper input validation and sanitization.
-- Use secure authentication and authorization mechanisms.
-- Keep sensitive information, such as API keys and passwords, out of the codebase.
-- Regularly update dependencies to address known security vulnerabilities.
+- Sanitize and validate all user inputs to prevent injection attacks.
+- Use parameterized queries for database operations.
+
+### Implement Proper Authentication and Authorization
+
+- Use secure, industry-standard authentication methods.
+- Implement role-based access control for sensitive operations.
+
+### Keep Dependencies Updated
+
+- Regularly update third-party libraries to patch security vulnerabilities.
+- Use automated tools to check for known vulnerabilities in dependencies.
