@@ -84,6 +84,13 @@ export type OAuthScopesOnSignIn = {
 type ProjectCurrentUser<ProjectId> = ProjectId extends "internal" ? CurrentInternalUser : CurrentUser;
 type ProjectCurrentServerUser<ProjectId> = ProjectId extends "internal" ? CurrentInternalServerUser : CurrentServerUser;
 
+/**
+ * This function generates URLs for different actions based on the provided partial URL handlers.
+ * If no specific handler path is provided for an action, default paths are used.
+ *
+ * @param {Partial<HandlerUrls>} partial - An object that may contain partially defined URL handlers
+ * @returns {HandlerUrls} An object containing URL paths for various actions like signIn, signOut, passwordReset, etc.
+ */
 function getUrls(partial: Partial<HandlerUrls>): HandlerUrls {
   const handler = partial.handler ?? "/handler";
   const home = partial.home ?? "/";
@@ -110,6 +117,13 @@ function getUrls(partial: Partial<HandlerUrls>): HandlerUrls {
   };
 }
 
+/**
+ * Redirects the current page to a specified URL, with an option to replace the current browser history entry with the new URL.
+ * @param {URL | string}  url - The URL or a string that represents the address to which the current page would be redirected.
+ * @param {Object}  options - Optional parameter that can have a key 'replace' to decide if the current page URL should be replaced with the new URL in the browser history.
+ * @param {boolean}  options.replace - If true, replaces the current page URL with the new URL in the browser history. Otherwise, it creates a new history entry for the new URL.
+ */
+
 async function _redirectTo(url: URL | string, options?: { replace?: boolean }) {
   if (isReactServer) {
     NextNavigation.redirect(url.toString(), options?.replace ? NextNavigation.RedirectType.replace : NextNavigation.RedirectType.push);
@@ -123,22 +137,47 @@ async function _redirectTo(url: URL | string, options?: { replace?: boolean }) {
   }
 }
 
+/**
+ * A function that returns the default project ID either from the environment variable or throws an error.
+ * @returns {string} The project ID from the NEXT_PUBLIC_STACK_PROJECT_ID environment variable. If no such environment variable is set, it throws an error. 
+ */
+
 function getDefaultProjectId() {
   return process.env.NEXT_PUBLIC_STACK_PROJECT_ID || throwErr(new Error("Welcome to Stack! It seems that you haven't provided a project ID. Please create a project on the Stack dashboard at https://app.stack-auth.com and put it in the NEXT_PUBLIC_STACK_PROJECT_ID environment variable."));
 }
 
+/**
+ * This function retrieves the default publishable client key from the environment variables. Throws an error if the client key is not found.
+ * @returns {string} Returns the default publishable client key.
+ */
 function getDefaultPublishableClientKey() {
   return process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY || throwErr(new Error("Welcome to Stack! It seems that you haven't provided a publishable client key. Please create an API key for your project on the Stack dashboard at https://app.stack-auth.com and copy your publishable client key into the NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY environment variable."));
 }
 
+/**
+ * This method is responsible for getting the default secret server key from the environment variables. 
+ * If no key is provided, an error is thrown.
+ * @returns {String} The secret server key. If no key is provided, the function throws an error.
+ */
 function getDefaultSecretServerKey() {
   return process.env.STACK_SECRET_SERVER_KEY || throwErr(new Error("No secret server key provided. Please copy your key from the Stack dashboard and put your it in the STACK_SECRET_SERVER_KEY environment variable."));
 }
 
+/**
+ * Retrieves the secret key value from the environment variable `STACK_SUPER_SECRET_ADMIN_KEY`.
+ * Throws an error if key is not found in the environment variables.
+ * @returns {String} The secret admin key found in the environment variable `STACK_SUPER_SECRET_ADMIN_KEY`
+ */
 function getDefaultSuperSecretAdminKey() {
   return process.env.STACK_SUPER_SECRET_ADMIN_KEY || throwErr(new Error("No super secret admin key provided. Please copy your key from the Stack dashboard and put it in the STACK_SUPER_SECRET_ADMIN_KEY environment variable."));
 }
 
+/**
+ * Function to retrieve the default base URL from the environment variables. 
+ * If no environment variable is found, it returns the `defaultBaseUrl`.
+ *  
+ * @returns {string} The base URL to use for requests.
+ */
 function getDefaultBaseUrl() {
   return process.env.NEXT_PUBLIC_STACK_URL || defaultBaseUrl;
 }
@@ -190,6 +229,10 @@ type TokenObject = {
   refreshToken: string | null,
 };
 
+/**
+ * This function is used to create a new instance of Store with properties refreshToken and accessToken set as null.
+ * @returns {Store<TokenObject>} A new instance of a Store with refreshToken and accessToken as null
+ */
 function createEmptyTokenStore() {
   return new Store<TokenObject>({
     refreshToken: null,
@@ -198,19 +241,56 @@ function createEmptyTokenStore() {
 }
 
 const cachePromiseByComponentId = new Map<string, Promise<unknown>>();
+/**
+ * This function leverage async cache with `useSyncExternalStore` hook from React to get or wait for the required data.
+ * It is used for providing improved performance by caching the result from async function calls.
+ * It should only be used on Client Side Rendering. Server Side Rendering with this function will be suspended.
+ * @param {AsyncCache}  cache - The Async cache that stores or retrieves the data.
+ * @param {array}  dependencies - The list of dependencies for which data is required.
+ * @param {string}  caller - The calling function or component's name for reference and debugging.
+ * @returns {unknown} data returned from the async cache either by getting from cache or waiting for it.
+ */
+
 function useAsyncCache<D extends any[], T>(cache: AsyncCache<D, T>, dependencies: D, caller: string): T {
   // we explicitly don't want to run this hook in SSR
   suspendIfSsr(caller);
 
   const id = React.useId();
 
+  /**
+   * This is a callback function that allows a component to subscribe for any state changes. 
+   * When a state change happens, it removes all cached promise by the component Id and calls the provided callback function.
+   * It returns an unsubscribe function that would be used to clean up the subscription when the component is about to be unmounted.
+   * 
+   * @param {function} cb - The callback function to be executed after the cached promise by component ID has been cleared.
+   * @returns {function} This returns an unsubscribe function to clean up the subscription.
+   */
   const subscribe = useCallback((cb: () => void) => {
-    const { unsubscribe } = cache.onStateChange(dependencies, () => {
+    /**
+     * Assigns a function that listens to state changes on a specified set of dependencies. When state changes occur, the cached promise associated with a particular component ID is deleted and a callback function is triggered.
+     * @param {Object} cache - An object responsible for managing state.
+     * @param {Array} dependencies - The dependencies that the state change listener should target.
+     * @param {Function} cb - The callback function to be called once the state change is detected and the cached promise is removed.
+     * @param {String} id - The unique ID associated with a component.
+     * @returns {Object} unsubscribe - Function that when called, stops the detection of state changes and the triggering of the callback function.
+     */
+         const { unsubscribe } = cache.onStateChange(dependencies, () => {
       cachePromiseByComponentId.delete(id);
       cb();
     });
     return unsubscribe;
   }, [cache, ...dependencies]);
+  /**
+   * This method gets a snapshot (cache) of a promise object with a provided id.
+   * If the cache for the id does not exist, it creates a new one with the provided dependencies in read-write mode.
+   * If the cache exists, it returns the cache.
+   *
+   * It uses React's useCallback hook to memoize the function. 
+   * The cache is used to prevent the promise from being recreated every time the value changes which is needed for React's `use` checks.
+   * 
+   * @param {void} No parameters are taken by this function.
+   * @returns {ReactPromise} Returns a promise object from the cache if available, otherwise creates a new one.
+   */
   const getSnapshot = useCallback(() => {
     // React checks whether a promise passed to `use` is still the same as the previous one by comparing the reference.
     // If we didn't cache here, this wouldn't work because the promise would be recreated every time the value changes.
@@ -225,17 +305,44 @@ function useAsyncCache<D extends any[], T>(cache: AsyncCache<D, T>, dependencies
   const promise = React.useSyncExternalStore(
     subscribe,
     getSnapshot,
+    /**
+     * This is an error throwing method that is intended to be used when the method "getServerSnapshot" is accidentally called in "useAsyncCache". This method should be restricted to CSR earlier to prevent this from happening.
+     * @throws {Error} Throws a new Error stating "getServerSnapshot should never be called in useAsyncCache because we restrict to CSR earlier"
+     */
     () => throwErr(new Error("getServerSnapshot should never be called in useAsyncCache because we restrict to CSR earlier"))
   );
 
   return React.use(promise);
 }
 
+/**
+ * Function useStore is a hook that subscribes to a store, and returns the latest snapshot of the store using React's useSyncExternalStore hook.
+ * @param {Store<T>}  store - The store to which the hook subscribes. The store should have the onChange and get methods implemented.
+ * @returns {T} The return value is the latest snapshot of the state in store
+ */
+
 function useStore<T>(store: Store<T>): T {
+  /**
+   * This method provides a way to subscribe to changes on the store and automatically un-subscribes when the callback is called
+   * @param {Function} cb - The callback function to be invoked when the store changes.
+   * @returns {Function} Returns a function to unsubscribe from the store changes when invoked.
+   */
   const subscribe = useCallback((cb: () => void) => {
+    /**
+     * This function listens for changes in the store object and invokes callback function when changes occur.
+     * @param {Object} store - The object where the changes are tracked.
+     * @param {Function} cb - The callback function that will be invoked after the changes.
+     * @returns {Function} Returns a function that can be called to stop listening for changes.
+     */
     const { unsubscribe } = store.onChange(() => cb());
     return unsubscribe;
   }, [store]);
+  /**
+   * A function that is used to retrieve the current state of the store. 
+   * This function is callback memoized for performance optimization.
+   * @param {None}  No parameters for this function.
+   * @returns {Any} Returns the current snapshot of the store.
+   */
   const getSnapshot = useCallback(() => store.get(), [store]);
 
   return React.useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
@@ -245,19 +352,55 @@ export const stackAppInternalsSymbol = Symbol.for("StackAppInternals");
 
 const allClientApps = new Map<string, [checkString: string, app: StackClientApp<any, any>]>();
 
-const createCache = <D extends any[], T>(fetcher: (dependencies: D) => Promise<T>) => {
+/**
+ * This method is used to create an asynchronous cache.
+ * @param {function} fetcher - A function that accepts an array of dependencies and returns a Promise of type T.
+ * @returns {object} An instance of AsyncCache generated using the supplied fetcher function.
+ */
+ const createCache = <D extends any[], T>(fetcher: (dependencies: D) => Promise<T>) => {
   return new AsyncCache<D, T>(
+    /**
+     * An asynchronous function that fetches data based on given dependencies
+     * @param {Object} dependencies - An object containing data required for fetch operation
+     * @returns {Promise} Returns an object representing the response to the request
+     */
     async (dependencies) => await fetcher(dependencies),
     {},
   );
 };
 
+/**
+ * Creates a new cache storage that utilizes asynchronous programming, taking session data and additional dependencies as identifiers.
+ * @param {Function} fetcher - A function that fetches data. It takes a session object of the type InternalSession and an array of additional dependency-datas of type D as parameters, and returns a promise resolving to type T
+ * @returns {Object} returns an instance of AsyncCache which caches the data based on session and additional dependencies. On subscribing to the cache, it invalidates the old cache and refreshes it. 
+ */
 const createCacheBySession = <D extends any[], T>(fetcher: (session: InternalSession, extraDependencies: D) => Promise<T> ) => {
   return new AsyncCache<[InternalSession, ...D], T>(
+    /**
+     * An asynchronous function that executes the fetcher function with the provided session and any additional dependencies.
+     * @param {Array} session - The first element of the array is the session object needed for the fetcher function.
+     * @param {Array} extraDependencies - The rest of array elements are additional dependencies for the fetcher function.
+     * @returns {Promise} A Promise that resolves when the fetcher function completes its operation.
+     */
     async ([session, ...extraDependencies]) => await fetcher(session, extraDependencies),
     {
+      /**
+       * Establishes a subscription to a session and returns an unsubscription function.
+       * @param {Array}  session - An array where the first element is the session to subscribe to.
+       * @param {Function}  refresh - Function to execute when the session is invalidated.
+       * @returns {Function} A function that, when called, will unsubscribe from the session's invalidation.
+       */
       onSubscribe: ([session], refresh) => {
+        /**
+         * Method to handle session invalidation event. On occurrence of this event, the refresh function is triggered.
+         * @param {function} session.onInvalidate - Function that executes when the session is invalidated.
+         * @returns {void} Does not return anything.
+         */
         const handler = session.onInvalidate(() => refresh());
+        /**
+         * Unsubscribes from a handler.
+         * @returns {Function} Function invocation that unsubscribes from the handler.
+         */
         return () => handler.unsubscribe();
       },
     },
@@ -276,28 +419,66 @@ class _StackClientAppImpl<HasTokenStore extends boolean, ProjectId extends strin
   private __DEMO_ENABLE_SLIGHT_FETCH_DELAY = false;
   private readonly _ownedAdminApps = new DependenciesMap<[InternalSession, string], _StackAdminAppImpl<false, string>>();
 
+  /**
+   * This method creates a cache for current user using session. If the demo fetch delay flag is enabled, it waits for 2000ms before fetching client user using the session token. 
+   * @param {Object}  session - Session object used for identifying the user session.
+   * @returns {Promise<Object>} Returns a promise that resolves to the object of client user details associated with the session token.
+   */
   private readonly _currentUserCache = createCacheBySession(async (session) => {
     if (this.__DEMO_ENABLE_SLIGHT_FETCH_DELAY) {
       await wait(2000);
     }
     return await this._interface.getClientUserByToken(session);
   });
+  /**
+   * A method that wraps the client project retrieval operation in a cache. 
+   * It invokes getClientProject of the _interface object.
+   * @returns {Promise<Result>} A Promise that resolves to a Result, which could be the current client project, if successful, or throws an error.
+   */
   private readonly _currentProjectCache = createCache(async () => {
     return Result.orThrow(await this._interface.getClientProject());
   });
+  /**
+   * A private method that creates cache for projects owned by a session.
+   * This method is powered by the "_interface.listProjects" method that lists out all projects for a session.
+   * Cache is created by session wise to optimise the process of listing projects.
+   *
+   * @param {Object} session - The session of the user.
+   * @returns {Promise<Array>} Returns a Promise that will be resolved with an array of owned projects.
+   */
   private readonly _ownedProjectsCache = createCacheBySession(async (session) => {
     return await this._interface.listProjects(session);
   });
   private readonly _currentUserPermissionsCache = createCacheBySession<
     [string, boolean],
     TeamPermissionsCrud['Client']['Read'][]
+  /**
+   * This asynchronous method lists the current user's permissions for the specified team.
+   * @param {Object} session - Contains session information
+   * @param {Array} [teamId, recursive] - An array where the first element is the team Id and the second determines if the function should run recursively
+   * @returns {Promise<Object>} A Promise that resolves to an object containing the current user's permissions for the specified team.
+   */
   >(async (session, [teamId, recursive]) => {
     return await this._interface.listCurrentUserTeamPermissions({ teamId, recursive }, session);
   });
+  /**
+   * This method is a private read-only cache that stores the teams associated with the current user into session. 
+   * It's using an async method to list all current user teams in a session.
+   * @param {Object} session - The session where the cache for current user teams is stored.
+   * @returns {Promise<Array>} Returns a Promise that will be resolved with the team list of the current user.
+   */
+  
   private readonly _currentUserTeamsCache = createCacheBySession(async (session) => {
     return await this._interface.listCurrentUserTeams(session);
   });
   private readonly _currentUserOAuthConnectionAccessTokensCache = createCacheBySession<[string, string], { accessToken: string } | null>(
+    /**
+     * Asynchronously creates a provider access token for a given providerId and scope. If no scope is provided, an empty string will be used.
+     * Handles `OAuthConnectionDoesNotHaveRequiredScope` and `OAuthConnectionNotConnectedToUser` errors from the KnownErrors class.
+     * @param {Object} session - The current session context
+     * @param {Array}  providerId, scope - An array where the first element is the providerId (string) and the second is the scope (string)
+     * @returns {Object|null} Returns an object with the property `accessToken` containing the created access token, or null if an exception of known errors occurs.
+     */
     async (session, [providerId, scope]) => {
       try {
         const result = await this._interface.createProviderAccessToken(providerId, scope || "", session);
@@ -311,10 +492,42 @@ class _StackClientAppImpl<HasTokenStore extends boolean, ProjectId extends strin
     }
   );
   private readonly _currentUserOAuthConnectionCache = createCacheBySession<[ProviderType, string, boolean], OAuthConnection | null>(
+    /**
+     * This asynchronous method manages user OAuth connections by getting or waiting for the current user and their OAuth tokens. 
+     * It used the "getOrWait" technique which means if a value exists it will be return but if a value does not exist, it will wait until the set operation is complete and then return the value.
+     * Also, it utilizes async cache for maintaining the OAuth tokens.
+     * @param {Object} session - Represents the user's current session
+     * @param {Array} [providerId, scope, redirect] - An array where providerId is the OAuth provider's ID, scope is the authorization scope, and redirect is the redirection URL after OAuth process
+     * @returns {Object} Returns an object with details of the caching process, provider, scope, redirection link, and session.
+     */
     async (session, [providerId, scope, redirect]) => {
       return await this._getUserOAuthConnectionCacheFn({
+        /**
+         * Method that fetches the current user data from the cache based on the provided session. 
+         * If the data is not readily available, it waits until the data is written on the cache.
+         *
+         * @param {Array} session -  Array containing the session information.
+         * @returns {Promise<object>} A promise object represents the user data stored in the cache.
+         */
+        
         getUser: async () => await this._currentUserCache.getOrWait([session], "write-only"),
+        /**
+         * Method to get or wait for the OAuth Token for current user's OAuth connection.
+         * This method requires the current user's OAuth access tokens cache. If the token is not immediately available, it waits until it is.
+         * @param {Object} session - The user's current session.
+         * @param {String} providerId - The id of the OAuth provider.
+         * @param {String} [scope=""] - The scope of the OAuth token. Optional with default value as an empty string.
+         * @returns {Promise<String>} Returns a promise that will be resolved with the OAuth token when it becomes available.
+         */
+        
         getOrWaitOAuthToken: async () => await this._currentUserOAuthConnectionAccessTokensCache.getOrWait([session, providerId, scope || ""], "write-only"),
+        /**
+         * This method uses an OAuth token for the current session.
+         * @param {Object} session - The current user session
+         * @param {String} providerId - The ID of the OAuth provider
+         * @param {String} scope - The scope of the OAuth token access, defaults to an empty string
+         * @returns {Promise} A promise that will return the OAuth token if it exists in cache; otherwise, it requests a new one.
+         */
         useOAuthToken: () => useAsyncCache(this._currentUserOAuthConnectionAccessTokensCache, [session, providerId, scope || ""], "useOAuthToken"),
         providerId,
         scope,
@@ -324,11 +537,23 @@ class _StackClientAppImpl<HasTokenStore extends boolean, ProjectId extends strin
     }
   );
   private readonly _teamMemberProfilesCache = createCacheBySession<[string], TeamMemberProfilesCrud['Client']['Read'][]>(
+    /**
+     * An asynchronous function that lists the profiles of team members for a specific team.
+     * @param {Object} session - An object representing the user's session.
+     * @param {Array} [teamId] - An array containing the team's ID.
+     * @returns {Promise<Object>} Returns a promise that resolves with an object containing the profiles of the team members.
+     */
     async (session, [teamId]) => {
       return await this._interface.listTeamMemberProfiles({ teamId }, session);
     }
   );
   private readonly _currentUserTeamProfileCache = createCacheBySession<[string], TeamMemberProfilesCrud['Client']['Read']>(
+    /**
+     * An asynchronous function that fetches the profile of a team member with userId 'me'.
+     * @param {Object} session - The current session object.
+     * @param {Array} [teamId] - An array that contains the teamId.
+     * @returns {Promise<Object>} A Promise that resolves to the team member profile object.
+     */
     async (session, [teamId]) => {
       return await this._interface.getTeamMemberProfile({ teamId, userId: 'me' }, session);
     }
@@ -343,6 +568,15 @@ class _StackClientAppImpl<HasTokenStore extends boolean, ProjectId extends strin
   } & ({ redirect: true, session: InternalSession | null } | { redirect: false }),) {
     const user = await options.getUser();
     let hasConnection = true;
+    /**
+     * Checks if the user entry is not available or if the user does not have any matching OAuth providers.
+     * @param {Object} user - Object containing user details.
+     * @param {Array} user.oauth_providers - Array of provider objects existing for the user.
+     * @param {string} p.id - Unique identifier of a single OAuth Provider.
+     * @param {Object} options - Object containing additional options.
+     * @param {string} options.providerId - Identifier of the provider to match within user's providers.
+     * @returns {boolean} Returns false if user doesn't exist or if there is no matching providerId, else returns true.
+     */
     if (!user || !user.oauth_providers.find((p) => p.id === options.providerId)) {
       hasConnection = false;
     }
@@ -491,6 +725,15 @@ class _StackClientAppImpl<HasTokenStore extends boolean, ProjectId extends strin
     }
 
     if (this._storedCookieTokenStore === null) {
+      /**
+       * This method retrieves the current value of access and refresh tokens 
+       * by getting them from cookies and storing in a returned object.
+       * @param {TokenObject | null} old - An old token object that can be null.
+       * @returns {Object} An object containing the updated refresh and access tokens, 
+       *                   but in a case where the existing refresh token and the old refresh token coincide, 
+       *                   the old access token is retained, else it is nullified.
+       */
+      
       const getCurrentValue = (old: TokenObject | null) => {
         const tokens = this._getTokensFromCookies({
           refreshTokenCookie: getCookie(this._refreshTokenCookieName) ?? getCookie('stack-refresh'),  // keep old cookie name for backwards-compatibility
