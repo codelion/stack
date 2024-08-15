@@ -74,7 +74,6 @@ function convertColorsToCSS(theme: Theme) {
   }`;
 }
 
-
 export function StackTheme({
   theme,
   children,
@@ -91,16 +90,17 @@ export function StackTheme({
     light: { ...DEFAULT_THEME.light, ...theme?.light },
   };
 
+  const styleElement = document.createElement('style');
+  styleElement.textContent = globalCSS + "\n" + convertColorsToCSS(themeValue);
+  styleElement.setAttribute('suppressHydrationWarning', '');
+  if (nonce) {
+    styleElement.setAttribute('nonce', nonce);
+  }
+
   return (
     <>
       <BrowserScript nonce={nonce} />
-      <style
-        suppressHydrationWarning
-        nonce={nonce}
-        dangerouslySetInnerHTML={{
-          __html: globalCSS + "\n" + convertColorsToCSS(themeValue),
-        }}
-      />
+      {styleElement}
       {children}
     </>
   );
