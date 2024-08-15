@@ -5,6 +5,17 @@ import { neverResolve } from "@stackframe/stack-shared/dist/utils/promises";
 import { constructRedirectUrl } from "../utils/url";
 import { getVerifierAndState, saveVerifierAndState } from "./cookie";
 
+/**
+ * This asynchronous function is used for signing in with OAuth. It first saves the verifier and state, 
+ * then gets the OAuth URL from the provided interface object, and finally redirects the page to the OAuth URL.
+ * @param {Object} iface - An object of StackClientInterface which includes methods to interact with the stack client.
+ * @param {Object} options - An object that configures the OAuth provider and the redirect URLs.
+ * @param {string} options.provider - The OAuth provider's name.
+ * @param {string} options.redirectUrl - The URL to redirect the user to after a successful sign-in.
+ * @param {string} options.errorRedirectUrl - The URL to redirect the user to if the sign-in fails.
+ * @param {string} [options.providerScope] - Scopes that define the level of access that the application requires. 
+ * @returns {Promise<void>} This function does not return anything. It initiatively redirects to the OAuth URL.
+ */
 export async function signInWithOAuth(
   iface: StackClientInterface,
   options: {
@@ -27,6 +38,18 @@ export async function signInWithOAuth(
   window.location.assign(location);
   await neverResolve();
 }
+
+/**
+ * This asynchronous function adds a new OAuth provider or Scope to a session.
+ * @param {Object}  iface - The interface client with which the stack operations will be conducted.
+ * @param {Object}  options - The options object containing provider details and URLs.
+ * @param {string}  options.provider - The OAuth provider.
+ * @param {string}  options.redirectUrl - The URL to which the user will be redirected after authorization.
+ * @param {string}  options.errorRedirectUrl - The URL to which the user will be redirected if errors are encountered during authorization.
+ * @param {string}  options.providerScope - The scope at which the provider operates (optional).
+ * @param {Object}  session - An instance of InternalSession.
+ * @returns {void} This method does not return anything.
+ */
 
 export async function addNewOAuthProviderOrScope(
   iface: StackClientInterface,
@@ -93,6 +116,14 @@ function consumeOAuthCallbackQueryParams(expectedState: string): null | URL {
   return originalUrl;
 }
 
+/**
+ * Asynchronously handles the OAuth callback, validates the callback parameters, initiates the authentication process, and deals with potential errors.
+ * @param {StackClientInterface} iface - The client interface instance for interfacing with the authentication stack.
+ * @param {string} redirectUrl - The URL where the OAuth service should redirect to after user authentication.
+ * @returns {Promise<object|null>} Returns a Promise that resolves to an object containing the callback response from the OAuth service if the authentication process 
+ *                          successfully completes, or null if there's no original URL from the OAuth callback.
+ *                          If an error occurs during user authentication, the Promise will be rejected with an error.
+ */
 export async function callOAuthCallback(
   iface: StackClientInterface,
   redirectUrl: string,
