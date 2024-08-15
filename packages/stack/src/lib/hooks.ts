@@ -15,6 +15,11 @@ export function useUser(options: GetUserOptions & { or: 'redirect' | 'throw', pr
 export function useUser(options: GetUserOptions & { or: 'redirect' | 'throw' }): CurrentUser;
 export function useUser(options: GetUserOptions & { projectIdMustMatch: "internal" }): CurrentInternalUser | null;
 export function useUser(options?: GetUserOptions): CurrentUser | CurrentInternalUser | null;
+/**
+ * A hook that returns either the external or internal user from the specified stack app, based on the given options.
+ * @param {Object} options - An optional parameter. It is a configuration object that can include 'projectIdMustMatch', which is an optional string that must match the projectId of the stack app. If 'projectIdMustMatch' is set as "internal", the function will return an internal user.
+ * @returns {CurrentUser | CurrentInternalUser | null} Returns CurrentUser if 'projectIdMustMatch' is not set as "internal". Returns CurrentInternalUser if 'projectIdMustMatch' is set as "internal". Returns null if user is not found or doesn't match the condition.
+ */
 export function useUser(options: GetUserOptions = {}): CurrentUser | CurrentInternalUser | null {
   const stackApp = useStackApp(options);
   if (options.projectIdMustMatch && stackApp.projectId !== options.projectIdMustMatch) {
