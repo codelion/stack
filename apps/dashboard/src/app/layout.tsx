@@ -57,11 +57,12 @@ export default function RootLayout({
 
         {headTags.map((tag, index) => {
           const { tagName, attributes, innerHTML } = tag;
-          return React.createElement(tagName, {
-            key: index,
-            dangerouslySetInnerHTML: { __html: innerHTML ?? "" },
-            ...attributes,
-          });
+          const Tag = tagName;
+          return (
+            <Tag key={index} {...attributes}>
+              {innerHTML}
+            </Tag>
+          );
         })}
       </head>
       <CSPostHogProvider>
