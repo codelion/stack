@@ -1,0 +1,24 @@
+---
+title: BrowserScript
+---
+
+# BrowserScript
+
+Renders a script element for use in the browser with an optional nonce.
+
+## Parameters
+
+- `props`: `{ nonce?: string }` - An object containing the properties for the script.
+  - `nonce`: `string` (optional) - A nonce string used for Content Security Policy.
+
+## Returns
+
+A React component that renders a script element with the provided nonce.
+
+## Example
+
+```typescript
+import { BrowserScript } from 'your-sdk-name';
+
+<BrowserScript nonce="your-nonce-value" />
+```
