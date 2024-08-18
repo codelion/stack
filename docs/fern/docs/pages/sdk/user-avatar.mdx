@@ -1,0 +1,34 @@
+---
+title: UserAvatar
+---
+
+# UserAvatar
+
+Renders a user avatar component that displays the user's profile image or initials.
+
+## Parameters
+
+- `props`: An object containing the properties for the UserAvatar component.
+  - `size`: `number` (optional) - The size of the avatar. Defaults to a standard size if not provided.
+  - `user`: An object that contains user information.
+    - `profileImageUrl`: `string | null` (optional) - The URL of the user's profile image.
+    - `displayName`: `string | null` (optional) - The display name of the user.
+    - `primaryEmail`: `string | null` (optional) - The primary email address of the user.
+
+## Returns
+
+`JSX.Element` - A JSX element representing the user avatar.
+
+## Example
+
+```typescript
+import { UserAvatar } from 'your-sdk-name';
+
+const user = {
+  profileImageUrl: 'https://example.com/image.jpg',
+  displayName: 'Jane Doe',
+  primaryEmail: 'jane.doe@example.com'
+};
+
+<UserAvatar size={40} user={user} />;
+```
