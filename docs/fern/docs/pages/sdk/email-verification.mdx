@@ -1,0 +1,28 @@
+---
+title: EmailVerification
+---
+
+# EmailVerification
+
+Handles the email verification process and displays appropriate messages based on the verification status.
+
+## Parameters
+
+- `searchParams`: `Record<string, string>` (optional) - An object containing search parameters for the verification link. The `code` should be included for verification.
+- `fullPage`: `boolean` (optional) - A flag indicating whether to display the message in full page mode.
+
+## Returns
+
+`JSX.Element` - Returns a message card based on the verification status: either an invalid link message, an expired link message, or a success message if verified.
+
+## Example
+
+```typescript
+import { EmailVerification } from 'your-sdk-name';
+
+const VerificationComponent = () => {
+  return (
+    <EmailVerification searchParams={{ code: 'YOUR_VERIFICATION_CODE' }} fullPage={true} />
+  );
+};
+```
