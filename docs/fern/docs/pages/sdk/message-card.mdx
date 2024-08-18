@@ -1,0 +1,37 @@
+---
+title: MessageCard
+---
+
+# MessageCard
+
+Renders a message card with an optional full-page view and action buttons.
+
+## Parameters
+
+- `children`: `React.ReactNode` (optional) - Content to display inside the card.
+- `title`: `string` - Title of the message card.
+- `fullPage`: `boolean` (optional) - Determines if the card should occupy the full page. Default is `false`.
+- `primaryButtonText`: `string` (optional) - Text for the primary action button.
+- `primaryAction`: `() => Promise<void> | void` (optional) - Function to call when the primary button is clicked.
+- `secondaryButtonText`: `string` (optional) - Text for the secondary action button.
+- `secondaryAction`: `() => Promise<void> | void` (optional) - Function to call when the secondary button is clicked.
+
+## Example
+
+```typescript
+import { MessageCard } from 'your-sdk-name';
+
+const MyComponent = () => {
+  return (
+    <MessageCard
+      title="Welcome to the application"
+      primaryButtonText="Get Started"
+      primaryAction={() => console.log('Primary action clicked')}
+      secondaryButtonText="Learn More"
+      secondaryAction={() => console.log('Secondary action clicked')}
+    >
+      <p>This is a message card description.</p>
+    </MessageCard>
+  );
+};
+```
