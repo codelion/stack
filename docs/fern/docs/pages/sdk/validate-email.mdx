@@ -1,0 +1,27 @@
+---
+title: validateEmail
+---
+
+# validateEmail
+
+Validates whether the provided email is in a correct format.
+
+## Parameters
+
+- `email`: `string` - The email address to validate.
+
+## Returns
+
+`boolean` - Returns `true` if the email is valid, otherwise `false`.
+
+## Example
+
+```typescript
+import { validateEmail } from '@stackframe/stack';
+
+const isValid = validateEmail('test@example.com');
+console.log(isValid); // Output: true
+
+const isNotValid = validateEmail('invalid-email');
+console.log(isNotValid); // Output: false
+```
