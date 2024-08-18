@@ -1,0 +1,23 @@
+---
+title: StackServerAppConstructorOptions
+---
+
+# StackServerAppConstructorOptions
+
+Defines options for constructing a Stack Server application, extending from StackClientAppConstructorOptions.
+
+## Parameters
+
+- `HasTokenStore`: `boolean` - Indicates whether the application has a token store.
+- `ProjectId`: `string` - The unique identifier for the project.
+- `secretServerKey`: `string` (optional) - An optional secret key for the server.
+
+## Example
+
+```typescript
+import { StackServerAppConstructorOptions } from 'your-sdk-name';
+
+const options: StackServerAppConstructorOptions<true, "my-project-id"> = {
+  secretServerKey: "your-secret-key"
+};
+```
