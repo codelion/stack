@@ -1,0 +1,27 @@
+---
+title: managementSettings
+---
+
+# managementSettings
+
+Renders management settings for a team, allowing the display name to be editable.
+
+## Parameters
+
+- `props`: `Object` - An object containing properties for managing settings.
+  - `team`: `Team` - The team object containing information about the team.
+
+## Returns
+
+`JSX.Element | null` - Returns a JSX element for the management settings, or `null` if the user does not have permission to update the team.
+
+## Example
+
+```typescript
+import { managementSettings } from '@stackframe/stack';
+
+const team = { displayName: 'Development Team' }; // Example team object
+
+const settings = managementSettings({ team });
+console.log(settings); // Displays the management settings UI or null based on permission.
+```
