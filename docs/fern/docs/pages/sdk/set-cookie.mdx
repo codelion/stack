@@ -1,0 +1,22 @@
+---
+title: setCookie
+---
+
+# setCookie
+
+Sets a cookie in the browser with specified options.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to set.
+- `value`: `string` - The value of the cookie.
+- `options`: `SetCookieOptions` (optional) - Options for setting the cookie.
+  - `maxAge`: `number` (optional) - Maximum age of the cookie in seconds.
+
+## Example
+
+```typescript
+import { setCookie } from 'your-sdk-name';
+
+setCookie('token', 'abc123', { maxAge: 3600 }); // Sets a cookie named 'token' with value 'abc123' that expires in 1 hour.
+```
