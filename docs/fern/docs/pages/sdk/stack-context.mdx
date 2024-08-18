@@ -1,0 +1,26 @@
+---
+title: StackContext
+---
+
+# StackContext
+
+Provides a context for React components to access the stack client application.
+
+## Properties
+
+- `app`: `StackClientApp<true>` - Represents the stack client application that is accessible through this context. It must be defined for the context to be used effectively.
+
+## Example
+
+```typescript
+import { StackContext } from '@stackframe/stack';
+
+function MyComponent() {
+  const context = React.useContext(StackContext);
+  if (!context) {
+    return <div>No context available</div>;
+  }
+  const { app } = context;
+  return <div>Using stack app: {app.name}</div>;
+}
+```
