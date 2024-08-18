@@ -1,25 +1,27 @@
 ---
-slug: sdk/use-user
+title: useUser
 ---
 
-`useUser` is a hook that returns the user object if the user is authenticated; otherwise, it returns `null` by default. However, if you pass in `{ or: "redirect" }` or `{ or: "throw" }` as an option, it will redirect to the login page or throw an error respectively when the user is not authenticated.
+# useUser
 
-If you want to learn more about the `User` object, check out the [User](./current-user.mdx) documentation.
+Retrieves the current user information based on provided options.
 
-## Default Usage
+## Parameters
 
-Check if the user is authenticated and display the user's name.
-```jsx
-import { useUser } from "@stackframe/stack";
+- `options`: `GetUserOptions` (optional) - Options to customize the user retrieval process, including conditions to match the project ID.
 
-function MyComponent() {
-  const user = useUser(); // user can be null
-  if (!user) {
-    return <div>Not authenticated</div>;
-  }
-  return <div>Hello, {user.name}</div>;
-}
-```
+## Returns
+
+`CurrentUser | CurrentInternalUser | null` - The current user information, which can be a normal user, an internal user, or `null` if no user is found.
+
+## Example
+
+```typescript
+import { useUser } from 'your-sdk-name';
+
+const user = useUser({ projectIdMustMatch: 'your-project-id' });
+console.log(user);
+``````
 
 ## Redirect when not authenticated
 By passing `{ or: "redirect" }` to the hook, it will redirect to the login page if the user is not authenticated. You can configure the login page in the StackApp component.
