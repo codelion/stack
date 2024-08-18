@@ -1,0 +1,22 @@
+---
+title: KnownErrorMessageCard
+---
+
+# KnownErrorMessageCard
+
+Renders a card displaying an error message, with an option to display it in full page mode.
+
+## Parameters
+
+- `error`: `KnownError` - The error object that contains `errorCode` and `message` to display.
+- `fullPage`: `boolean` (optional) - If true, the card will be displayed in full page mode. Defaults to `false`.
+
+## Example
+
+```typescript
+import { KnownErrorMessageCard } from '@stackframe/stack';
+
+const error = { errorCode: '404', message: 'Page Not Found' };
+
+<KnownErrorMessageCard error={error} fullPage={true} />
+```
