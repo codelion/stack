@@ -1,0 +1,26 @@
+---
+title: SelectedTeamSwitcher
+---
+
+# SelectedTeamSwitcher
+
+A component that allows users to switch between different teams in the application.
+
+## Parameters
+
+- `props`: `SelectedTeamSwitcherProps` - The properties for the component, which should include:
+  - `selectedTeam`: `Team` - The initially selected team.
+  - `noUpdateSelectedTeam`: `boolean` (optional) - If true, prevents updating the selected team in the user context.
+  - `urlMap`: `function` (optional) - A function that maps a team to a URL for navigation purposes.
+
+## Example
+
+```typescript
+import { SelectedTeamSwitcher } from 'your-sdk-name';
+
+const App = () => {
+  const selectedTeam = { id: '123', displayName: 'Engineering' };
+
+  return <SelectedTeamSwitcher selectedTeam={selectedTeam} />;
+};
+```
