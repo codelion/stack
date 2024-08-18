@@ -1,0 +1,23 @@
+---
+title: membersSettings
+---
+
+# membersSettings
+
+Manages team members, allowing users to invite new members and view existing members.
+
+## Parameters
+
+- `props`: `{ team: Team }` - An object containing the team instance that the user is managing.
+
+## Example
+
+```typescript
+import { membersSettings } from 'your-sdk-name';
+
+const team = getYourTeamInstance(); // Obtain your team instance
+
+const MembersComponent = () => {
+  return membersSettings({ team });
+};
+```
