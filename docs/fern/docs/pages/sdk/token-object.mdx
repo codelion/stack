@@ -1,0 +1,25 @@
+---
+title: TokenObject
+---
+
+# TokenObject
+
+Represents an object containing authentication tokens.
+
+## Properties
+
+- `accessToken`: `string | null` - The access token for authentication. Can be `null` if not available.
+- `refreshToken`: `string | null` - The refresh token to obtain a new access token. Can be `null` if not available.
+
+## Example
+
+```typescript
+import { TokenObject } from 'your-sdk-name';
+
+const token: TokenObject = {
+  accessToken: 'your-access-token',
+  refreshToken: 'your-refresh-token'
+};
+
+console.log(token.accessToken); // Output: your-access-token
+```
