@@ -1,0 +1,26 @@
+---
+title: UserFetcher
+---
+
+# UserFetcher
+
+Fetches user data and returns a component to set the user in a client application.
+
+## Parameters
+
+- `props`: `{ app: StackClientApp<true> }` - An object containing the `app` property, which is an instance of `StackClientApp` configured for a true type.
+
+## Returns
+
+`JSX.Element` - A React component that uses the fetched user data.
+
+## Example
+
+```typescript
+import { UserFetcher } from 'your-sdk-name';
+import { StackClientApp } from 'your-sdk-name';
+
+const app = new StackClientApp();
+
+const App = () => <UserFetcher app={app} />;
+```
