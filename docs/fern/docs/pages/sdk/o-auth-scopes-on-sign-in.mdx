@@ -1,0 +1,25 @@
+---
+title: OAuthScopesOnSignIn
+---
+
+# OAuthScopesOnSignIn
+
+Defines the OAuth scopes to request upon signing in, organized by provider type.
+
+## Properties
+
+- `ProviderType`: Each key in this type refers to a specific provider, and the value is an array of strings representing the required OAuth scopes for that provider.
+
+## Example
+
+```typescript
+type OAuthScopesOnSignIn = {
+  [key in ProviderType]: string[];
+};
+
+const scopes: OAuthScopesOnSignIn = {
+  google: ['email', 'profile'],
+  facebook: ['public_profile', 'email'],
+  github: ['user', 'repo']
+};
+```
