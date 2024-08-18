@@ -1,0 +1,31 @@
+---
+title: generateTotpQrCode
+---
+
+# generateTotpQrCode
+
+Generates a TOTP QR code for a user based on given project and secret.
+
+## Parameters
+
+- `project`: `Project` - The project associated with the user for whom the QR code is generated.
+- `user`: `CurrentUser` - The user for whom the QR code is generated.
+- `secret`: `Uint8Array` - A secret key used to create the QR code.
+
+## Returns
+
+`Promise<string>` - A promise that resolves to a data URL representing the TOTP QR code.
+
+## Example
+
+```typescript
+import { generateTotpQrCode } from 'your-sdk-name';
+
+const project = { displayName: 'Sample Project' }; // Replace with actual project object
+const user = { primaryEmail: 'user@example.com', id: 'user-id' }; // Replace with actual user object
+const secret = new Uint8Array([1, 2, 3]); // Example secret key
+
+generateTotpQrCode(project, user, secret).then(qrCodeUrl => {
+  console.log(qrCodeUrl); // Outputs the QR code data URL
+});
+```
