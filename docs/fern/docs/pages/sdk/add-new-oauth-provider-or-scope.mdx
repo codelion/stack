@@ -1,0 +1,34 @@
+---
+title: addNewOAuthProviderOrScope
+---
+
+# addNewOAuthProviderOrScope
+
+Redirects the user to a new OAuth provider's URL after configuring the necessary options.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - An interface for the stack client that provides necessary methods for OAuth operations.
+- `options`: `object` - An object containing:
+  - `provider`: `string` - The name of the OAuth provider to add.
+  - `redirectUrl`: `string` - The URL to redirect to after a successful authentication.
+  - `errorRedirectUrl`: `string` - The URL to redirect to in case of an error during authentication.
+  - `providerScope`: `string` (optional) - The scope to request from the OAuth provider.
+- `session`: `InternalSession` - A session object to maintain authentication state.
+
+## Example
+
+```typescript
+import { addNewOAuthProviderOrScope } from 'your-sdk-name';
+
+const iface: StackClientInterface = ...; // Initialize your StackClientInterface
+const options = {
+  provider: 'google',
+  redirectUrl: 'https://yourapp.com/auth/callback',
+  errorRedirectUrl: 'https://yourapp.com/auth/error',
+  providerScope: 'email'
+};
+const session: InternalSession = ...; // Acquire your internal session
+
+addNewOAuthProviderOrScope(iface, options, session);
+```
