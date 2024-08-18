@@ -1,0 +1,26 @@
+---
+title: saveVerifierAndState
+---
+
+# saveVerifierAndState
+
+Saves a verifier and state for authentication, generating a code challenge and storing them as cookies.
+
+## Returns
+
+- `Promise<{ codeChallenge: string, state: string }>` - A promise that resolves to an object containing the generated code challenge and state.
+  - `codeChallenge`: `string` - The generated code challenge for the verifier.
+  - `state`: `string` - A randomly generated state value for verification.
+
+## Example
+
+```typescript
+import { saveVerifierAndState } from 'your-sdk-name';
+
+async function authenticate() {
+  const { codeChallenge, state } = await saveVerifierAndState();
+  console.log(codeChallenge, state);
+}
+
+authenticate();
+```
