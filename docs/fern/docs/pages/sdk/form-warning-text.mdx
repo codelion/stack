@@ -1,0 +1,26 @@
+---
+title: FormWarningText
+---
+
+# FormWarningText
+
+Displays a warning message if the provided text is not empty.
+
+## Parameters
+
+- `text`: `string` (optional) - The warning message to display.
+
+## Returns
+
+`JSX.Element | null` - Returns a JSX element containing the warning text in a styled div if `text` is provided; otherwise, it returns `null`.
+
+## Example
+
+```typescript
+import { FormWarningText } from '@stackframe/stack';
+
+const warningMessage = 'This field is required.';
+
+<FormWarningText text={warningMessage} /> // Displays the warning message
+<FormWarningText text={undefined} /> // Does not display anything
+```
