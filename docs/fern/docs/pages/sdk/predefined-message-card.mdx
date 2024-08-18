@@ -1,0 +1,26 @@
+---
+title: PredefinedMessageCard
+---
+
+# PredefinedMessageCard
+
+Displays a message card based on the user's authentication state or errors.
+
+## Parameters
+
+- `type`: `'signedIn' | 'signedOut' | 'emailSent' | 'passwordReset' | 'emailVerified' | 'unknownError' | 'signUpDisabled'` - The type of message to display.
+- `fullPage`: `boolean` (optional) - Indicates whether to display the message card in full page mode. Defaults to `false`.
+
+## Returns
+
+A `JSX.Element` representing the message card.
+
+## Example
+
+```typescript
+import { PredefinedMessageCard } from 'your-sdk-name';
+
+const MyComponent = () => {
+  return <PredefinedMessageCard type="signedIn" />;
+};
+```
