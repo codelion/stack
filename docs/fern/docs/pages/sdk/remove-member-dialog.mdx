@@ -1,0 +1,30 @@
+---
+title: RemoveMemberDialog
+---
+
+# RemoveMemberDialog
+
+A dialog component that confirms the removal of a member from a team.
+
+## Parameters
+
+- `props`: `object`
+  - `open`: `boolean` (optional) - Controls the visibility of the dialog.
+  - `onOpenChange`: `(open: boolean) => void` (optional) - A callback function that is called when the open state of the dialog changes.
+
+## Example
+
+```typescript
+import { RemoveMemberDialog } from '@stackframe/stack';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Remove Member</button>
+      <RemoveMemberDialog open={isOpen} onOpenChange={setIsOpen} />
+    </div>
+  );
+}
+```
