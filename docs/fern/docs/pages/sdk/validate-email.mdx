@@ -1,0 +1,29 @@
+---
+title: validateEmail
+---
+
+# validateEmail
+
+Validates whether a given email string is formatted correctly.
+
+## Parameters
+
+- `email`: `string` - The email address to validate.
+
+## Returns
+
+`boolean` - Returns `true` if the email is valid, otherwise `false`.
+
+## Example
+
+```typescript
+import { validateEmail } from 'your-sdk-name';
+
+const email = 'example@test.com';
+const isValid = validateEmail(email);
+console.log(isValid); // Output: true
+
+const invalidEmail = 'not-an-email';
+const isInvalid = validateEmail(invalidEmail);
+console.log(isInvalid); // Output: false
+```
