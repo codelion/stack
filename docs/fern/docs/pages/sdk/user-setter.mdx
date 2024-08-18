@@ -1,0 +1,25 @@
+---
+title: UserSetter
+---
+
+# UserSetter
+
+Sets the current user in the stack application using a user JSON promise.
+
+## Parameters
+
+- `props`: `{ userJsonPromise: Promise<CurrentUserCrud['Client']['Read'] | null> }` - An object containing the promise that resolves to the user data or `null`.
+
+## Returns
+
+`null` - This function does not return anything.
+
+## Example
+
+```typescript
+import { UserSetter } from '@stackframe/stack';
+
+const userJsonPromise = fetchUserJson(); // Assume this function returns a Promise
+
+<UserSetter userJsonPromise={userJsonPromise} />;
+```
