@@ -1,0 +1,27 @@
+---
+title: SsrScript
+---
+
+# SsrScript
+
+Renders a script tag in a React component, executing the provided script.
+
+## Parameters
+
+- `props`: An object containing the properties for the script.
+  - `script`: `string` - The script content to be executed.
+  - `nonce`: `string` (optional) - A nonce value to be added to the script tag for Content Security Policy.
+
+## Returns
+
+`JSX.Element` - A React component rendering a `<script>` tag with the provided script.
+
+## Example
+
+```typescript
+import { SsrScript } from '@stackframe/stack';
+
+const MyComponent = () => {
+  return <SsrScript script="console.log('Hello, world!')" nonce="myNonce" />;
+};
+```
