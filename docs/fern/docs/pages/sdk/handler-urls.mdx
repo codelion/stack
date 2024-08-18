@@ -1,0 +1,53 @@
+---
+title: HandlerUrls
+---
+
+# HandlerUrls
+
+Defines a set of URLs used for various user actions in the application.
+
+## Properties
+
+- `handler`: `string` - The URL for handling requests.
+- `signIn`: `string` - The URL for the sign-in page.
+- `signUp`: `string` - The URL for the sign-up page.
+- `afterSignIn`: `string` - The URL to redirect to after a successful sign-in.
+- `afterSignUp`: `string` - The URL to redirect to after a successful sign-up.
+- `signOut`: `string` - The URL for the sign-out action.
+- `afterSignOut`: `string` - The URL to redirect to after a successful sign-out.
+- `emailVerification`: `string` - The URL for email verification.
+- `passwordReset`: `string` - The URL for password reset requests.
+- `forgotPassword`: `string` - The URL for the forgot password page.
+- `home`: `string` - The URL for the home page.
+- `oauthCallback`: `string` - The URL for OAuth callbacks.
+- `magicLinkCallback`: `string` - The URL for magic link callbacks.
+- `accountSettings`: `string` - The URL for account settings.
+- `teamInvitation`: `string` - The URL for team invitation actions.
+- `teamCreation`: `string` - The URL for team creation actions.
+- `error`: `string` - The URL for handling errors.
+
+## Example
+
+```typescript
+import { HandlerUrls } from 'your-sdk-name';
+
+const urls: HandlerUrls = {
+  handler: 'https://example.com/handler',
+  signIn: 'https://example.com/sign-in',
+  signUp: 'https://example.com/sign-up',
+  afterSignIn: 'https://example.com/dashboard',
+  afterSignUp: 'https://example.com/welcome',
+  signOut: 'https://example.com/sign-out',
+  afterSignOut: 'https://example.com/goodbye',
+  emailVerification: 'https://example.com/verify-email',
+  passwordReset: 'https://example.com/reset-password',
+  forgotPassword: 'https://example.com/forgot-password',
+  home: 'https://example.com/home',
+  oauthCallback: 'https://example.com/oauth/callback',
+  magicLinkCallback: 'https://example.com/magic-link',
+  accountSettings: 'https://example.com/settings',
+  teamInvitation: 'https://example.com/team/invite',
+  teamCreation: 'https://example.com/team/create',
+  error: 'https://example.com/error'
+};
+```
