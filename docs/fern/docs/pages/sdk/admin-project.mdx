@@ -1,0 +1,56 @@
+---
+title: AdminProject
+---
+
+# AdminProject
+
+Represents an administrative project with various properties and methods to manage it.
+
+## Properties
+
+- `id`: `string` - The unique identifier for the project.
+- `displayName`: `string` - The display name of the project.
+- `description`: `string | null` - A description of the project, can be null.
+- `createdAt`: `Date` - The date when the project was created.
+- `userCount`: `number` - The number of users associated with the project.
+- `isProductionMode`: `boolean` - Indicates if the project is in production mode.
+- `config`: `AdminProjectConfig` - The configuration settings for the project.
+
+## Methods
+
+- `update(update: AdminProjectUpdateOptions): Promise<void>` - Updates the project with the provided options.
+- `delete(): Promise<void>` - Deletes the project.
+- `getProductionModeErrors(): Promise<ProductionModeError[]>` - Retrieves the errors related to production mode.
+- `useProductionModeErrors(): ProductionModeError[]` - Provides the production mode errors.
+
+## Example
+
+```typescript
+import { AdminProject } from 'your-sdk-name';
+
+const project: AdminProject = {
+  id: '1',
+  displayName: 'My Project',
+  description: null,
+  createdAt: new Date(),
+  userCount: 5,
+  isProductionMode: true,
+  config: {/* configuration object */},
+
+  async update(update) {
+    // Update logic here
+  },
+  async delete() {
+    // Delete logic here
+  },
+  async getProductionModeErrors() {
+    return [];
+  },
+  useProductionModeErrors() {
+    return [];
+  }
+};
+
+const errors = await project.getProductionModeErrors();
+console.log(errors);
+```
