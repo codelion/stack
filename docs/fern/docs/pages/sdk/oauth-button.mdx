@@ -1,0 +1,25 @@
+---
+title: OAuthButton
+---
+
+# OAuthButton
+
+Renders a button for OAuth authentication with a specified provider.
+
+## Parameters
+
+- `provider`: `string` - The name of the authentication provider. Supported providers include `google`, `github`, `facebook`, `microsoft`, and `spotify`.
+- `type`: `'sign-in' | 'sign-up'` - The type of action to perform, either `sign-in` or `sign-up`.
+
+## Returns
+
+`JSX.Element` - A styled button element for OAuth authentication.
+
+## Example
+
+```typescript
+import { OAuthButton } from '@stackframe/stack';
+
+<OAuthButton provider='google' type='sign-in' />
+<OAuthButton provider='github' type='sign-up' />
+```
