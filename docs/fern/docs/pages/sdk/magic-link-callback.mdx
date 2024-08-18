@@ -1,0 +1,24 @@
+---
+title: MagicLinkCallback
+---
+
+# MagicLinkCallback
+
+Renders a message based on the state of a magic link sign-in process.
+
+## Parameters
+
+- `searchParams`: `Record<string, string>` (optional) - An object containing search parameters including the `code`. Defaults to an empty object.
+- `fullPage`: `boolean` (optional) - Determines if the message is displayed in full page mode. Defaults to `false`.
+
+## Example
+
+```typescript
+import { MagicLinkCallback } from 'your-sdk-name';
+
+// Example usage with a magic link code
+<MagicLinkCallback searchParams={{ code: 'your-magic-link-code' }} fullPage={true} />
+
+// Example usage without code
+<MagicLinkCallback fullPage={false} />
+```
