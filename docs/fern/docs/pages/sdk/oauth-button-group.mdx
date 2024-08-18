@@ -1,0 +1,31 @@
+---
+title: OAuthButtonGroup
+---
+
+# OAuthButtonGroup
+
+Renders a group of OAuth buttons based on the provided project configuration.
+
+## Parameters
+
+- `type`: `'sign-in' | 'sign-up'` - Specifies the type of OAuth button to render. Choose either `sign-in` or `sign-up`.
+- `mockProject`: `{ config: { oauthProviders: { id: string }[] } }` (optional) - A mock project configuration that includes OAuth providers. If not provided, the project from the stack app will be used.
+
+## Example
+
+```typescript
+import { OAuthButtonGroup } from 'your-sdk-name';
+
+const mockProject = {
+  config: {
+    oauthProviders: [
+      { id: 'google' },
+      { id: 'facebook' },
+    ],
+  },
+};
+
+function App() {
+  return <OAuthButtonGroup type='sign-in' mockProject={mockProject} />;
+}
+```
