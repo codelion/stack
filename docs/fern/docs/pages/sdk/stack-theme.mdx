@@ -1,0 +1,28 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+A component that provides theming capabilities to its children based on a specified theme configuration.
+
+## Parameters
+
+- `theme`: `ThemeConfig` (optional) - The theme configuration to be applied. It allows customization of the default theme.
+- `children`: `React.ReactNode` (optional) - The child elements to be rendered within the themed context.
+- `nonce`: `string` (optional) - A nonce value to apply to the generated script and style elements for security purposes.
+
+## Returns
+
+`React.ReactNode` - The rendered themed component including any children passed to it.
+
+## Example
+
+```typescript
+import { StackTheme } from 'your-sdk-name';
+import { MyComponent } from './MyComponent';
+
+<StackTheme theme={{ primaryColor: 'blue' }} nonce="myNonce">
+  <MyComponent />
+</StackTheme>
+```
