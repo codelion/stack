@@ -1,0 +1,26 @@
+---
+title: setCookie
+---
+
+# setCookie
+
+Sets a cookie in the browser with specified name and value, along with optional settings.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to set.
+- `value`: `string` - The value to assign to the cookie.
+- `options`: `SetCookieOptions` (optional) - Additional options for the cookie such as `maxAge`.
+  - `maxAge`: `number` (optional) - The maximum age of the cookie in seconds.
+
+## Returns
+
+`void` - This function does not return a value.
+
+## Example
+
+```typescript
+import { setCookie } from '@stackframe/stack';
+
+setCookie('sessionId', 'abc123', { maxAge: 3600 }); // Sets a cookie that expires in 1 hour
+```
