@@ -1,0 +1,33 @@
+---
+title: TokenStoreInit
+---
+
+# TokenStoreInit
+
+Defines the initialization options for a token store based on whether it is required or not.
+
+## Type Definition
+
+`TokenStoreInit<HasTokenStore extends boolean>` - A type that can be defined based on the `HasTokenStore` generic parameter.
+
+### When `HasTokenStore` is `true`, the type can be:
+- `"cookie"` - For storing tokens in a cookie.
+- `"nextjs-cookie"` - For using Next.js cookie management.
+- `"memory"` - For storing tokens in memory.
+- `RequestLike` - A custom request-like object.
+- `{ accessToken: string, refreshToken: string }` - An object with both access and refresh tokens.
+
+### When `HasTokenStore` is `false`, the type is:
+- `null`
+
+### Recursive Case
+If `HasTokenStore` is neither `true` nor `false`, it will recursively evaluate both `true` and `false` states.
+
+## Example
+
+```typescript
+import { TokenStoreInit } from '@stackframe/stack';
+
+const tokenStoreOption: TokenStoreInit<true> = "cookie";
+const noTokenStoreOption: TokenStoreInit<false> = null;
+```
