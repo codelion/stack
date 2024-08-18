@@ -1,0 +1,26 @@
+---
+title: EmailVerification
+---
+
+# EmailVerification
+
+Verifies an email using a verification code passed in through search parameters.
+
+## Parameters
+
+- `searchParams`: `Record<string, string>` (optional) - An object that can contain the `code` string for email verification.
+- `fullPage`: `boolean` (optional) - A flag that indicates whether to render a full page layout or not.
+
+## Returns
+
+`JSX.Element` - A message indicating the status of the email verification or a message card with the successful outcome.
+
+## Example
+
+```typescript
+import { EmailVerification } from '@stackframe/stack';
+
+const emailVerificationComponent = (
+  <EmailVerification searchParams={{ code: 'your-verification-code' }} fullPage={true} />
+);
+```
