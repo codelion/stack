@@ -1,16 +1,28 @@
 ---
-slug: sdk/stack-handler
+title: StackHandler
 ---
 
-The `StackHandler` component is designed to manage navigation for all pages under the `/handler/*` route. It serves as a wrapper component that determines which page to display based on the URL path and configurations in the `StackApp`.
+# StackHandler
 
-<Note>
-  By default, this component will redirect users to appropriate pages. For example, if a user is not signed in and tries to access the account settings page, it will redirect the user to the sign-in page.
-</Note>
+Handles various stack-related routes in the application.
 
-## Props
+## Parameters
 
-- `app` (StackServerApp): The component relies on the configurations from `app` to determine the correct page URLs and handle redirections.
-- `params` (object): This should be passed down from the parent component to relay any URL parameters.
-- `searchParams` (object): This should be passed down from the parent component to relay any search parameters from the URL.
-- `fullPage` (boolean): Determines whether the component should occupy the full page. The default value is `false`.
+- `app`: `StackServerApp<HasTokenStore>` - The server application instance.
+- `params`: `{ stack?: string[] }` (optional) - An array of stack identifiers. Must be provided to use this handler.
+- `searchParams`: `Record<string, string>` (optional) - An object containing search parameters for the request.
+- `fullPage`: `boolean` (optional) - Indicates whether to render a full page or a part of it.
+
+## Returns
+
+`JSX.Element` - Returns the appropriate component based on the stack route or a message card for invalid setups.
+
+## Example
+
+```typescript
+import StackHandler from 'your-sdk-name';
+
+const MyComponent = () => {
+  return <StackHandler app={myApp} params={{ stack: ['signIn'] }} />;
+};
+```
