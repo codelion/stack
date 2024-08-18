@@ -1,0 +1,23 @@
+---
+title: SsrScript
+---
+
+# SsrScript
+
+Renders a script tag and executes the provided JavaScript code in a browser environment.
+
+## Parameters
+
+- `props`: An object containing the following properties:
+  - `script`: `string` - The script code to be executed.
+  - `nonce`: `string` (optional) - A nonce attribute for the script tag to enhance security.
+
+## Example
+
+```typescript
+import { SsrScript } from 'your-sdk-name';
+
+const scriptContent = 'console.log("Hello, World!");';
+
+<SsrScript script={scriptContent} nonce="your-nonce-value" />;
+```
