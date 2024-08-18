@@ -1,0 +1,30 @@
+---
+title: StackContext
+---
+
+# StackContext
+
+Represents a React context for managing the stack application state.
+
+## Properties
+
+- `app`: `StackClientApp<true>` - The stack application instance associated with the context.
+
+## Example
+
+```typescript
+import React, { useContext } from 'react';
+import { StackContext } from 'your-sdk-name';
+
+const MyComponent = () => {
+  const context = useContext(StackContext);
+
+  if (!context) {
+    throw new Error('StackContext must be used within a StackProvider');
+  }
+
+  const { app } = context;
+
+  return <div>{app ? 'App is available' : 'No app'}</div>;
+};
+```
