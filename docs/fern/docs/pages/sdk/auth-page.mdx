@@ -1,0 +1,36 @@
+---
+title: AuthPage
+---
+
+# AuthPage
+
+Renders the authentication page for signing in or signing up a user.
+
+## Parameters
+
+- `fullPage`: `boolean` (optional) - Determines whether the page is displayed in full screen mode.
+- `type`: `'sign-in' | 'sign-up'` - Specifies the type of authentication page to display.
+- `automaticRedirect`: `boolean` (optional) - If true, redirects the user automatically after sign in or sign up.
+- `mockProject`: `object` (optional) - A mock project configuration for testing.
+  - `config`: `object`
+    - `signUpEnabled`: `boolean` - Indicates if sign up is enabled.
+    - `credentialEnabled`: `boolean` - Indicates if credential-based authentication is enabled.
+    - `magicLinkEnabled`: `boolean` - Indicates if magic link authentication is enabled.
+    - `oauthProviders`: `Array<{ id: string }>` - List of OAuth providers configured for the project.
+
+## Example
+
+```typescript
+import { AuthPage } from '@stackframe/stack';
+
+const mockProject = {
+  config: {
+    signUpEnabled: true,
+    credentialEnabled: true,
+    magicLinkEnabled: true,
+    oauthProviders: [{ id: 'google' }],
+  },
+};
+
+<AuthPage type='sign-in' automaticRedirect={true} mockProject={mockProject} />
+```
