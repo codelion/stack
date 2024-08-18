@@ -1,0 +1,28 @@
+---
+title: managementSettings
+---
+
+# managementSettings
+
+Manages the settings for a team, allowing for updates to the team's display name.
+
+## Parameters
+
+- `props`: `{ team: Team }` - An object containing the team information.
+  - `team`: `Team` - The team for which settings are being managed.
+
+## Returns
+
+`React.ReactNode` - Returns null if the user does not have permission to update the team. Otherwise, returns a component for managing the team display name.
+
+## Example
+
+```typescript
+import { managementSettings } from 'your-sdk-name';
+
+const team = { displayName: 'Development Team' };
+
+const TeamSettings = () => {
+  return managementSettings({ team });
+};
+```
