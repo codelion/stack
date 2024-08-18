@@ -1,0 +1,32 @@
+---
+title: generateTotpQrCode
+---
+
+# generateTotpQrCode
+
+Generates a TOTP (Time-based One-Time Password) QR code for a user and project.
+
+## Parameters
+
+- `project`: `Project` - The project for which the TOTP QR code is generated.
+- `user`: `CurrentUser` - The user for whom the TOTP QR code is created.
+- `secret`: `Uint8Array` - The secret used to generate the TOTP.
+
+## Returns
+
+`Promise<string>` - A promise that resolves to a data URL representing the QR code image.
+
+## Example
+
+```typescript
+import { generateTotpQrCode } from '@stackframe/stack';
+
+const project = { displayName: 'My Project' }; // Example project
+const user = { primaryEmail: 'user@example.com', id: 'user123' }; // Example user
+const secret = new Uint8Array([1, 2, 3, 4, 5]); // Example secret
+
+generateTotpQrCode(project, user, secret)
+  .then(qrCodeUrl => {
+    console.log(qrCodeUrl); // Output: Data URL of the QR code
+  });
+```
