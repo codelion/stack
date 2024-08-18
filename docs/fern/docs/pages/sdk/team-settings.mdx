@@ -1,0 +1,23 @@
+---
+title: TeamSettings
+---
+
+# TeamSettings
+
+Displays the settings for a specific team, including team members and profile settings.
+
+## Parameters
+
+- `props`: `{ fullPage?: boolean, teamId: string }` - The properties for the component.
+  - `fullPage`: `boolean` (optional) - If true, the component displays in full-page mode.
+  - `teamId`: `string` - The ID of the team to display settings for.
+
+## Example
+
+```typescript
+import { TeamSettings } from '@stackframe/stack';
+
+function App() {
+  return <TeamSettings teamId="12345" fullPage={true} />;
+}
+```
