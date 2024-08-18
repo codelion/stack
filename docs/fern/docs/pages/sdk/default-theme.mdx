@@ -1,0 +1,43 @@
+---
+title: DEFAULT_THEME
+---
+
+# DEFAULT_THEME
+
+A constant that holds the default theme settings for light and dark modes, including color specifications for backgrounds, foregrounds, and other UI elements.
+
+## Properties
+
+- `light`: An object containing color properties for the light theme.
+  - `background`: `string` - The background color for the light theme.
+  - `foreground`: `string` - The foreground color for the light theme.
+  - `card`: `string` - The background color for cards in the light theme.
+  - `cardForeground`: `string` - The foreground color for cards in the light theme.
+  - `popover`: `string` - The background color for popovers in the light theme.
+  - `popoverForeground`: `string` - The foreground color for popovers in the light theme.
+  - `primary`: `string` - The primary color for the light theme.
+  - `primaryForeground`: `string` - The foreground color for primary elements in the light theme.
+  - `secondary`: `string` - The secondary color for the light theme.
+  - `secondaryForeground`: `string` - The foreground color for secondary elements in the light theme.
+  - `muted`: `string` - The muted color for the light theme.
+  - `mutedForeground`: `string` - The foreground color for muted elements in the light theme.
+  - `accent`: `string` - The accent color for the light theme.
+  - `accentForeground`: `string` - The foreground color for accent elements in the light theme.
+  - `destructive`: `string` - The color for destructive actions in the light theme.
+  - `destructiveForeground`: `string` - The foreground color for destructive actions in the light theme.
+  - `border`: `string` - The border color for elements in the light theme.
+  - `input`: `string` - The input field color for the light theme.
+  - `ring`: `string` - The ring color for elements in the light theme.
+
+- `dark`: An object containing color properties for the dark theme. (See light properties for descriptions)
+
+- `radius`: `string` - The border radius for UI elements across both themes.
+
+## Example
+
+```typescript
+import { DEFAULT_THEME } from '@stackframe/stack';
+
+console.log(DEFAULT_THEME.light.background); // Output: 'hsl(0 0% 100%)'
+console.log(DEFAULT_THEME.dark.primary); // Output: 'hsl(0 0% 98%)'
+```
