@@ -1,0 +1,28 @@
+---
+title: OAuthCallback
+---
+
+# OAuthCallback
+
+Renders the OAuth callback component that handles user redirection or error messaging after an OAuth login attempt.
+
+## Parameters
+
+- `props`: `{ fullPage?: boolean }` - Properties for the OAuthCallback component.
+  - `fullPage`: `boolean` (optional) - Indicates whether the component should display in full page mode.
+
+## Returns
+
+`JSX.Element` - A React element that shows redirection status or error messages based on the OAuth callback result.
+
+## Example
+
+```typescript
+import { OAuthCallback } from '@stackframe/stack';
+
+const App = () => {
+  return <OAuthCallback fullPage={true} />;
+};
+
+export default App;
+```
