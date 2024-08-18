@@ -1,0 +1,25 @@
+---
+title: KnownErrorMessageCard
+---
+
+# KnownErrorMessageCard
+
+Displays a card with information about a known error message.
+
+## Parameters
+
+- `error`: `KnownError` - An object representing the known error, which includes details such as the error code and message.
+- `fullPage`: `boolean` (optional) - A flag to determine if the message card should occupy the full page. Defaults to `false`.
+
+## Example
+
+```typescript
+import { KnownErrorMessageCard } from 'your-sdk-name';
+
+const error = {
+  errorCode: '404_NOT_FOUND',
+  message: 'The requested resource was not found.'
+};
+
+<KnownErrorMessageCard error={error} fullPage={true} />
+```
