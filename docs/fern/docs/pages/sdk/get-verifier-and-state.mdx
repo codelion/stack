@@ -1,0 +1,20 @@
+---
+title: getVerifierAndState
+---
+
+# getVerifierAndState
+
+Retrieves the code verifier and state from cookies.
+
+## Returns
+
+`{ codeVerifier: string, state: string }` - An object containing the code verifier and state.
+
+## Example
+
+```typescript
+import { getVerifierAndState } from 'your-sdk-name';
+
+const { codeVerifier, state } = getVerifierAndState();
+console.log(codeVerifier, state);
+```
