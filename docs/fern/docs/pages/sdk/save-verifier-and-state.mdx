@@ -1,0 +1,24 @@
+---
+title: saveVerifierAndState
+---
+
+# saveVerifierAndState
+
+Saves a code verifier and state, generating a code challenge for PKCE.
+
+## Returns
+
+`Promise<{ codeChallenge: string; state: string; }>` - A promise that resolves to an object containing the generated code challenge and state.
+
+## Example
+
+```typescript
+import { saveVerifierAndState } from '@stackframe/stack';
+
+async function example() {
+  const { codeChallenge, state } = await saveVerifierAndState();
+  console.log(codeChallenge, state);
+}
+
+example();
+```
