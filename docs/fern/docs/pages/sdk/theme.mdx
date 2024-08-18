@@ -1,0 +1,31 @@
+---
+title: Theme
+---
+
+# Theme
+
+Represents the theme configuration, defining color schemes and border radius.
+
+## Properties
+
+- `light`: `Colors` - Defines the color scheme for the light theme.
+- `dark`: `Colors` - Defines the color scheme for the dark theme.
+- `radius`: `string` - Specifies the border radius used throughout the theme.
+
+## Example
+
+```typescript
+import { Theme } from 'your-sdk-name';
+
+const myTheme: Theme = {
+  light: {
+    primary: '#ffffff',
+    secondary: '#f0f0f0'
+  },
+  dark: {
+    primary: '#000000',
+    secondary: '#2a2a2a'
+  },
+  radius: '4px'
+};
+```
