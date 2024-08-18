@@ -1,0 +1,35 @@
+---
+title: OAuthButtonGroup
+---
+
+# OAuthButtonGroup
+
+Renders a group of OAuth buttons for sign-in or sign-up, based on the specified project configuration.
+
+## Parameters
+
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether to render sign-in or sign-up buttons.
+- `mockProject`: `object` (optional) - A mock project configuration containing OAuth provider details.
+  - `config`: `object` - Configuration details for the project.
+    - `oauthProviders`: `Array<{ id: string }>` - An array of OAuth provider configurations, each with a unique identifier.
+
+## Returns
+
+`JSX.Element` - A JSX element that renders the OAuth buttons within a container.
+
+## Example
+
+```typescript
+import { OAuthButtonGroup } from '@stackframe/stack';
+
+const mockProject = {
+  config: {
+    oauthProviders: [
+      { id: 'google' },
+      { id: 'facebook' }
+    ],
+  },
+};
+
+<OAuthButtonGroup type='sign-in' mockProject={mockProject} />
+```
