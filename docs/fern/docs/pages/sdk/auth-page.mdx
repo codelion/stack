@@ -1,0 +1,32 @@
+---
+title: AuthPage
+---
+
+# AuthPage
+
+Renders an authentication page for signing in or signing up users.
+
+## Parameters
+
+- `fullPage`: `boolean` (optional) - Determines if the page should take up the full screen.
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether to display the sign-in or sign-up form.
+- `automaticRedirect`: `boolean` (optional) - If set to true, the user will be automatically redirected after successful authentication.
+- `mockProject`: `object` (optional) - Allows passing a mock project configuration.
+  - `config`: `object` - Configuration settings for the project.
+    - `signUpEnabled`: `boolean` - Indicates if sign up is enabled.
+    - `credentialEnabled`: `boolean` - Indicates if credentials can be used.
+    - `magicLinkEnabled`: `boolean` - Indicates if magic link login is enabled.
+    - `oauthProviders`: `array` - A list of OAuth providers available for the project.
+      - `id`: `string` - The identifier of the OAuth provider.
+
+## Returns
+
+`JSX.Element` - A component rendering the appropriate authentication form based on the specified type and project configuration.
+
+## Example
+
+```typescript
+import { AuthPage } from 'your-sdk-name';
+
+<AuthPage type='sign-in' automaticRedirect={true} />
+```
