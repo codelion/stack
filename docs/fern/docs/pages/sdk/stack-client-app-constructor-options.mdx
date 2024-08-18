@@ -1,0 +1,30 @@
+---
+title: StackClientAppConstructorOptions
+---
+
+# StackClientAppConstructorOptions
+
+Options for constructing a Stack client application.
+
+## Properties
+
+- `baseUrl`: `string` (optional) - The base URL for the Stack client app.
+- `projectId`: `ProjectId` (optional) - The ID of the project associated with the Stack app.
+- `publishableClientKey`: `string` (optional) - A key for the client application.
+- `urls`: `Partial<HandlerUrls>` (optional) - Custom URLs for handling requests.
+- `oauthScopesOnSignIn`: `Partial<OAuthScopesOnSignIn>` (optional) - OAuth scopes to request during sign-in.
+- `tokenStore`: `TokenStoreInit<HasTokenStore>` - The initialization parameters for the token store.
+- `noAutomaticPrefetch`: `boolean` (optional) - If set to true, disables automatic prefetching of data from Stack's server on construction.
+
+## Example
+
+```typescript
+import { StackClientAppConstructorOptions } from 'your-sdk-name';
+
+const options: StackClientAppConstructorOptions<true, 'my-project-id'> = {
+  baseUrl: 'https://api.stack.com',
+  projectId: 'my-project-id',
+  tokenStore: someTokenStoreInitFunction(),
+  noAutomaticPrefetch: true,
+};
+```
