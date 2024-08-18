@@ -1,0 +1,26 @@
+---
+title: setOrDeleteCookie
+---
+
+# setOrDeleteCookie
+
+Sets a cookie with a specified name and value, or deletes the cookie if the value is null.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to be set or deleted.
+- `value`: `string | null` - The value to set the cookie to. If `null`, the cookie will be deleted.
+- `options`: `SetCookieOptions` (optional) - Additional options for setting the cookie, such as expiration and path.
+
+## Returns
+
+`void` - This function does not return a value.
+
+## Example
+
+```typescript
+import { setOrDeleteCookie } from 'your-sdk-name';
+
+setOrDeleteCookie('user_session', 'abc123'); // Sets the cookie
+setOrDeleteCookie('user_session', null); // Deletes the cookie
+```
