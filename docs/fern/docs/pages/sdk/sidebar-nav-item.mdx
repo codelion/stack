@@ -1,0 +1,26 @@
+---
+title: SidebarNavItem
+---
+
+# SidebarNavItem
+
+Renders a navigation item for the sidebar.
+
+## Parameters
+
+- `props`: `{ item: Item, selected: boolean, onClick: () => void }` - An object containing the properties for the navigation item.
+  - `item`: `Item` - The item to display, which must have an `icon` and `title`.
+  - `selected`: `boolean` - Indicates whether the item is currently selected.
+  - `onClick`: `() => void` - A function that is called when the item is clicked.
+
+## Example
+
+```typescript
+import { SidebarNavItem } from '@stackframe/stack';
+
+const item = { icon: MyIcon, title: 'Dashboard' };
+const isSelected = true;
+const handleClick = () => { console.log('Item clicked!'); };
+
+<SidebarNavItem item={item} selected={isSelected} onClick={handleClick} />
+```
