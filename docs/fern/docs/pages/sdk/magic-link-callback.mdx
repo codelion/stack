@@ -1,0 +1,26 @@
+---
+title: MagicLinkCallback
+---
+
+# MagicLinkCallback
+
+Handles the response for a magic link sign-in, rendering messages based on user authentication and link status.
+
+## Parameters
+
+- `searchParams`: `Record<string, string>` (optional) - An object containing search parameters, with a default member `code` initialized to an empty string.
+- `fullPage`: `boolean` (optional) - A flag that indicates whether the message should be displayed in full page mode.
+
+## Returns
+
+`JSX.Element` - Returns different message cards based on the user's authentication status and the validity of the magic link.
+
+## Example
+
+```typescript
+import { MagicLinkCallback } from '@stackframe/stack';
+
+const App = () => {
+  return <MagicLinkCallback fullPage={true} />;
+};
+```
