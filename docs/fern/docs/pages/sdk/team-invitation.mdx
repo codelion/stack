@@ -1,0 +1,26 @@
+---
+title: TeamInvitation
+---
+
+# TeamInvitation
+
+Renders a team invitation interface based on the given parameters, providing feedback on the invitation link status.
+
+## Parameters
+
+- `fullPage`: `boolean` (optional) - Determines if the invitation is displayed in full page mode. Defaults to `false`.
+- `searchParams`: `Record<string, string>` - An object containing search parameters, particularly the invitation `code`.
+
+## Returns
+
+`JSX.Element` - A React element representing the team invitation or an error message based on the invitation link status.
+
+## Example
+
+```typescript
+import { TeamInvitation } from '@stackframe/stack';
+
+const searchParams = { code: 'invitation-code' };
+
+<TeamInvitation fullPage={true} searchParams={searchParams} />
+```
