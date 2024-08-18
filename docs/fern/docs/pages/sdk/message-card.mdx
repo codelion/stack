@@ -1,0 +1,32 @@
+---
+title: MessageCard
+---
+
+# MessageCard
+
+Displays a card with a title and optional buttons, supporting full-page mode.
+
+## Parameters
+
+- `children`: `React.ReactNode` (optional) - Any child elements to render within the card.
+- `title`: `string` - The title displayed in the card.
+- `fullPage`: `boolean` (optional, default: false) - If true, the card will take the full page height.
+- `primaryButtonText`: `string` (optional) - Text for the primary button.
+- `primaryAction`: `() => Promise<void> | void` (optional) - Action to be executed when the primary button is clicked.
+- `secondaryButtonText`: `string` (optional) - Text for the secondary button.
+- `secondaryAction`: `() => Promise<void> | void` (optional) - Action to be executed when the secondary button is clicked.
+
+## Example
+
+```typescript
+import { MessageCard } from '@stackframe/stack';
+
+<MessageCard
+  title="Important Message"
+  primaryButtonText="Confirm"
+  secondaryButtonText="Cancel"
+  primaryAction={() => console.log('Confirmed')}
+  secondaryAction={() => console.log('Cancelled')}>
+  <p>This is an important message that requires your attention.</p>
+</MessageCard>
+```
