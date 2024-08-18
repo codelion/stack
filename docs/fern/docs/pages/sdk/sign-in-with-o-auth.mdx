@@ -1,0 +1,35 @@
+---
+title: signInWithOAuth
+---
+
+# signInWithOAuth
+
+Starts the OAuth sign-in process with the specified provider.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - An interface to handle the OAuth flow.
+- `options`: `object` - An object containing options for the OAuth sign-in.
+  - `provider`: `string` - The name of the OAuth provider (e.g., Google, Facebook).
+  - `redirectUrl`: `string` - The URL to redirect to after successful sign-in.
+  - `errorRedirectUrl`: `string` - The URL to redirect to in case of an error.
+  - `providerScope`: `string` (optional) - Additional scope for the provider.
+
+## Returns
+
+This function does not return a value directly; it redirects the user to the OAuth provider's sign-in page.
+
+## Example
+
+```typescript
+import { signInWithOAuth } from 'your-sdk-name';
+
+const options = {
+  provider: 'google',
+  redirectUrl: 'https://yourapp.com/success',
+  errorRedirectUrl: 'https://yourapp.com/error',
+  providerScope: 'email profile',
+};
+
+await signInWithOAuth(yourStackClientInterface, options);
+```
