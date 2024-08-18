@@ -1,0 +1,30 @@
+---
+title: ErrorPage
+---
+
+# ErrorPage
+
+Renders an error page based on the provided search parameters, including handling different error types.
+
+## Parameters
+
+- `fullPage`: `boolean` (optional) - Determines if the error message should be displayed in full page mode. Defaults to `false`.
+- `searchParams`: `Record<string, string>` - An object containing the error information. It must include `errorCode`, `message`, and `details` properties.
+
+## Returns
+
+`JSX.Element` - A React component representing the error page or message.
+
+## Example
+
+```typescript
+import { ErrorPage } from 'your-sdk-name';
+
+const searchParams = {
+  errorCode: '404',
+  message: 'Page not found',
+  details: 'The page you are looking for does not exist.'
+};
+
+const errorComponent = <ErrorPage searchParams={searchParams} />;
+```
