@@ -1,0 +1,26 @@
+---
+title: StackProvider
+---
+
+# StackProvider
+
+Provides a context for managing application state using the Stack client.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The components to be rendered inside the provider.
+- `app`: `StackClientApp<true>` - The Stack application client used to retrieve and manage application state.
+
+## Example
+
+```typescript
+import { StackProvider } from 'your-sdk-name';
+
+const App = () => {
+  return (
+    <StackProvider app={yourStackClientApp}>
+      <YourChildComponent />
+    </StackProvider>
+  );
+};
+```
