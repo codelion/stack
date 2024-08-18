@@ -1,0 +1,24 @@
+---
+title: getCookie
+---
+
+# getCookie
+
+Retrieves the value of a cookie by its name. If the cookie is unavailable, it attempts to return null.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to retrieve.
+
+## Returns
+
+`string | null` - The value of the cookie if found, or `null` if the cookie does not exist.
+
+## Example
+
+```typescript
+import { getCookie } from 'your-sdk-name';
+
+const userSession = getCookie('session_id');
+console.log(userSession); // Output: The value of the cookie or null if it doesn't exist.
+```
