@@ -1,0 +1,31 @@
+---
+title: Theme
+---
+
+# Theme
+
+Defines the color theme used in the application, including light and dark modes, and corner radius settings.
+
+## Properties
+
+- `light`: `Colors` - Represents the color settings for the light theme.
+- `dark`: `Colors` - Represents the color settings for the dark theme.
+- `radius`: `string` - Specifies the border radius for UI elements.
+
+## Example
+
+```typescript
+import { Theme } from '@stackframe/stack';
+
+const theme: Theme = {
+  light: {
+    primary: '#ffffff',
+    secondary: '#f0f0f0',
+  },
+  dark: {
+    primary: '#000000',
+    secondary: '#222222',
+  },
+  radius: '8px'
+};
+```
