@@ -1,0 +1,25 @@
+---
+title: constructRedirectUrl
+---
+
+# constructRedirectUrl
+
+Constructs a redirect URL with retained query parameters from the current URL.
+
+## Parameters
+
+- `redirectUrl`: `URL | string | undefined` - The URL to redirect to. If undefined, the current URL will be used.
+
+## Returns
+
+`string` - The constructed redirect URL, with specific query parameters retained from the current URL.
+
+## Example
+
+```typescript
+import { constructRedirectUrl } from '@stackframe/stack';
+
+const redirectUrl = 'https://example.com';
+const newUrl = constructRedirectUrl(redirectUrl);
+console.log(newUrl); // Output: The new redirect URL with retained query parameters
+```
