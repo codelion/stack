@@ -1,0 +1,35 @@
+---
+title: StackAdminAppConstructorOptions
+---
+
+# StackAdminAppConstructorOptions
+
+Options for constructing a Stack Admin App, which can have different configurations based on the token and project.
+
+## Type Variants
+
+This type can be one of two variants based on the `HasTokenStore` and `ProjectId` parameters:
+
+1. **Variant 1**: 
+   - Inherits from `StackServerAppConstructorOptions<HasTokenStore, ProjectId>`.
+   - Optional property:
+     - `superSecretAdminKey`: `string` (optional) - A secret key for admin access.
+
+2. **Variant 2**: 
+   - Inherits from `StackServerAppConstructorOptions<HasTokenStore, ProjectId>` but omits `publishableClientKey` and `secretServerKey`.
+   - Required property:
+     - `projectOwnerSession`: `InternalSession` - A session object for the project owner.
+
+## Example
+
+```typescript
+import { StackAdminAppConstructorOptions } from 'your-sdk-name';
+
+const options: StackAdminAppConstructorOptions<true, "exampleProjectId"> = {
+  superSecretAdminKey: 'yourSuperSecretKey',
+};
+
+const optionsWithoutSuperKey: StackAdminAppConstructorOptions<false, "exampleProjectId"> = {
+  projectOwnerSession: someInternalSession,
+};
+```
