@@ -1,0 +1,25 @@
+---
+title: ApiKey
+---
+
+# ApiKey
+
+Represents an API key with associated properties for secure access.
+
+## Properties
+
+- `publishableClientKey`: `null | { lastFour: string }` - The publishable client key, which contains the last four characters of the key, or `null` if not applicable.
+- `secretServerKey`: `null | { lastFour: string }` - The secret server key, which contains the last four characters of the key, or `null` if not applicable.
+- `superSecretAdminKey`: `null | { lastFour: string }` - The super secret admin key, which contains the last four characters of the key, or `null` if not applicable.
+
+## Example
+
+```typescript
+import { ApiKey } from 'your-sdk-name';
+
+const apiKey: ApiKey = {
+  publishableClientKey: { lastFour: '1234' },
+  secretServerKey: null,
+  superSecretAdminKey: { lastFour: '5678' }
+};
+```
