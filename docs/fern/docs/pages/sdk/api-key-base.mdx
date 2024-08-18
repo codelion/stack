@@ -1,0 +1,20 @@
+---
+title: ApiKeyBase
+---
+
+# ApiKeyBase
+
+Represents an API key with its properties and methods.
+
+## Properties
+
+- `id`: `string` - The unique identifier for the API key.
+- `description`: `string` - A brief description of the API key.
+- `expiresAt`: `Date` - The date and time when the API key expires.
+- `manuallyRevokedAt`: `Date | null` - The date and time when the API key was manually revoked, or `null` if it has not been revoked.
+- `createdAt`: `Date` - The date and time when the API key was created.
+
+## Methods
+
+- `isValid()`: `boolean` - Checks if the API key is still valid.
+- `whyInvalid()`: `
