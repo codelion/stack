@@ -1,0 +1,30 @@
+---
+title: BrowserScript
+---
+
+# BrowserScript
+
+Renders a script element with optional nonce support for secure script execution.
+
+## Parameters
+
+- `props`: `{ nonce?: string }` - The properties for the script component.
+  - `nonce`: `string` (optional) - A nonce value for Content Security Policy compliance.
+
+## Returns
+
+`JSX.Element` - A script element configured with the given properties.
+
+## Example
+
+```typescript
+import { BrowserScript } from '@stackframe/stack';
+
+const App = () => {
+  return (
+    <div>
+      <BrowserScript nonce="your-nonce-value" />
+    </div>
+  );
+};
+```
