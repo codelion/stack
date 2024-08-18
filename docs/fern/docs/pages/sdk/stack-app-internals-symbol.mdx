@@ -1,0 +1,23 @@
+---
+title: stackAppInternalsSymbol
+---
+
+# stackAppInternalsSymbol
+
+A unique symbol used to represent internal properties for the Stack App.
+
+## Properties
+
+- `stackAppInternalsSymbol`: `symbol` - A unique identifier for Stack App internals, created using `Symbol.for()`. This symbol should be used for accessing or referencing internal aspects of the Stack App.
+
+## Example
+
+```typescript
+import { stackAppInternalsSymbol } from 'your-sdk-name';
+
+const internals = {
+  [stackAppInternalsSymbol]: 'internalValue'
+};
+
+console.log(internals[stackAppInternalsSymbol]); // Output: internalValue
+```
