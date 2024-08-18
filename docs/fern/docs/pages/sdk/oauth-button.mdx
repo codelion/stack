@@ -1,0 +1,25 @@
+---
+title: OAuthButton
+---
+
+# OAuthButton
+
+Renders an OAuth button for various providers, allowing users to sign in or sign up.
+
+## Parameters
+
+- `provider`: `string` - The name of the OAuth provider (e.g., 'google', 'github', 'facebook', etc.).
+- `type`: `'sign-in' | 'sign-up'` - The type of button to render, indicating whether to sign in or sign up.
+
+## Example
+
+```typescript
+import { OAuthButton } from 'your-sdk-name';
+
+const App = () => (
+  <div>
+    <OAuthButton provider="google" type="sign-in" />
+    <OAuthButton provider="github" type="sign-up" />
+  </div>
+);
+```
