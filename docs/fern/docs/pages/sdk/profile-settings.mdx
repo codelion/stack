@@ -1,0 +1,28 @@
+---
+title: profileSettings
+---
+
+# profileSettings
+
+Renders the profile settings interface for a user, allowing them to edit their display name.
+
+## Parameters
+
+- `props`: `{ team: Team }` - An object containing the `team` associated with the user's profile.
+
+## Returns
+
+`JSX.Element` - A React component that displays the profile settings UI.
+
+## Example
+
+```typescript
+import { profileSettings } from 'your-sdk-name';
+import { Team } from 'your-sdk-name';
+
+const team = { id: 'team-id', name: 'Team Name' };
+
+const App = () => {
+  return <profileSettings props={{ team }} />;
+};
+```
