@@ -1,0 +1,24 @@
+---
+title: SidebarLayout
+---
+
+# SidebarLayout
+
+A layout component that renders different views for desktop and mobile based on the screen size.
+
+## Parameters
+
+- `props`: `{ items: Item[], title?: ReactNode }` - The properties for the SidebarLayout component.
+  - `items`: `Item[]` - An array of items to be displayed in the layout.
+  - `title`: `ReactNode` (optional) - An optional title to be displayed in the layout.
+
+## Example
+
+```typescript
+import { SidebarLayout } from 'your-sdk-name';
+
+const items = [/* your items here */];
+const title = 'My Sidebar';
+
+<SidebarLayout items={items} title={title} />
+```
