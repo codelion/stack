@@ -1,0 +1,27 @@
+---
+title: userSettings
+---
+
+# userSettings
+
+Renders UI for user settings and allows the user to leave a specified team.
+
+## Parameters
+
+- `props`: `{ team: Team }` - An object containing the `team` property, which represents the team the user can leave.
+
+## Returns
+
+`JSX.Element` - A React element that contains the user settings UI.
+
+## Example
+
+```typescript
+import { userSettings } from 'your-sdk-name';
+
+const team = { id: 'team123', name: 'Development' };
+
+const App = () => {
+  return userSettings({ team });
+};
+```
