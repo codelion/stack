@@ -1,0 +1,30 @@
+---
+title: MaybeFullPage
+---
+
+# MaybeFullPage
+
+Renders a component that can be displayed in full-page mode or as a standard component.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The content to be rendered inside the component.
+- `fullPage`: `boolean` (optional) - Determines if the component should take the full page height. Defaults to `true`.
+
+## Returns
+
+`JSX.Element` - A component that either takes the full height of the page or just renders its children based on the `fullPage` parameter.
+
+## Example
+
+```typescript
+import { MaybeFullPage } from '@stackframe/stack';
+
+function App() {
+  return (
+    <MaybeFullPage fullPage={true}>
+      <div>Your content goes here</div>
+    </MaybeFullPage>
+  );
+}
+```
