@@ -1,0 +1,22 @@
+---
+title: TeamInvitation
+---
+
+# TeamInvitation
+
+Renders the team invitation UI based on the provided invitation link and user status.
+
+## Parameters
+
+- `fullPage`: `boolean` (optional) - If true, displays the invitation in full page mode. Defaults to false.
+- `searchParams`: `Record<string, string>` - An object containing search parameters, must include a `code` for the invitation.
+
+## Example
+
+```typescript
+import { TeamInvitation } from 'your-sdk-name';
+
+const searchParams = { code: 'your-invitation-code' };
+
+<TeamInvitation fullPage={true} searchParams={searchParams} />
+```
