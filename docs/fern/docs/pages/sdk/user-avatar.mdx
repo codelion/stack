@@ -1,0 +1,30 @@
+---
+title: UserAvatar
+---
+
+# UserAvatar
+
+Renders a user's avatar with an optional size and user information.
+
+## Parameters
+
+- `props`: `object` - The properties object.
+  - `size`: `number` (optional) - The size of the avatar.
+  - `user`: `object` (optional) - Information about the user.
+    - `profileImageUrl`: `string | null` (optional) - URL of the user's profile image.
+    - `displayName`: `string | null` (optional) - The user's display name.
+    - `primaryEmail`: `string | null` (optional) - The user's primary email address.
+
+## Example
+
+```typescript
+import { UserAvatar } from '@stackframe/stack';
+
+const user = {
+  profileImageUrl: 'https://example.com/image.jpg',
+  displayName: 'John Doe',
+  primaryEmail: 'john@example.com',
+};
+
+<UserAvatar size={40} user={user} />
+```
