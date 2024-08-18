@@ -1,0 +1,33 @@
+---
+title: ErrorPage
+---
+
+# ErrorPage
+
+Renders an error page based on the provided search parameters and an optional fullPage flag.
+
+## Parameters
+
+- `fullPage`: `boolean` (optional) - A flag indicating whether the error page should take up the full screen. Defaults to `false`.
+- `searchParams`: `Record<string, string>` - An object containing error information. It must include the following properties:
+  - `errorCode`: A string representing the error code.
+  - `message`: A string containing a message about the error.
+  - `details`: A string with additional details about the error.
+
+## Returns
+
+`JSX.Element` - The rendered error page component.
+
+## Example
+
+```typescript
+import { ErrorPage } from '@stackframe/stack';
+
+const searchParams = {
+  errorCode: '404',
+  message: 'Page not found',
+  details: 'The requested page does not exist.'
+};
+
+<ErrorPage fullPage={true} searchParams={searchParams} />
+```
