@@ -1,16 +1,28 @@
 ---
-slug: sdk/use-stack-app
+title: useStackApp
 ---
 
-The `useStackApp` hook returns the `StackClientApp` object that you can use to interact with the Stack API. If you want to learn more about the `StackClientApp` object, check out the [App](./stack-app.mdx) documentation.
+# useStackApp
 
-Example:
+A hook to access the StackClientApp within a StackProvider context.
 
-```jsx
-import { useStackApp } from "@stackframe/stack";
+## Parameters
 
-function MyComponent() {
-  const stackApp = useStackApp();
-  return <div>Sign In URL: {stackApp.urls.signIn}</div>;
-}
+- `options`: `object` (optional) - An object to configure the hook.
+  - `projectIdMustMatch`: `ProjectId` (optional) - A project ID that must match the project ID of the StackClientApp.
+
+## Returns
+
+`StackClientApp<true, ProjectId>` - The StackClientApp instance associated with the current StackProvider context.
+
+## Example
+
+```typescript
+import { useStackApp } from 'your-sdk-name';
+
+const MyComponent = () => {
+  const stackApp = useStackApp({ projectIdMustMatch: 'my-project-id' });
+  
+  // Use stackApp as needed
+};
 ```
