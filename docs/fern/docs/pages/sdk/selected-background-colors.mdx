@@ -1,0 +1,23 @@
+---
+title: SELECTED_BACKGROUND_COLORS
+---
+
+# SELECTED_BACKGROUND_COLORS
+
+An object that holds selected background color options for different themes.
+
+## Properties
+
+- `dark`: `string` - The background color for the dark theme, represented as an RGBA string.
+- `light`: `string` - The background color for the light theme, represented as an RGBA string.
+
+## Example
+
+```typescript
+import { SELECTED_BACKGROUND_COLORS } from 'your-sdk-name';
+
+const backgroundColorDark = SELECTED_BACKGROUND_COLORS.dark;
+const backgroundColorLight = SELECTED_BACKGROUND_COLORS.light;
+console.log(backgroundColorDark); // Output: 'rgba(255, 255, 255, 0.1)'
+console.log(backgroundColorLight); // Output: 'rgba(0, 0, 0, 0.04)'
+```
