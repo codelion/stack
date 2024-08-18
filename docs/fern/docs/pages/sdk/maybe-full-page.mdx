@@ -1,0 +1,28 @@
+---
+title: MaybeFullPage
+---
+
+# MaybeFullPage
+
+Renders children within a full-page container if specified.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The content to be displayed inside the component.
+- `fullPage`: `boolean` (optional) - Determines whether the component should render in full-page mode. Defaults to `true`.
+
+## Returns
+
+`JSX.Element` - A React component that renders the children either in full-page mode or just as children.
+
+## Example
+
+```typescript
+import { MaybeFullPage } from 'your-sdk-name';
+
+const App = () => (
+  <MaybeFullPage fullPage={true}>
+    <div>Your content goes here</div>
+  </MaybeFullPage>
+);
+```
