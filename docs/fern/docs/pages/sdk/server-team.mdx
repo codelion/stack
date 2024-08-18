@@ -1,0 +1,20 @@
+---
+title: ServerTeam
+---
+
+# ServerTeam
+
+Represents a server team and provides methods to manage users and team updates.
+
+## Properties
+
+- `createdAt`: `Date` - The date when the team was created.
+
+## Methods
+
+- `listUsers()`: `Promise<ServerTeamUser[]>` - Retrieves a list of users in the server team.
+- `useUsers()`: `ServerUser[]` - Provides the current users in the team.
+- `update(update: ServerTeamUpdateOptions)`: `Promise<void>` - Updates the server team with new options.
+- `delete()`: `Promise<void>` - Deletes the server team.
+- `addUser(userId: string)`: `Promise<void>` - Adds a user to the server team by their user ID.
+- `inviteUser(options: { email: string })`: `Promise<Result<undefined, KnownErrors[
