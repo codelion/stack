@@ -1,0 +1,26 @@
+---
+title: OAuthCallback
+---
+
+# OAuthCallback
+
+Handles the OAuth callback process and provides a redirection to the sign-in page if necessary.
+
+## Parameters
+
+- `props`: `{ fullPage?: boolean }` - An object containing properties for component configuration.
+  - `fullPage`: `boolean` (optional) - Determines if the redirect message should occupy the full page.
+
+## Returns
+
+`JSX.Element` - The rendered component, which displays a redirect message or error information.
+
+## Example
+
+```typescript
+import { OAuthCallback } from 'your-sdk-name';
+
+function App() {
+  return <OAuthCallback fullPage={true} />;
+}
+```
