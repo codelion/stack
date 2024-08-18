@@ -1,0 +1,31 @@
+---
+title: callOAuthCallback
+---
+
+# callOAuthCallback
+
+Handles the OAuth callback and interacts with the provided interface to complete the sign-in process.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - An object that provides the method to call for the OAuth callback process.
+- `redirectUrl`: `string` - The URL to which the user should be redirected after the OAuth process.
+
+## Returns
+
+`Promise<any>` - A promise that resolves with the result of the OAuth callback process or `null` if the original URL is invalid.
+
+## Example
+
+```typescript
+import { callOAuthCallback } from 'your-sdk-name';
+import { stackClientInterface } from 'your-stack-client';
+
+async function handleCallback() {
+  const redirectUrl = 'https://yourapp.com/dashboard';
+  const result = await callOAuthCallback(stackClientInterface, redirectUrl);
+  console.log(result); // Log the result of the OAuth callback
+}
+
+handleCallback();
+```
