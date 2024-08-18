@@ -1,0 +1,41 @@
+---
+title: DEFAULT_THEME
+---
+
+# DEFAULT_THEME
+
+Represents the default theme configuration for light and dark modes, including colors and radius.
+
+## Properties
+
+- `light`: `object` - The configuration for the light theme.
+  - `background`: `string` - The background color.
+  - `foreground`: `string` - The foreground color.
+  - `card`: `string` - The card background color.
+  - `cardForeground`: `string` - The card foreground color.
+  - `popover`: `string` - The popover background color.
+  - `popoverForeground`: `string` - The popover foreground color.
+  - `primary`: `string` - The primary color.
+  - `primaryForeground`: `string` - The primary foreground color.
+  - `secondary`: `string` - The secondary color.
+  - `secondaryForeground`: `string` - The secondary foreground color.
+  - `muted`: `string` - The muted color.
+  - `mutedForeground`: `string` - The muted foreground color.
+  - `accent`: `string` - The accent color.
+  - `accentForeground`: `string` - The accent foreground color.
+  - `destructive`: `string` - The color for destructive actions.
+  - `destructiveForeground`: `string` - The foreground color for destructive actions.
+  - `border`: `string` - The border color.
+  - `input`: `string` - The input background color.
+  - `ring`: `string` - The ring color.
+- `dark`: `object` - The configuration for the dark theme, with similar properties as light theme.
+- `radius`: `string` - The border radius applied to elements.
+
+## Example
+
+```typescript
+import { DEFAULT_THEME } from 'your-sdk-name';
+
+console.log(DEFAULT_THEME.light.background); // Output: 'hsl(0 0% 100%)'
+console.log(DEFAULT_THEME.dark.foreground); // Output: 'hsl(0 0% 98%)'
+```
