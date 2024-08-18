@@ -1,0 +1,26 @@
+---
+title: PredefinedMessageCard
+---
+
+# PredefinedMessageCard
+
+Renders a message card based on the provided type, with options for a full page layout.
+
+## Parameters
+
+- `type`: `('signedIn' | 'signedOut' | 'emailSent' | 'passwordReset' | 'emailVerified' | 'unknownError' | 'signUpDisabled')` - The type of message to display.
+- `fullPage`: `boolean` (optional) - Determines if the message card should occupy the full page layout. Defaults to `false`.
+
+## Returns
+
+`JSX.Element` - A message card with appropriate title, message, and actions based on the `type` provided.
+
+## Example
+
+```typescript
+import { PredefinedMessageCard } from '@stackframe/stack';
+
+const App = () => (
+  <PredefinedMessageCard type="signedIn" fullPage={true} />
+);
+```
