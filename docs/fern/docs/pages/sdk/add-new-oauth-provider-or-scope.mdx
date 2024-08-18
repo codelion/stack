@@ -1,0 +1,37 @@
+---
+title: addNewOAuthProviderOrScope
+---
+
+# addNewOAuthProviderOrScope
+
+Adds a new OAuth provider or scope and redirects the user to the OAuth URL.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - An interface to interact with the stack client.
+- `options`: `Object` - An object containing the following properties:
+  - `provider`: `string` - The name of the OAuth provider to add.
+  - `redirectUrl`: `string` - The URL to redirect user after successful authentication.
+  - `errorRedirectUrl`: `string` - The URL to redirect user in case of an error.
+  - `providerScope`: `string` (optional) - The scope of the provider, if applicable.
+- `session`: `InternalSession` - The session information for the current user.
+
+## Returns
+
+This function does not return a value. It redirects the user to the OAuth URL.
+
+## Example
+
+```typescript
+import { addNewOAuthProviderOrScope } from '@stackframe/stack';
+
+const iface = ...; // Initialize your StackClientInterface here
+const options = {
+  provider: 'github',
+  redirectUrl: 'https://yourapp.com/auth/callback',
+  errorRedirectUrl: 'https://yourapp.com/auth/error',
+};
+const session = ...; // Obtain the InternalSession here
+
+addNewOAuthProviderOrScope(iface, options, session);
+```
