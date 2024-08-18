@@ -1,0 +1,29 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+Provides a theme context to the children components and injects the necessary styles.
+
+## Parameters
+
+- `theme`: `ThemeConfig` (optional) - The theme configuration to apply.
+- `children`: `React.ReactNode` (optional) - The child elements to render within the theme context.
+- `nonce`: `string` (optional) - A unique nonce value for security purposes when injecting styles.
+
+## Returns
+
+`JSX.Element` - Renders the theme context and its children elements.
+
+## Example
+
+```typescript
+import { StackTheme } from '@stackframe/stack';
+
+const MyApp = () => (
+  <StackTheme theme={{ primaryColor: 'blue' }} nonce="unique-nonce">
+    <h1>Welcome to My Themed App</h1>
+  </StackTheme>
+);
+```
