@@ -1,0 +1,30 @@
+---
+title: ErrorPage
+---
+
+# ErrorPage
+
+Displays an error page based on the provided search parameters. Different error messages and actions are shown depending on the error type.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Whether the error message should take up the full page. Default is `false`.
+- `searchParams`: `Record<string, string>` - An object containing the error details with keys `errorCode`, `message`, and `details`. All keys are required.
+
+## Example
+
+```tsx
+import { ErrorPage } from '@stackframe/stack';
+
+const searchParams = {
+  errorCode: '401',
+  message: 'Unauthorized access',
+  details: 'You do not have permission to view this page.'
+};
+
+// Full page error message
+<ErrorPage fullPage={true} searchParams={searchParams} />;
+
+// Inline error message
+<ErrorPage searchParams={searchParams} />;
+```
