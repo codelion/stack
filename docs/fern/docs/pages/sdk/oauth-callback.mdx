@@ -1,0 +1,24 @@
+---
+title: OAuthCallback
+---
+
+# OAuthCallback
+
+Renders a message card that handles the OAuth callback process. If necessary, it redirects the user to the sign-in page.
+
+## Parameters
+
+- `props`: `object` - An object containing the following properties:
+  - `fullPage` (optional): `boolean` - Determines if the message card should occupy the full page.
+
+## Example
+
+```tsx
+import { OAuthCallback } from '@stackframe/stack';
+
+// Usage with fullPage set to false (default)
+<OAuthCallback />
+
+// Usage with fullPage set to true
+<OAuthCallback fullPage={true} />
+```
