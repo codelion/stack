@@ -1,0 +1,28 @@
+---
+title: StackAdminAppConstructorOptions
+---
+
+# StackAdminAppConstructorOptions
+
+Defines the options for constructing a StackAdminApp. This type can be one of two shapes, depending on the presence of certain properties.
+
+## Properties
+
+- `superSecretAdminKey` (optional): `string` - A secret key for admin access.
+- `projectOwnerSession`: `InternalSession` - The session of the project owner.
+
+## Example
+
+```tsx
+import { StackAdminAppConstructorOptions } from '@stackframe/stack';
+
+const optionsWithAdminKey: StackAdminAppConstructorOptions<true, 'project-123'> = {
+  publishableClientKey: 'client-key',
+  secretServerKey: 'server-key',
+  superSecretAdminKey: 'super-secret-key',
+};
+
+const optionsWithOwnerSession: StackAdminAppConstructorOptions<false, 'project-456'> = {
+  projectOwnerSession: { sessionId: 'session-123', userId: 'user-456' },
+};
+```
