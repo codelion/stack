@@ -1,0 +1,34 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+The `StackTheme` component applies a theme to its children components. It allows you to customize the theme and optionally include a nonce for security purposes.
+
+## Parameters
+
+- `theme` (optional): `ThemeConfig` - An object to customize the theme. It can include `dark` and `light` properties to override the default theme settings.
+- `children` (optional): `React.ReactNode` - The child components to which the theme will be applied.
+- `nonce` (optional): `string` - A nonce value for security purposes, used in the `BrowserScript` and `style` elements.
+
+## Example
+
+```tsx
+import { StackTheme } from '@stackframe/stack';
+
+const customTheme = {
+  dark: {
+    background: '#000',
+    color: '#fff'
+  },
+  light: {
+    background: '#fff',
+    color: '#000'
+  }
+};
+
+<StackTheme theme={customTheme} nonce='randomNonce'>
+  <div>Your content here</div>
+</StackTheme>
+```
