@@ -1,0 +1,30 @@
+---
+title: StackClientAppJson
+---
+
+# StackClientAppJson
+
+Represents the configuration options for a Stack Client App, including a unique identifier.
+
+## Properties
+
+- `uniqueIdentifier`: `string` - A unique identifier for the Stack Client App.
+- `tokenStore` (optional): `boolean` - Indicates whether the client app has a token store. This is determined by the `HasTokenStore` generic parameter.
+- `projectId`: `string` - The project ID associated with the client app. This is determined by the `ProjectId` generic parameter.
+
+## Example
+
+```tsx
+import { StackClientAppJson } from '@stackframe/stack';
+
+const appConfig: StackClientAppJson<true, 'project-123'> = {
+  uniqueIdentifier: 'app-unique-id',
+  tokenStore: true,
+  projectId: 'project-123'
+};
+
+const anotherAppConfig: StackClientAppJson<false, 'project-456'> = {
+  uniqueIdentifier: 'another-app-unique-id',
+  projectId: 'project-456'
+};
+```
