@@ -1,0 +1,43 @@
+---
+title: ErrorPage
+---
+
+# ErrorPage
+
+A component that displays an error page based on the provided error information. It handles different types of errors and renders appropriate messages.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Determines if the error should be displayed as a full page. Default is `false`.
+- `searchParams`: `Record<string, string>` - An object containing error information as URL search parameters.
+
+## Example
+
+```tsx
+import { ErrorPage } from '@stackframe/stack';
+
+// Basic usage
+const BasicErrorPage = () => (
+  <ErrorPage
+    searchParams={{
+      errorCode: 'SOME_ERROR_CODE',
+      message: 'An error occurred',
+      details: 'Additional error details'
+    }}
+  />
+);
+
+// Full page error
+const FullPageErrorPage = () => (
+  <ErrorPage
+    fullPage={true}
+    searchParams={{
+      errorCode: 'ANOTHER_ERROR_CODE',
+      message: 'A different error occurred',
+      details: 'More error details'
+    }}
+  />
+);
+```
+
+The `ErrorPage` component will render different error messages based on the provided `searchParams`. It handles unknown errors, OAuth connection errors, and other known errors defined in the application.
