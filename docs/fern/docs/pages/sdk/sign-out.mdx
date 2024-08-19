@@ -1,12 +1,26 @@
 ---
-slug: sdk/sign-out
+title: SignOut
 ---
 
-The `SignOut` component automatically signs out the current user when rendered. It can serve as a dedicated sign-out page, ensuring users are signed out as soon as they navigate to it.
+# SignOut
 
-<Note>
-  This component does not redirect a not signed-in user. To achieve automatic redirection for not signed-in users, you can use the `useUser` hook to check the user's sign-in status and perform the redirection if necessary.
-</Note>
+Signs out the currently authenticated user and displays a predefined 'signed out' message.
 
-## Props
-- `fullPage` (boolean): Determines whether the component should occupy the full page. Default is `false`.
+## Parameters
+
+- `props`: `object`
+  - `fullPage` (optional): `boolean` - If `true`, the message card will be displayed in full-page mode. Defaults to `false`.
+
+## Example
+
+```tsx
+import { SignOut } from '@stackframe/stack';
+
+// Basic usage
+<SignOut />
+
+// With fullPage as true
+<SignOut fullPage={true} />
+```
+
+This component will automatically sign the user out upon rendering and show a message indicating the user has been signed out. The `fullPage` prop can be used to display the message in a full-page mode.
