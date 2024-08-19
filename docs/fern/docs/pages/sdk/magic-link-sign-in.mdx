@@ -1,0 +1,36 @@
+---
+title: MagicLinkSignIn
+---
+
+# MagicLinkSignIn
+
+A React component that provides a form for magic link sign-in functionality. It handles form submission, sends a magic link email, and manages the UI state.
+
+## Usage
+
+This component can be used directly in your React application to render a magic link sign-in form.
+
+## Example
+
+```tsx
+import { MagicLinkSignIn } from '@stackframe/stack';
+
+function SignInPage() {
+  return (
+    <div>
+      <h1>Sign In</h1>
+      <MagicLinkSignIn />
+    </div>
+  );
+}
+```
+
+## Component Details
+
+- Uses `useForm` hook for form management
+- Handles form submission and error states
+- Sends magic link email using `app.sendMagicLinkEmail`
+- Provides UI feedback for form submission and email sent state
+
+The component renders a form with an email input field and a submit button. It handles the entire magic link sign-in process internally.
+Note: This component relies on the Stack App context and should be used within a Stack App provider.
