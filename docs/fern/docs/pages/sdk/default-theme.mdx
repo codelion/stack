@@ -1,0 +1,55 @@
+---
+title: DEFAULT_THEME
+---
+
+# DEFAULT_THEME
+
+A constant object that defines the default theme for both light and dark modes. It includes color values for various UI elements and a border radius value.
+
+## Properties
+
+- `light`: An object containing color values for the light theme.
+- `dark`: An object containing color values for the dark theme.
+- `radius`: A string specifying the default border radius.
+
+Both `light` and `dark` objects contain the following color properties:
+
+- `background`
+- `foreground`
+- `card`
+- `cardForeground`
+- `popover`
+- `popoverForeground`
+- `primary`
+- `primaryForeground`
+- `secondary`
+- `secondaryForeground`
+- `muted`
+- `mutedForeground`
+- `accent`
+- `accentForeground`
+- `destructive`
+- `destructiveForeground`
+- `border`
+- `input`
+- `ring`
+
+## Example
+
+```tsx
+import { DEFAULT_THEME } from '@stackframe/stack';
+
+// Accessing light theme colors
+const lightBackgroundColor = DEFAULT_THEME.light.background;
+console.log(lightBackgroundColor); // 'hsl(0 0% 100%)'
+
+// Accessing dark theme colors
+const darkPrimaryColor = DEFAULT_THEME.dark.primary;
+console.log(darkPrimaryColor); // 'hsl(0 0% 98%)'
+
+// Accessing border radius
+const borderRadius = DEFAULT_THEME.radius;
+console.log(borderRadius); // '0.5rem'
+```
+
+You can use these theme values to ensure consistent styling across your application or as a base for creating custom themes.
