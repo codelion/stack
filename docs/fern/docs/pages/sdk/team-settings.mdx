@@ -1,0 +1,31 @@
+---
+title: TeamSettings
+---
+
+# TeamSettings
+
+Renders a team settings component with various sections such as profile, members, and team information. Returns a React component displaying team settings, either as a full page or embedded content.
+
+## Parameters
+
+- `props`: An object containing the following properties:
+  - `fullPage` (optional): `boolean` - Determines whether to render the settings as a full page or embedded content.
+  - `teamId`: `string` - The ID of the team to display settings for.
+
+## Example
+
+```tsx
+import { TeamSettings } from '@stackframe/stack';
+
+// Render as embedded content
+const EmbeddedTeamSettings = () => (
+  <TeamSettings teamId='team-123' />
+);
+
+// Render as full page
+const FullPageTeamSettings = () => (
+  <TeamSettings teamId='team-456' fullPage={true} />
+);
+```
+
+This component uses the `useUser` and `useTeam` hooks internally to fetch and manage user and team data. If the team is not found, it displays a 'Team not found' message. The settings are organized into sections including 'My Profile', 'Members', and 'Team Info', which are rendered using a `SidebarLayout` component.
