@@ -1,0 +1,31 @@
+---
+title: FormWarningText
+---
+
+# FormWarningText
+
+A React component that displays a warning text in red. If no text is provided, it renders nothing.
+
+## Parameters
+
+- `text` (optional): `string` - The warning text to display.
+
+## Example
+
+```tsx
+import { FormWarningText } from '@stackframe/stack';
+
+// With warning text
+const ExampleWithWarning = () => (
+  <FormWarningText text='This field is required' />
+);
+
+// Without warning text (renders nothing)
+const ExampleWithoutWarning = () => (
+  <FormWarningText />
+);
+```<form>
+  <input type='text' name='username' />
+  <FormWarningText text={usernameError} />
+</form>
+```
