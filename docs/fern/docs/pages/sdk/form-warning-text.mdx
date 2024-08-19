@@ -1,0 +1,25 @@
+---
+title: FormWarningText
+---
+
+# FormWarningText
+
+Displays a warning text message in a styled div. If no text is provided, nothing is rendered.
+
+## Parameters
+
+- `text` (optional): `string` - The warning text to display. If not provided, the component renders nothing.
+
+## Example
+
+```tsx
+import { FormWarningText } from '@stackframe/stack';
+
+// With text
+<FormWarningText text='This is a warning!' />
+// Renders: <div className='text-red-500 text-sm mt-1'>This is a warning!</div>
+
+// Without text
+<FormWarningText />
+// Renders nothing
+```
