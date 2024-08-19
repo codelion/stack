@@ -1,0 +1,24 @@
+---
+title: PredefinedMessageCard
+---
+
+# PredefinedMessageCard
+
+Renders a message card with predefined messages based on the type provided. Optionally, it can be rendered as a full-page card.
+
+## Parameters
+
+- `type`: `'signedIn' | 'signedOut' | 'emailSent' | 'passwordReset' | 'emailVerified' | 'unknownError' | 'signUpDisabled'` - The type of message to display.
+- `fullPage` (optional): `boolean` - Whether to render the card as a full-page card. Defaults to `false`.
+
+## Example
+
+```tsx
+import { PredefinedMessageCard } from '@stackframe/stack';
+
+// Basic usage
+<PredefinedMessageCard type='signedIn' />
+
+// With optional fullPage parameter
+<PredefinedMessageCard type='signedOut' fullPage={true} />
+```
