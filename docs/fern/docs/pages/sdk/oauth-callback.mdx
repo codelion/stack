@@ -1,0 +1,30 @@
+---
+title: OAuthCallback
+---
+
+# OAuthCallback
+
+A React component that handles OAuth callback processing and redirects the user after authentication. It displays a message while processing and provides a fallback link if redirection doesn't occur automatically.
+
+## Parameters
+
+- `props`: `Object`
+  - `fullPage` (optional): `boolean` - Determines whether the message should be displayed full-page.
+
+## Example
+
+```tsx
+import { OAuthCallback } from '@stackframe/stack';
+
+// Basic usage
+function AuthCallbackPage() {
+  return <OAuthCallback />;
+}
+
+// Full-page display
+function FullPageAuthCallbackPage() {
+  return <OAuthCallback fullPage={true} />;
+}
+```
+
+The `OAuthCallback` component handles the OAuth process automatically and attempts to redirect the user. If the redirection doesn't occur within 3 seconds, it displays a clickable link to the home page.This component handles the OAuth callback process automatically. It attempts to process the callback, and if unsuccessful, it redirects the user to sign in. If there's an error, it displays an error message. After a short delay, it shows a link for manual redirection if automatic redirection fails.
