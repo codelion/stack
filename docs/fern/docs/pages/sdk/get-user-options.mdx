@@ -1,0 +1,42 @@
+---
+title: GetUserOptions
+---
+
+# GetUserOptions
+
+Defines options for getting a user, with conditional token store requirements based on the `HasTokenStore` type parameter.
+
+## Properties
+
+- `or` (optional): `'redirect' | 'throw' | 'return-null'` - Specifies the behavior when a user is not found. Defaults to `undefined`.
+- `tokenStore` (optional): `TokenStoreInit` - Configuration for the token store. Required if `HasTokenStore` is `false`.
+
+## Conditional Properties
+
+- If `HasTokenStore` is `false`, the `tokenStore` property is required.
+
+## Example
+
+```tsx
+import { GetUserOptions } from '@stackframe/stack';
+
+// Example with HasTokenStore as false
+const optionsWithTokenStore: GetUserOptions<false> = {
+  or: 'redirect',
+  tokenStore: { /* token store configuration */ }
+};
+
+// Example with HasTokenStore as true
+const optionsWithoutTokenStore: GetUserOptions<true> = {
+  or: 'throw'
+};
+```const optionsWithTokenStore: GetUserOptions<false> = {
+  or: 'redirect',
+  tokenStore: { /* token store configuration */ }
+};
+
+// Example with HasTokenStore as true
+const optionsWithoutTokenStore: GetUserOptions<true> = {
+  or: 'throw'
+};
+```
