@@ -1,0 +1,43 @@
+---
+title: SsrScript
+---
+
+# SsrScript
+
+A component that executes a provided script on the client-side, particularly useful for server-side rendering (SSR) scenarios. It runs the script after the initial render and provides an option for a nonce attribute for security purposes.
+
+## Parameters
+
+- `props`: `Object`
+  - `script`: `string` - The JavaScript code to be executed.
+  - `nonce` (optional): `string` - A cryptographic nonce to be used with the script tag for improved security.
+
+## Example
+
+```tsx
+import { SsrScript } from '@stackframe/stack';
+
+function MyComponent() {
+  const scriptContent = 'console.log("Hello from SSR script!");';
+
+  return (
+    <div>
+      <h1>My SSR Component</h1>
+      <SsrScript script={scriptContent} />
+    </div>
+  );
+}
+
+// With nonce
+function SecureComponent() {
+  const scriptContent = 'console.log("Secure SSR script");';
+  const nonce = 'random-nonce-value';
+
+  return (
+    <div>
+      <h1>Secure SSR Component</h1>
+      <SsrScript script={scriptContent} nonce={nonce} />
+    </div>
+  );
+}
+```
