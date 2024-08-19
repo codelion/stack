@@ -1,0 +1,63 @@
+---
+title: DEFAULT_THEME
+---
+
+# DEFAULT_THEME
+
+A constant object that defines the default theme settings for light and dark modes, including various color properties and a border radius.
+
+## Properties
+
+### `light`
+- `background`: `string` - Background color for light mode.
+- `foreground`: `string` - Foreground color for light mode.
+- `card`: `string` - Card background color for light mode.
+- `cardForeground`: `string` - Card foreground color for light mode.
+- `popover`: `string` - Popover background color for light mode.
+- `popoverForeground`: `string` - Popover foreground color for light mode.
+- `primary`: `string` - Primary color for light mode.
+- `primaryForeground`: `string` - Primary foreground color for light mode.
+- `secondary`: `string` - Secondary color for light mode.
+- `secondaryForeground`: `string` - Secondary foreground color for light mode.
+- `muted`: `string` - Muted color for light mode.
+- `mutedForeground`: `string` - Muted foreground color for light mode.
+- `accent`: `string` - Accent color for light mode.
+- `accentForeground`: `string` - Accent foreground color for light mode.
+- `destructive`: `string` - Destructive color for light mode.
+- `destructiveForeground`: `string` - Destructive foreground color for light mode.
+- `border`: `string` - Border color for light mode.
+- `input`: `string` - Input color for light mode.
+- `ring`: `string` - Ring color for light mode.
+
+### `dark`
+- `background`: `string` - Background color for dark mode.
+- `foreground`: `string` - Foreground color for dark mode.
+- `card`: `string` - Card background color for dark mode.
+- `cardForeground`: `string` - Card foreground color for dark mode.
+- `popover`: `string` - Popover background color for dark mode.
+- `popoverForeground`: `string` - Popover foreground color for dark mode.
+- `primary`: `string` - Primary color for dark mode.
+- `primaryForeground`: `string` - Primary foreground color for dark mode.
+- `secondary`: `string` - Secondary color for dark mode.
+- `secondaryForeground`: `string` - Secondary foreground color for dark mode.
+- `muted`: `string` - Muted color for dark mode.
+- `mutedForeground`: `string` - Muted foreground color for dark mode.
+- `accent`: `string` - Accent color for dark mode.
+- `accentForeground`: `string` - Accent foreground color for dark mode.
+- `destructive`: `string` - Destructive color for dark mode.
+- `destructiveForeground`: `string` - Destructive foreground color for dark mode.
+- `border`: `string` - Border color for dark mode.
+- `input`: `string` - Input color for dark mode.
+- `ring`: `string` - Ring color for dark mode.
+
+### `radius`
+- `radius`: `string` - Default border radius for both light and dark modes.
+
+## Example
+
+```tsx
+import { DEFAULT_THEME } from '@stackframe/stack';
+
+console.log(DEFAULT_THEME.light.background); // 'hsl(0 0% 100%)'
+console.log(DEFAULT_THEME.dark.background); // 'hsl(240 10% 3.9%)'
+```
