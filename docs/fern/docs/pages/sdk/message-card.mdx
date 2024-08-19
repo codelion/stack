@@ -1,0 +1,61 @@
+---
+title: MessageCard
+---
+
+# MessageCard
+
+A React component for displaying a message card with optional title, content, and action buttons. It can be rendered as a full page or inline component.
+
+## Parameters
+
+- `title`: `string` - The title of the message card.
+- `children` (optional): `React.ReactNode` - The content of the message card.
+- `fullPage` (optional): `boolean` - Whether to render the card as a full page. Default is `false`.
+- `primaryButtonText` (optional): `string` - Text for the primary action button.
+- `primaryAction` (optional): `() => Promise<void> | void` - Function to execute when the primary button is clicked.
+- `secondaryButtonText` (optional): `string` - Text for the secondary action button.
+- `secondaryAction` (optional): `() => Promise<void> | void` - Function to execute when the secondary button is clicked.
+
+## Example
+
+```tsx
+import { MessageCard } from '@stackframe/stack';
+
+// Basic usage
+function BasicExample() {
+  return (
+    <MessageCard title='Welcome'>
+      <p>This is a simple message card.</p>
+    </MessageCard>
+  );
+}
+
+// Full page with buttons
+function FullPageExample() {
+  const handlePrimaryAction = () => {
+    // Handle primary action
+  };
+
+  const handleSecondaryAction = () => {
+    // Handle secondary action
+  };
+
+  return (
+    <MessageCard
+      fullPage={true}
+      title='Confirmation'
+      primaryButtonText='Confirm'
+      primaryAction={handlePrimaryAction}
+      secondaryButtonText='Cancel'
+      secondaryAction={handleSecondaryAction}
+    >
+      <p>Are you sure you want to proceed?</p>
+    </MessageCard>
+  );
+}
+```    <p>Are you sure you want to proceed?</p>
+  </MessageCard>
+);
+```
+
+In this example, we demonstrate how to use the `MessageCard` component with various props, including the full-page mode and action buttons.
