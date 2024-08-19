@@ -1,0 +1,145 @@
+---
+title: StackAdminApp
+---
+
+# StackAdminApp
+
+Represents the main application class for Stack Admin. This class is used to initialize and manage the Stack Admin application.
+
+## Example
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+// Initialize the Stack Admin application
+const app = new StackAdminApp();
+
+// Use the app instance to manage the application
+app.start();
+app.stop();
+```
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+const emailTemplates = stackAdminApp.useEmailTemplates();
+```
+
+### `listEmailTemplates`
+
+Returns a promise that resolves to an array of email templates.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.listEmailTemplates().then(templates => {
+  // handle templates
+});
+```
+
+### `updateEmailTemplate`
+
+Updates an email template.
+
+- `type`: `EmailTemplateType` - The type of the email template.
+- `data`: `AdminEmailTemplateUpdateOptions` - The data to update the email template with.
+
+Returns a promise that resolves when the update is complete.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.updateEmailTemplate('welcome', { subject: 'Welcome!', body: 'Hello, welcome to our service!' }).then(() => {
+  // update complete
+});
+```
+
+### `resetEmailTemplate`
+
+Resets an email template to its default state.
+
+- `type`: `EmailTemplateType` - The type of the email template.
+
+Returns a promise that resolves when the reset is complete.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.resetEmailTemplate('welcome').then(() => {
+  // reset complete
+});
+```
+
+### `createApiKey`
+
+Creates a new API key.
+
+- `options`: `ApiKeyCreateOptions` - The options for creating the API key.
+
+Returns a promise that resolves to the newly created API key.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.createApiKey({ name: 'New API Key' }).then(apiKey => {
+  // handle new API key
+});
+```
+
+### `createTeamPermissionDefinition`
+
+Creates a new team permission definition.
+
+- `data`: `AdminTeamPermissionDefinitionCreateOptions` - The data for creating the team permission definition.
+
+Returns a promise that resolves to the newly created team permission.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.createTeamPermissionDefinition({ name: 'New Permission' }).then(permission => {
+  // handle new permission
+});
+```
+
+### `updateTeamPermissionDefinition`
+
+Updates an existing team permission definition.
+
+- `permissionId`: `string` - The ID of the permission to update.
+- `data`: `AdminTeamPermissionDefinitionUpdateOptions` - The data to update the permission with.
+
+Returns a promise that resolves when the update is complete.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.updateTeamPermissionDefinition('permissionId', { name: 'Updated Permission' }).then(() => {
+  // update complete
+});
+```
+
+### `deleteTeamPermissionDefinition`
+
+Deletes a team permission definition.
+
+- `permissionId`: `string` - The ID of the permission to delete.
+
+Returns a promise that resolves when the deletion is complete.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+stackAdminApp.deleteTeamPermissionDefinition('permissionId').then(() => {
+  // deletion complete
+});
+```
+
+### `useSvixToken`
+
+Returns a string representing the Svix token.
+
+```tsx
+import { StackAdminApp } from '@stackframe/stack';
+
+const svixToken = stackAdminApp.useSvixToken();
+```
