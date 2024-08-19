@@ -1,0 +1,65 @@
+---
+title: AuthPage
+---
+
+# AuthPage
+
+Renders an authentication page for sign-in or sign-up functionality. This component handles various authentication options and redirects based on the provided configuration.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Determines if the auth page should be rendered as a full page. Default is `false`.
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether this is a sign-in or sign-up page.
+- `automaticRedirect` (optional): `boolean` - If true, automatically redirects authenticated users.
+- `mockProject` (optional): `object` - Mocked project configuration for testing purposes.
+  - `config`: `object`
+    - `signUpEnabled`: `boolean`
+    - `credentialEnabled`: `boolean`
+    - `magicLinkEnabled`: `boolean`
+    - `oauthProviders`: `Array<{ id: string }>`
+
+## Example
+
+```tsx
+import { AuthPage } from '@stackframe/stack';
+
+// Basic usage for sign-in
+function SignInPage() {
+  return <AuthPage type='sign-in' />;
+}
+
+// Sign-up page with automatic redirect
+function SignUpPage() {
+  return (
+    <AuthPage
+      type='sign-up'
+      fullPage={true}
+      automaticRedirect={true}
+    />
+  );
+}
+
+// Using mock project for testing
+function TestAuthPage() {
+  const mockProject = {
+    config: {
+      signUpEnabled: true,
+      credentialEnabled: true,
+      magicLinkEnabled: false,
+      oauthProviders: [{ id: 'google' }]
+    }
+  };
+
+  return <AuthPage type='sign-in' mockProject={mockProject} />;
+}
+```    config: {
+      signUpEnabled: true,
+      credentialEnabled: true,
+      magicLinkEnabled: false,
+      oauthProviders: [{ id: 'google' }]
+    }
+  };
+
+  return <AuthPage type='sign-in' mockProject={mockProject} />;
+}
+```
