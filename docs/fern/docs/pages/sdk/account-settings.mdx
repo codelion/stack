@@ -1,0 +1,23 @@
+---
+title: AccountSettings
+---
+
+# AccountSettings
+
+The `AccountSettings` component renders account-related sections for a user, either as a full page or within a sidebar layout. It returns JSX content based on the provided `fullPage` parameter.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Determines if the settings should be displayed as a full page. Default is `false`.
+
+## Example
+
+```tsx
+import { AccountSettings } from '@stackframe/stack';
+
+// Render AccountSettings within a sidebar layout
+<AccountSettings />
+
+// Render AccountSettings as a full page
+<AccountSettings fullPage={true} />
+```
