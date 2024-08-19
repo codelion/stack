@@ -1,0 +1,48 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+A component that provides theming functionality for the Stack UI. It allows you to customize the theme and wrap your application with the theme provider.
+
+## Parameters
+
+- `theme` (optional): `ThemeConfig` - An object containing theme configuration options. If not provided, the default theme will be used.
+- `children` (optional): `React.ReactNode` - The child components to be wrapped by the theme provider.
+- `nonce` (optional): `string` - A unique nonce string for security purposes, used in the script and style tags.
+
+## Example
+
+```tsx
+import { StackTheme } from '@stackframe/stack';
+
+// Using default theme
+function App() {
+  return (
+    <StackTheme>
+      <YourAppContent />
+    </StackTheme>
+  );
+}
+
+// Using custom theme
+function AppWithCustomTheme() {
+  const customTheme = {
+    // Your custom theme configuration
+    light: { backgroundColor: '#ffffff' },
+    dark: { backgroundColor: '#000000' },
+  };
+
+  return (
+    <StackTheme theme={customTheme} nonce='your-nonce-string'>
+      <YourAppContent />
+    </StackTheme>
+  );
+}
+```    <StackTheme theme={customTheme} nonce={nonce}>
+      <YourAppContent />
+    </StackTheme>
+  );
+}
+```
