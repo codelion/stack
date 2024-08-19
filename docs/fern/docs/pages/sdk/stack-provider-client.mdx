@@ -1,0 +1,29 @@
+---
+title: StackProviderClient
+---
+
+# StackProviderClient
+
+The `StackProviderClient` component sets up the Stack client context for your application. It initializes the Stack client with the provided configuration and makes it available to the rest of your application via React context.
+
+## Parameters
+
+- `props`: `object` - The properties object.
+  - `appJson`: `StackClientAppJson<true, string>` - The configuration object for the Stack client.
+  - `children` (optional): `React.ReactNode` - The child components to be rendered within the provider.
+
+## Example
+
+```tsx
+import { StackProviderClient } from '@stackframe/stack';
+
+const appJson = { /* your app configuration */ };
+
+function App() {
+  return (
+    <StackProviderClient appJson={appJson}>
+      <YourComponent />
+    </StackProviderClient>
+  );
+}
+```
