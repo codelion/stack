@@ -1,0 +1,30 @@
+---
+title: UserManager
+---
+
+# UserManager
+
+The `UserManager` class is used to manage a list of users. It provides a method to add a user to the list.
+
+## Methods
+
+### `addUser`
+
+Adds a user to the list of users.
+
+#### Parameters
+
+- `user`: `User` - The user to be added.
+
+## Example
+
+```tsx
+import { UserManager } from '@stackframe/stack';
+
+const userManager = new UserManager();
+
+const user = { id: 1, name: 'John Doe' };
+
+userManager.addUser(user);
+// The user is now added to the userManager's list of users.
+```
