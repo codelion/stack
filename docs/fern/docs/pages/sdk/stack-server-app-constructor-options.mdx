@@ -1,0 +1,26 @@
+---
+title: StackServerAppConstructorOptions
+---
+
+# StackServerAppConstructorOptions
+
+Type definition for the options used to construct a StackServerApp. Extends `StackClientAppConstructorOptions` with an optional `secretServerKey` property.
+
+## Properties
+
+- `secretServerKey` (optional): `string` - A secret key for the server.
+
+## Example
+
+```tsx
+import { StackServerAppConstructorOptions } from '@stackframe/stack';
+
+const options: StackServerAppConstructorOptions<true, 'project-id'> = {
+  secretServerKey: 'my-secret-key',
+  // other properties from StackClientAppConstructorOptions
+};
+
+const optionsWithoutKey: StackServerAppConstructorOptions<false, 'another-project-id'> = {
+  // other properties from StackClientAppConstructorOptions
+};
+```
