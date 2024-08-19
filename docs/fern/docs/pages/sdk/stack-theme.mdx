@@ -1,0 +1,46 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+A component that provides theming capabilities for the application, using the provided theme configuration, and optionally includes children and a nonce value.
+
+## Parameters
+
+- `theme` (optional): `ThemeConfig` - An object that defines the theme configuration. If not provided, the default theme is used.
+- `children` (optional): `React.ReactNode` - The children components to be rendered within the theme context.
+- `nonce` (optional): `string` - A nonce string to be used for content security policy.
+
+## Example
+
+```tsx
+import { StackTheme } from '@stackframe/stack';
+
+const theme = {
+  dark: {
+    background: '#000',
+    color: '#fff'
+  },
+  light: {
+    background: '#fff',
+    color: '#000'
+  }
+};
+
+const App = () => (
+  <StackTheme theme={theme} nonce='example-nonce'>
+    <div>Hello, world!</div>
+  </StackTheme>
+);
+```
+
+```tsx
+import { StackTheme } from '@stackframe/stack';
+
+const App = () => (
+  <StackTheme>
+    <div>Hello, world without custom theme and nonce!</div>
+  </StackTheme>
+);
+```
