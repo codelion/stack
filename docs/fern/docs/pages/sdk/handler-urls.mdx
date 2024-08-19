@@ -1,0 +1,53 @@
+---
+title: HandlerUrls
+---
+
+# HandlerUrls
+
+Defines a set of URLs used for various authentication and account-related actions.
+
+## Properties
+
+- `handler`: `string` - The URL for the main handler.
+- `signIn`: `string` - The URL for the sign-in page.
+- `signUp`: `string` - The URL for the sign-up page.
+- `afterSignIn`: `string` - The URL to redirect to after signing in.
+- `afterSignUp`: `string` - The URL to redirect to after signing up.
+- `signOut`: `string` - The URL for signing out.
+- `afterSignOut`: `string` - The URL to redirect to after signing out.
+- `emailVerification`: `string` - The URL for email verification.
+- `passwordReset`: `string` - The URL for password reset.
+- `forgotPassword`: `string` - The URL for the forgot password page.
+- `home`: `string` - The URL for the home page.
+- `oauthCallback`: `string` - The URL for the OAuth callback.
+- `magicLinkCallback`: `string` - The URL for the magic link callback.
+- `accountSettings`: `string` - The URL for account settings.
+- `teamInvitation`: `string` - The URL for team invitations.
+- `teamCreation`: `string` - The URL for team creation.
+- `error`: `string` - The URL for error handling.
+
+## Example
+
+```tsx
+import { HandlerUrls } from '@stackframe/stack';
+
+const urls: HandlerUrls = {
+  handler: '/api/handler',
+  signIn: '/auth/signin',
+  signUp: '/auth/signup',
+  afterSignIn: '/dashboard',
+  afterSignUp: '/welcome',
+  signOut: '/auth/signout',
+  afterSignOut: '/goodbye',
+  emailVerification: '/auth/verify-email',
+  passwordReset: '/auth/reset-password',
+  forgotPassword: '/auth/forgot-password',
+  home: '/',
+  oauthCallback: '/auth/oauth/callback',
+  magicLinkCallback: '/auth/magic-link/callback',
+  accountSettings: '/settings/account',
+  teamInvitation: '/team/invite',
+  teamCreation: '/team/create',
+  error: '/error',
+};
+```
