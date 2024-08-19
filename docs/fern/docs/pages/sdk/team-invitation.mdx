@@ -1,0 +1,37 @@
+---
+title: TeamInvitation
+---
+
+# TeamInvitation
+
+A component that handles team invitation processes, including verification and user authentication states.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Determines if the component should be displayed in full-page mode. Default is `false`.
+- `searchParams`: `Record<string, string>` - An object containing search parameters, including the invitation code.
+
+## Example
+
+```tsx
+import { TeamInvitation } from '@stackframe/stack';
+
+function InvitationPage({ searchParams }) {
+  return (
+    <TeamInvitation
+      fullPage={true}
+      searchParams={searchParams}
+    />
+  );
+}
+
+// Using with default fullPage value
+function InvitationSection({ searchParams }) {
+  return <TeamInvitation searchParams={searchParams} />;
+}
+```
+
+This component handles various states of the team invitation process, including invalid links, expired invitations, and user authentication requirements. It uses internal Stack SDK hooks and components to manage the invitation flow.}
+```
+
+This component handles various states of the team invitation process, including invalid links, expired invitations, and user authentication. It uses internal hooks and components to manage the invitation flow and display appropriate messages or actions based on the current state.
