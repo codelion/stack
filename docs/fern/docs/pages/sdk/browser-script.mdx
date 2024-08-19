@@ -1,0 +1,24 @@
+---
+title: BrowserScript
+---
+
+# BrowserScript
+
+Renders a script tag for SSR (Server-Side Rendering) with an optional nonce attribute.
+
+## Parameters
+
+- `props`: `object` - An object containing the following properties:
+  - `nonce` (optional): `string` - A nonce attribute for the script tag. This is used for Content Security Policy (CSP).
+
+## Example
+
+```tsx
+import { BrowserScript } from '@stackframe/stack';
+
+// Without nonce
+<BrowserScript />
+
+// With nonce
+<BrowserScript nonce='random-nonce-value' />
+```
