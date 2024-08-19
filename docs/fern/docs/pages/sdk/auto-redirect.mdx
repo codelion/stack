@@ -1,0 +1,33 @@
+---
+title: autoRedirect
+---
+
+# autoRedirect
+
+Performs an automatic redirect based on the 'auto-redirect-url' query parameter in the current URL. If a valid redirect URL is provided, it removes the parameter and redirects the user to the specified URL.
+
+## Parameters
+
+This function does not take any parameters.
+
+## Example
+
+```tsx
+import { autoRedirect } from '@stackframe/stack';
+
+// Assuming the current URL is:
+// https://example.com?auto-redirect-url=https://example.com/dashboard
+
+// Call the function to perform the redirect
+autoRedirect();
+
+// The user will be redirected to:
+// https://example.com/dashboard
+```
+
+Note: The function will throw an error if the redirect URL is not from the same origin as the current page.// If the auto-redirect-url is valid and same-origin,
+// the user will be redirected to:
+// https://example.com/dashboard
+```
+
+Note: This function will throw an error if the redirect URL is not from the same origin as the current page.
