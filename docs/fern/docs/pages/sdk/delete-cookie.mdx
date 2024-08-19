@@ -1,0 +1,25 @@
+---
+title: deleteCookie
+---
+
+# deleteCookie
+
+Deletes a cookie with the specified name. This function attempts to delete the cookie using server-side methods first, and falls back to client-side deletion if necessary.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to delete.
+
+## Example
+
+```tsx
+import { deleteCookie } from '@stackframe/stack';
+
+// Delete a cookie named 'session'
+deleteCookie('session');
+
+// Delete another cookie named 'preferences'
+deleteCookie('preferences');
+```
+
+Note: This function handles both server-side and client-side cookie deletion automatically.
