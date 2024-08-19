@@ -1,0 +1,28 @@
+---
+title: setOrDeleteCookie
+---
+
+# setOrDeleteCookie
+
+Sets a cookie with the specified name and value, or deletes the cookie if the value is `null`.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie.
+- `value`: `string | null` - The value of the cookie. If `null`, the cookie will be deleted.
+- `options` (optional): `SetCookieOptions` - An object containing various cookie settings. If not provided, default settings are used.
+
+## Example
+
+```tsx
+import { setOrDeleteCookie } from '@stackframe/stack';
+
+// Setting a cookie
+setOrDeleteCookie('userToken', 'abc123');
+
+// Setting a cookie with additional options
+setOrDeleteCookie('userToken', 'abc123', { path: '/', maxAge: 3600 });
+
+// Deleting a cookie
+setOrDeleteCookie('userToken', null);
+```
