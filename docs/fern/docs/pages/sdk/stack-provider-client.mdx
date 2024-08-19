@@ -1,0 +1,25 @@
+---
+title: StackProviderClient
+---
+
+# StackProviderClient
+
+The `StackProviderClient` function is a React component that provides the `StackContext` to its child components. It configures the stack authentication globally using the provided `appJson`.
+
+## Parameters
+
+- `props`: An object containing the following properties:
+  - `appJson`: `StackClientAppJson<true, string>` - The application JSON configuration for the stack client.
+  - `children` (optional): `React.ReactNode` - The child components to render within the `StackContext.Provider`.
+
+## Example
+
+```tsx
+import { StackProviderClient } from '@stackframe/stack';
+
+const appJson = {/* your app JSON configuration */};
+
+<StackProviderClient appJson={appJson}>
+  <YourComponent />
+</StackProviderClient>
+```
