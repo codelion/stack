@@ -1,0 +1,35 @@
+---
+title: UserAvatar
+---
+
+# UserAvatar
+
+Renders a user avatar component with optional user information and size. Displays a fallback icon if no user information is provided.
+
+## Parameters
+
+- `props`: `object` - The properties object.
+  - `size` (optional): `number` - The size of the avatar.
+  - `user` (optional): `object | null` - The user information.
+    - `profileImageUrl` (optional): `string | null` - The URL of the user's profile image.
+    - `displayName` (optional): `string | null` - The display name of the user.
+    - `primaryEmail` (optional): `string | null` - The primary email of the user.
+
+## Example
+
+```tsx
+import { UserAvatar } from '@stackframe/stack';
+
+// With user information
+<UserAvatar
+  size={50}
+  user={{
+    profileImageUrl: 'https://example.com/image.jpg',
+    displayName: 'John Doe',
+    primaryEmail: 'john.doe@example.com'
+  }}
+/>
+
+// Without user information
+<UserAvatar size={50} />
+```
