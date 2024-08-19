@@ -1,0 +1,36 @@
+---
+title: callOAuthCallback
+---
+
+# callOAuthCallback
+
+Handles the OAuth callback process by verifying the callback URL parameters and calling the OAuth callback on the provided interface.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - The interface to call the OAuth callback on.
+- `redirectUrl`: `string` - The URL to redirect to after the OAuth callback is processed.
+
+## Example
+
+```tsx
+import { callOAuthCallback } from '@stackframe/stack';
+
+const iface = getStackClientInterface();
+const redirectUrl = 'https://example.com/callback';
+
+async function handleOAuthCallback() {
+  try {
+    const result = await callOAuthCallback(iface, redirectUrl);
+    if (result) {
+      // Handle successful OAuth callback
+    } else {
+      // Handle null result
+    }
+  } catch (error) {
+    // Handle error
+  }
+}
+
+handleOAuthCallback();
+```
