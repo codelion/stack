@@ -1,0 +1,35 @@
+---
+title: SidebarLayout
+---
+
+# SidebarLayout
+
+A responsive layout component that renders different layouts for desktop and mobile views. It displays a sidebar with items and an optional title.
+
+## Parameters
+
+- `props`: Object
+  - `items`: `Item[]` - An array of items to be displayed in the sidebar.
+  - `title` (optional): `ReactNode` - The title to be displayed at the top of the sidebar.
+
+## Example
+
+```tsx
+import { SidebarLayout } from '@stackframe/stack';
+
+const items = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' }
+];
+
+// Without title
+const SidebarWithoutTitle = () => (
+  <SidebarLayout items={items} />
+);
+
+// With title
+const SidebarWithTitle = () => (
+  <SidebarLayout items={items} title="My App" />
+);
+```
