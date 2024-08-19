@@ -1,0 +1,42 @@
+---
+title: UserSetter
+---
+
+# UserSetter
+
+A component that sets the current user in the Stack application context. It takes a promise that resolves to the user data and updates the app's internal state.
+
+## Parameters
+
+- `props`: An object containing:
+  - `userJsonPromise`: `Promise<CurrentUserCrud['Client']['Read'] | null>` - A promise that resolves to the current user data or null.
+
+## Returns
+
+This component returns `null` and doesn't render anything visible.
+
+## Example
+
+```tsx
+import { UserSetter } from '@stackframe/stack';
+
+function App() {
+  const userPromise = fetchUserData(); // Function that returns a promise with user data
+
+  return (
+    <>
+      <UserSetter userJsonPromise={userPromise} />
+      {/* Other components */}
+    </>
+  );
+}
+```  const userPromise = fetchUserData(); // Assume this function returns a Promise<CurrentUserCrud['Client']['Read'] | null>
+
+  return (
+    <div>
+      <UserSetter userJsonPromise={userPromise} />
+      {/* Other app components */}
+    </div>
+  );
+}
+```
