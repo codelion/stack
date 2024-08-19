@@ -1,0 +1,38 @@
+---
+title: SidebarNavItem
+---
+
+# SidebarNavItem
+
+A component for rendering a navigation item in a sidebar. It displays a button with an optional icon and a title, and can be styled based on its selected state.
+
+## Parameters
+
+- `props`: An object containing:
+  - `item`: `Item` - An object representing the navigation item, with properties:
+    - `icon` (optional): A React component for the item's icon.
+    - `title`: `string` - The text to display for the item.
+  - `selected`: `boolean` - Indicates whether the item is currently selected.
+  - `onClick`: `() => void` - A function to be called when the item is clicked.
+
+## Example
+
+```tsx
+import { SidebarNavItem } from '@stackframe/stack';
+import { HomeIcon } from 'some-icon-library';
+
+const item = {
+  icon: HomeIcon,
+  title: 'Home'
+};
+
+const handleClick = () => {
+  // Handle click event
+};
+
+<SidebarNavItem
+  item={item}
+  selected={false}
+  onClick={handleClick}
+/>
+```
