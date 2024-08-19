@@ -1,0 +1,32 @@
+---
+title: PredefinedMessageCard
+---
+
+# PredefinedMessageCard
+
+Renders a message card with predefined content based on the specified type. The component handles various authentication and user flow scenarios.
+
+## Parameters
+
+- `type`: `'signedIn' | 'signedOut' | 'emailSent' | 'passwordReset' | 'emailVerified' | 'unknownError' | 'signUpDisabled'` - Determines the content and actions of the message card.
+- `fullPage` (optional): `boolean` - Whether to display the message card in full-page mode. Default is `false`.
+
+## Example
+
+```tsx
+import { PredefinedMessageCard } from '@stackframe/stack';
+
+// Basic usage
+<PredefinedMessageCard type='signedIn' />
+
+// Full-page mode
+<PredefinedMessageCard type='emailSent' fullPage={true} />
+
+// Different scenarios
+<PredefinedMessageCard type='passwordReset' />
+<PredefinedMessageCard type='unknownError' />
+```
+
+The component will render a `MessageCard` with appropriate title, message, and action buttons based on the provided `type`.```
+
+The component automatically handles different scenarios and provides appropriate messages, buttons, and actions based on the `type` prop.
