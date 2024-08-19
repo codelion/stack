@@ -1,0 +1,45 @@
+---
+title: StackClientApp
+---
+
+# StackClientApp
+
+A type representing a client application within the Stack framework. The `StackClientApp` type includes properties for project identification and URLs, and methods for user authentication.
+
+## Properties
+
+- `projectId`: `string` - The identifier for the project.
+- `urls`: `Readonly<HandlerUrls>` - An object containing read-only URLs for various handlers.
+
+## Methods
+
+### `signInWithOAuth(provider?: string): Promise<void>`
+
+Signs in a user using an OAuth provider. Returns a promise that resolves when the sign-in is complete.
+
+#### Parameters
+
+- `provider` (optional): `string` - The OAuth provider to use for sign-in. If not provided, a default provider is used.
+
+## Example
+
+```tsx
+import { StackClientApp } from '@stackframe/stack';
+
+const app: StackClientApp<true, 'project-id'> = {
+  projectId: 'project-id',
+  urls: {
+    signIn: 'https://example.com/signin',
+    signOut: 'https://example.com/signout'
+  },
+  signInWithOAuth: async (provider) => {
+    // Sign-in logic
+  }
+};
+
+// Using the signInWithOAuth method with a provider
+await app.signInWithOAuth('google');
+
+// Using the signInWithOAuth method without a provider
+await app.signInWithOAuth();
+```
