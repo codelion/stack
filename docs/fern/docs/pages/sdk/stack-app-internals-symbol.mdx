@@ -1,0 +1,18 @@
+---
+title: stackAppInternalsSymbol
+---
+
+# stackAppInternalsSymbol
+
+A unique symbol used internally by the StackApp to reference internal properties and methods.
+
+## Example
+
+```tsx
+import { stackAppInternalsSymbol } from '@stackframe/stack';
+
+// Using stackAppInternalsSymbol to define a unique property on an object
+const myObject = {
+  [stackAppInternalsSymbol]: 'internalValue'
+};
+```
