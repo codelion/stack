@@ -1,0 +1,35 @@
+---
+title: OAuthButtonGroup
+---
+
+# OAuthButtonGroup
+
+Renders a group of OAuth buttons for signing in or signing up, based on the provided type. The buttons are generated from the OAuth providers configured in the project.
+
+## Parameters
+
+- `type`: `'sign-in' | 'sign-up'` - Specifies whether the buttons are for signing in or signing up.
+- `mockProject` (optional): `object` - A mock project configuration. If provided, it overrides the default project configuration.
+  - `mockProject.config.oauthProviders`: `object[]` - An array of OAuth provider configurations.
+    - `mockProject.config.oauthProviders[].id`: `string` - The ID of the OAuth provider.
+
+## Example
+
+```tsx
+import { OAuthButtonGroup } from '@stackframe/stack';
+
+// Example with default project configuration
+<OAuthButtonGroup type='sign-in' />
+
+// Example with mock project configuration
+const mockProject = {
+  config: {
+    oauthProviders: [
+      { id: 'google' },
+      { id: 'facebook' }
+    ]
+  }
+};
+
+<OAuthButtonGroup type='sign-up' mockProject={mockProject} />
+```
