@@ -1,0 +1,41 @@
+---
+title: addNewOAuthProviderOrScope
+---
+
+# addNewOAuthProviderOrScope
+
+Initiates the OAuth flow to add a new provider or scope for the current user. This function redirects the user to the OAuth provider's authorization page and does not return.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - The Stack client interface.
+- `options`: `object` - Configuration options for the OAuth flow:
+  - `provider`: `string` - The name of the OAuth provider.
+  - `redirectUrl`: `string` - The URL to redirect to after successful authorization.
+  - `errorRedirectUrl`: `string` - The URL to redirect to if an error occurs.
+  - `providerScope` (optional): `string` - Additional scopes to request from the provider.
+- `session`: `InternalSession` - The current user's session.
+
+## Example
+
+```tsx
+import { addNewOAuthProviderOrScope } from '@stackframe/stack';
+
+const stackClient = // ... initialize StackClientInterface
+const session = // ... obtain InternalSession
+
+// Adding a new OAuth provider
+await addNewOAuthProviderOrScope(stackClient, {
+  provider: 'github',
+  redirectUrl: 'https://example.com/oauth/callback',
+  errorRedirectUrl: 'https://example.com/oauth/error',
+}, session);
+
+// Adding a new OAuth provider with additional scope
+await addNewOAuthProviderOrScope(stackClient, {
+  provider: 'google',
+  redirectUrl: 'https://example.com/oauth/callback',
+  errorRedirectUrl: 'https://example.com/oauth/error',
+  providerScope: 'https://www.googleapis.com/auth/drive.readonly',
+}, session);
+```
