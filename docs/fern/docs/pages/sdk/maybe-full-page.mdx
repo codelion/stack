@@ -1,0 +1,30 @@
+---
+title: MaybeFullPage
+---
+
+# MaybeFullPage
+
+A component that optionally renders its children within a full-page container. If `fullPage` is true, the children are wrapped in a container that adjusts its height to fill the viewport.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The content to be rendered inside the component.
+- `fullPage` (optional): `boolean` - A flag to determine if the content should be rendered in a full-page container. Defaults to `true`.
+
+## Example
+
+```tsx
+import { MaybeFullPage } from '@stackframe/stack';
+
+const App = () => (
+  <MaybeFullPage fullPage={true}>
+    <div>Your content here</div>
+  </MaybeFullPage>
+);
+
+const AppWithoutFullPage = () => (
+  <MaybeFullPage fullPage={false}>
+    <div>Your content here</div>
+  </MaybeFullPage>
+);
+```
