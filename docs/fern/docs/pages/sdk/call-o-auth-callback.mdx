@@ -1,0 +1,39 @@
+---
+title: callOAuthCallback
+---
+
+# callOAuthCallback
+
+Handles the OAuth callback process after user authentication. This function processes the redirect URL, verifies the OAuth state, and completes the authentication flow.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - The Stack client interface used to make the OAuth callback.
+- `redirectUrl`: `string` - The URL to which the OAuth provider redirected after authentication.
+
+## Returns
+
+Returns a Promise that resolves with the result of the OAuth callback, or `null` if the callback couldn't be processed.
+
+## Example
+
+```tsx
+import { callOAuthCallback, StackClient } from '@stackframe/stack';
+
+const stackClient = new StackClient({ /* client config */ });
+
+async function handleOAuthRedirect(redirectUrl: string) {
+  try {
+    const result = await callOAuthCallback(stackClient, redirectUrl);
+    if (result) {
+      console.log('OAuth callback successful', result);
+    } else {
+      console.log('OAuth callback could not be processed');
+    }
+  } catch (error) {
+    console.error('Error during OAuth callback', error);
+  }
+}
+```
+
+Note: This function handles potential errors during the OAuth process and may throw exceptions for invalid parameters or authentication errors.
