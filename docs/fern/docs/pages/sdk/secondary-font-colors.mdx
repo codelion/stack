@@ -1,0 +1,31 @@
+---
+title: SECONDARY_FONT_COLORS
+---
+
+# SECONDARY_FONT_COLORS
+
+Provides a constant object with secondary font colors for different themes.
+
+## Properties
+
+- `dark`: `'#a8a8a8'` - The secondary font color for dark themes.
+- `light`: `'#737373'` - The secondary font color for light themes.
+
+## Example
+
+```tsx
+import { SECONDARY_FONT_COLORS } from '@stackframe/stack';
+
+const darkThemeColor = SECONDARY_FONT_COLORS.dark; // '#a8a8a8'
+const lightThemeColor = SECONDARY_FONT_COLORS.light; // '#737373'
+
+// Usage in stylesheet
+const styles = {
+  darkText: {
+    color: SECONDARY_FONT_COLORS.dark,
+  },
+  lightText: {
+    color: SECONDARY_FONT_COLORS.light,
+  },
+};
+```
