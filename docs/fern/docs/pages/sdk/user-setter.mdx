@@ -1,0 +1,22 @@
+---
+title: UserSetter
+---
+
+# UserSetter
+
+Sets the current user based on a promise that resolves to a user object. Returns `null` as it is a functional component that performs a side effect.
+
+## Parameters
+
+- `props`: `Object`
+  - `userJsonPromise`: `Promise<CurrentUserCrud['Client']['Read'] | null>` - A promise that resolves to a user object or `null`.
+
+## Example
+
+```tsx
+import { UserSetter } from '@stackframe/stack';
+
+const userPromise = fetchUser(); // Assume fetchUser returns a promise resolving to a user object or null
+
+<UserSetter userJsonPromise={userPromise} />
+```
