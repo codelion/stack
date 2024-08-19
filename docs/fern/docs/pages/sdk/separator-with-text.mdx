@@ -1,0 +1,32 @@
+---
+title: SeparatorWithText
+---
+
+# SeparatorWithText
+
+A React component that renders a separator with text in the middle. It displays a horizontal line with centered text, creating a visually appealing divider for content sections.
+
+## Parameters
+
+- `text`: `string` - The text to display in the center of the separator.
+
+## Example
+
+```tsx
+import { SeparatorWithText } from '@stackframe/stack';
+
+function MyComponent() {
+  return (
+    <div>
+      <p>Content above the separator</p>
+      <SeparatorWithText text='Section Divider' />
+      <p>Content below the separator</p>
+    </div>
+  );
+}
+```
+
+This component uses internal Separator and styling classes to create the visual effect. The text is centered between two horizontal lines.}
+```
+
+This will render a separator with the text 'Or' in the center, and horizontal lines on both sides.
