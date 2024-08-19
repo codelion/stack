@@ -1,0 +1,38 @@
+---
+title: MaybeFullPage
+---
+
+# MaybeFullPage
+
+A React component that conditionally renders its children as a full-page layout or as-is. When rendered as a full page, it adjusts the minimum height to fill the viewport.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The content to be rendered inside the component.
+- `fullPage` (optional): `boolean` - Determines whether to render the content as a full page. Defaults to `true`.
+
+## Example
+
+```tsx
+import { MaybeFullPage } from '@stackframe/stack';
+
+// Full page rendering (default)
+function FullPageExample() {
+  return (
+    <MaybeFullPage>
+      <h1>Full Page Content</h1>
+      <p>This content will be rendered in a full-page layout.</p>
+    </MaybeFullPage>
+  );
+}
+
+// Non-full page rendering
+function NonFullPageExample() {
+  return (
+    <MaybeFullPage fullPage={false}>
+      <h1>Regular Content</h1>
+      <p>This content will be rendered as-is, without full-page layout.</p>
+    </MaybeFullPage>
+  );
+}
+```
