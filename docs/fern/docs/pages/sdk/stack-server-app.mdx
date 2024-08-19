@@ -1,0 +1,85 @@
+---
+title: StackServerApp
+---
+
+# StackServerApp
+
+Represents the main application class for the Stack server. This class is used to initialize and configure the server application.
+
+## Example
+
+```tsx
+import { StackServerApp } from '@stackframe/stack';
+
+// Initialize the server application
+const app = new StackServerApp();
+
+// Configure the server application
+app.configure({
+  port: 3000,
+  middleware: [],
+  routes: []
+});
+
+// Start the server
+app.start();
+```
+
+> **Deprecated**: Use `getUser()` instead.
+
+Retrieves the current server user.
+
+- **Returns**: `Promise<ProjectCurrentServerUser<ProjectId> | null>` - A promise that resolves to the current server user or null.
+
+### `createUser`
+
+Creates a new user.
+
+- **Parameters**: 
+  - `options`: `ServerUserCreateOptions` - Options for creating the user.
+- **Returns**: `Promise<ServerUser>` - A promise that resolves to the created user.
+
+### `useUser`
+
+Retrieves the current user based on the provided options.
+
+- **Parameters**: 
+  - `options` (optional): `GetUserOptions<HasTokenStore> & { or: 'redirect' | 'throw' }` - Options for retrieving the user.
+- **Returns**: `ProjectCurrentServerUser<ProjectId> | null` - The current user or null.
+
+### `getUser`
+
+Retrieves the current user based on the provided options.
+
+- **Parameters**: 
+  - `options` (optional): `GetUserOptions<HasTokenStore> & { or: 'redirect' | 'throw' }` - Options for retrieving the user.
+- **Returns**: `Promise<ProjectCurrentServerUser<ProjectId> | null>` - A promise that resolves to the current user or null.
+
+## Example
+
+```tsx
+import { StackServerApp } from '@stackframe/stack';
+
+const app: StackServerApp<true, 'project-id'> = {
+  // Implementation details
+};
+
+// Creating a team
+app.createTeam({ name: 'New Team' }).then(team => {
+  console.log('Created team:', team);
+});
+
+// Creating a user
+app.createUser({ username: 'newuser', password: 'password' }).then(user => {
+  console.log('Created user:', user);
+});
+
+// Using getUser with redirect option
+app.getUser({ or: 'redirect' }).then(user => {
+  console.log('Current user:', user);
+});
+
+// Using useUser with throw option
+const currentUser = app.useUser({ or: 'throw' });
+console.log('Current user:', currentUser);
+```
