@@ -1,0 +1,27 @@
+---
+title: OAuthScopesOnSignIn
+---
+
+# OAuthScopesOnSignIn
+
+Defines the OAuth scopes required for each provider type during sign-in. This type maps each `ProviderType` to an array of strings representing the required scopes.
+
+## Properties
+
+- `[key in ProviderType]`: `string[]` - A mapping of each provider type to an array of OAuth scopes required for sign-in.
+
+## Example
+
+```tsx
+import { OAuthScopesOnSignIn } from '@stackframe/stack';
+import { ProviderType } from '@stackframe/stack';
+
+const scopes: OAuthScopesOnSignIn = {
+  [ProviderType.Google]: ['profile', 'email'],
+  [ProviderType.Facebook]: ['public_profile', 'email'],
+};
+
+// Accessing scopes for Google
+const googleScopes = scopes[ProviderType.Google];
+// googleScopes is ['profile', 'email']
+```
