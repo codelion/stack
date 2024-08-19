@@ -1,0 +1,26 @@
+---
+title: setCookie
+---
+
+#setCookie
+
+Sets a cookie with the specified name and value, with optional settings for cookie attributes.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie.
+- `value`: `string` - The value to be stored in the cookie.
+- `options` (optional): `SetCookieOptions` - An object with optional settings for the cookie.
+  - `maxAge`: `number` - Specifies the maximum age of the cookie in seconds. If not provided, the cookie will be a session cookie.
+
+## Example
+
+```tsx
+import { setCookie } from '@stackframe/stack';
+
+// Setting a cookie with name and value only
+setCookie('username', 'john_doe');
+
+// Setting a cookie with additional options
+setCookie('username', 'john_doe', { maxAge: 3600 });
+```
