@@ -1,0 +1,37 @@
+---
+title: TeamCreation
+---
+
+# TeamCreation
+
+Renders a form for creating a new team. This component handles the team creation process, including form validation and submission.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Determines whether the component should be rendered in full-page mode.
+
+## Example
+
+```tsx
+import { TeamCreation } from '@stackframe/stack';
+
+// Render TeamCreation component
+function App() {
+  return (
+    <TeamCreation />
+  );
+}
+
+// Render TeamCreation component in full-page mode
+function FullPageApp() {
+  return (
+    <TeamCreation fullPage={true} />
+  );
+}
+```
+
+The `TeamCreation` component will render a form with a display name input field and a submit button. It handles form validation, submission, and redirects to the team settings page upon successful team creation.- `useRouter` for navigation
+
+It also checks if team creation is enabled in the project configuration. If not, it displays a message card instead of the form.
+
+When the form is submitted, it creates a new team with the provided display name and redirects the user to the team settings page.
