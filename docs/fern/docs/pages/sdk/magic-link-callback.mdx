@@ -1,0 +1,25 @@
+---
+title: MagicLinkCallback
+---
+
+# MagicLinkCallback
+
+Handles the callback for a magic link sign-in process. Returns various message cards depending on the state of the magic link (valid, invalid, expired, or already used).
+
+## Parameters
+
+- `searchParams` (optional): `Record<string, string>` - An object containing the search parameters. The `code` parameter is expected to contain the magic link code. Defaults to an empty object.
+  - `code` (optional): `string` - The magic link code. Defaults to an empty string.
+- `fullPage` (optional): `boolean` - A boolean indicating whether to display the message in full page mode. Defaults to `false`.
+
+## Example
+
+```tsx
+import { MagicLinkCallback } from '@stackframe/stack';
+
+// With default parameters
+<MagicLinkCallback />
+
+// With provided searchParams and fullPage
+<MagicLinkCallback searchParams={{ code: 'ABC123' }} fullPage={true} />
+```
