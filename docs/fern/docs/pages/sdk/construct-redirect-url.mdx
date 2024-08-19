@@ -1,0 +1,33 @@
+---
+title: constructRedirectUrl
+---
+
+# constructRedirectUrl
+
+Constructs a redirect URL, optionally based on a provided URL, while retaining specific query parameters from the current URL. Returns a string representing the constructed redirect URL.
+
+## Parameters
+
+- `redirectUrl` (optional): `URL | string | undefined` - The base URL for redirection. If not provided, the current URL is used.
+
+## Example
+
+```tsx
+import { constructRedirectUrl } from '@stackframe/stack';
+
+// Assuming current URL is 'https://example.com?after_auth_return_to=dashboard'
+
+// Using the current URL
+const redirectUrl1 = constructRedirectUrl();
+// redirectUrl1 is 'https://example.com?after_auth_return_to=dashboard'
+
+// Using a provided URL
+const redirectUrl2 = constructRedirectUrl('https://newexample.com/login');
+// redirectUrl2 is 'https://newexample.com/login?after_auth_return_to=dashboard'
+
+// Using a relative URL
+const redirectUrl3 = constructRedirectUrl('/home');
+// redirectUrl3 is 'https://example.com/home?after_auth_return_to=dashboard'
+```const url3 = constructRedirectUrl('/new-path');
+// url3 is 'https://example.com/new-path?after_auth_return_to=dashboard'
+```
