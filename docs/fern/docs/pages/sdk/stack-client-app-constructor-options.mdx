@@ -1,0 +1,39 @@
+---
+title: StackClientAppConstructorOptions
+---
+
+# StackClientAppConstructorOptions
+
+Options for constructing a StackClientApp instance. This type allows you to configure various aspects of the StackClientApp.
+
+## Properties
+
+- `baseUrl` (optional): `string` - The base URL for the Stack API.
+- `projectId`: `ProjectId` - The project ID for the Stack project.
+- `publishableClientKey` (optional): `string` - The publishable client key for the Stack project.
+- `urls` (optional): `Partial<HandlerUrls>` - Custom handler URLs for the Stack client.
+- `oauthScopesOnSignIn` (optional): `Partial<OAuthScopesOnSignIn>` - OAuth scopes to request on sign-in.
+- `tokenStore`: `TokenStoreInit<HasTokenStore>` - Initialization options for the token store.
+- `noAutomaticPrefetch` (optional): `boolean` - If set to true, disables automatic prefetching of data from Stack's server when the app is first constructed. Default is false.
+
+## Example
+
+```tsx
+import { StackClientAppConstructorOptions } from '@stackframe/stack';
+
+const options: StackClientAppConstructorOptions<true, 'my-project-id'> = {
+  baseUrl: 'https://api.stack.com',
+  projectId: 'my-project-id',
+  publishableClientKey: 'my-publishable-key',
+  urls: { handlerUrl: 'https://custom-handler.com' },
+  oauthScopesOnSignIn: { scope: 'read' },
+  tokenStore: { storeType: 'localStorage' },
+  noAutomaticPrefetch: true
+};
+
+// Usage without optional parameters
+const simpleOptions: StackClientAppConstructorOptions<false, 'another-project-id'> = {
+  projectId: 'another-project-id',
+  tokenStore: { storeType: 'sessionStorage' }
+};
+```
