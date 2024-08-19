@@ -1,0 +1,39 @@
+---
+title: AccountSettings
+---
+
+# AccountSettings
+
+Renders an account settings component with different sections such as profile, security, and general settings. The component can be displayed as a full page or embedded within another layout.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Determines whether to render the component as a full page. Defaults to `false`.
+
+## Returns
+
+Returns a React component that displays the account settings UI.
+
+## Example
+
+```tsx
+import { AccountSettings } from '@stackframe/stack';
+
+// Render as an embedded component
+function MyComponent() {
+  return (
+    <div>
+      <h1>My App</h1>
+      <AccountSettings />
+    </div>
+  );
+}
+
+// Render as a full page
+function FullPageSettings() {
+  return <AccountSettings fullPage={true} />;
+}
+```
+
+This component uses the `useUser` hook internally to ensure the user is authenticated, redirecting if not. It displays various sections including profile, security settings, and a sign-out option within a sidebar layout.
+This component uses the `useUser` hook internally to ensure the user is authenticated, redirecting if not. It displays sections for profile, security (including email verification, password, and MFA), and general settings using a `SidebarLayout`.
