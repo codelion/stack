@@ -1,0 +1,30 @@
+---
+title: LINE_HEIGHTS
+---
+
+# LINE_HEIGHTS
+
+A constant object containing predefined line height values for different size variants. These values can be used for consistent line spacing across your application.
+
+## Properties
+
+- `xs`: `'1rem'` - Extra small line height
+- `sm`: `'1.25rem'` - Small line height
+- `md`: `'1.5rem'` - Medium line height
+- `lg`: `'1.75rem'` - Large line height
+- `xl`: `'2rem'` - Extra large line height
+
+## Example
+
+```tsx
+import { LINE_HEIGHTS } from '@stackframe/stack';
+
+const styles = {
+  smallText: {
+    lineHeight: LINE_HEIGHTS.sm
+  },
+  largeText: {
+    lineHeight: LINE_HEIGHTS.lg
+  }
+};
+```
