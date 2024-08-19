@@ -1,0 +1,20 @@
+---
+title: deleteCookie
+---
+
+# deleteCookie
+
+Deletes a cookie by its name. It first attempts to delete the cookie using `rscCookies`. If that fails due to the cookie being unavailable, it falls back to using `Cookies.remove`.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to be deleted.
+
+## Example
+
+```tsx
+import { deleteCookie } from '@stackframe/stack';
+
+// Deleting a cookie by name
+deleteCookie('session');
+```
