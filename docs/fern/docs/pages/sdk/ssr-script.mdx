@@ -1,0 +1,32 @@
+---
+title: SsrScript
+---
+
+# SsrScript
+
+`SsrScript` is a React functional component for safely running a script during Server-Side Rendering (SSR) and Client-Side Rendering (CSR).
+
+## Parameters
+
+- `props`: `{ script: string, nonce?: string }`
+  - `script`: `string` - The script to be executed.
+  - `nonce` (optional): `string` - A nonce attribute for the script tag to support Content Security Policy (CSP).
+
+## Example
+
+```tsx
+import { SsrScript } from '@stackframe/stack';
+
+function App() {
+  const script = `console.log('Hello, world!');`;
+
+  return (
+    <div>
+      <h1>Hello, Stack!</h1>
+      <SsrScript script={script} />
+    </div>
+  );
+}
+```
+
+In the above example, the script logs 'Hello, world!' to the console when the component is rendered.
