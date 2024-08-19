@@ -1,0 +1,33 @@
+---
+title: SidebarNavItem
+---
+
+# SidebarNavItem
+
+A button component representing an item in a sidebar navigation. Renders an icon and title. Adjusts style based on selection status.
+
+## Parameters
+
+- `props`: `{
+  item: Item; // The item to display. Should have 'icon' and 'title' properties.
+  selected: boolean; // Indicates if the item is currently selected.
+  onClick: () => void; // Function to call when the item is clicked.
+}`
+
+## Example
+
+```tsx
+import { SidebarNavItem } from '@stackframe/stack';
+
+const item = { item: { icon: IconComponent, title: 'Dashboard' }, selected: true, onClick: () => console.log('Clicked') };
+
+<SidebarNavItem
+  {...item}
+/>;
+
+const anotherItem = { item: { icon: AnotherIcon, title: 'Settings' }, selected: false, onClick: () => console.log('Clicked Settings') };
+
+<SidebarNavItem
+  {...anotherItem}
+/>;
+```
