@@ -1,0 +1,42 @@
+---
+title: StackContext
+---
+
+# StackContext
+
+A React context that provides access to the Stack client app instance throughout your application.
+
+## Properties
+
+- `app`: `StackClientApp<true>` - The Stack client app instance.
+
+## Example
+
+```tsx
+import { StackContext } from '@stackframe/stack';
+import { useContext } from 'react';
+
+function MyComponent() {
+  const stackContext = useContext(StackContext);
+  
+  if (stackContext) {
+    // Access the Stack client app
+    const app = stackContext.app;
+    // Use the app instance...
+  }
+  
+  return (
+    // Your component JSX
+  );
+}
+```function MyComponent() {
+  const context = useContext(StackContext);
+  
+  if (!context) {
+    return <div>Loading...</div>;
+  }
+  
+  // Now you can use context.app to access the StackClientApp instance
+  return <div>App is ready!</div>;
+}
+```
