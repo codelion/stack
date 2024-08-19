@@ -1,0 +1,32 @@
+---
+title: UserButton
+---
+
+# UserButton
+
+A React component that renders a user button with loading state handling. It displays a skeleton while loading and the actual user button content when data is available.
+
+## Parameters
+
+- `props`: `UserButtonProps` - An object containing properties for the UserButton component.
+
+## Example
+
+```tsx
+import { UserButton } from '@stackframe/stack';
+
+function MyComponent() {
+  return (
+    <div>
+      <h1>Welcome to My App</h1>
+      <UserButton />
+    </div>
+  );
+}
+```
+
+The `UserButton` component handles its own loading state, so you don't need to manage it externally. Simply render the component where you want the user button to appear.```
+
+The `UserButton` component handles its own loading state, so you don't need to manage it externally. Simply render the component where you want the user button to appear.```
+
+The `UserButton` component will automatically handle loading states and render the appropriate content based on the user's authentication status.
