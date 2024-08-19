@@ -1,0 +1,18 @@
+---
+title: autoRedirect
+---
+
+# autoRedirect
+
+Automatically redirects the user to a specified URL if the `auto-redirect-url` parameter is present in the current URL's query string. Ensures the redirect URL is of the same origin as the current page.
+
+## Example
+
+```tsx
+import { autoRedirect } from '@stackframe/stack';
+
+// Assuming the current URL is 'https://example.com?auto-redirect-url=https://example.com/redirect'
+
+// This will automatically redirect the user to 'https://example.com/redirect'
+autoRedirect();
+```
