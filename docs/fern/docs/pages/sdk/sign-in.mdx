@@ -1,14 +1,38 @@
 ---
-slug: sdk/sign-in
+title: SignIn
 ---
 
-The `SignIn` component is a pre-built UI element that displays all available sign-in methods as configured in the Stack dashboard.
+# SignIn
 
-<Note>
-  This component does not redirect a signed-in user. To achieve automatic redirection for signed-in users, you can use the `useUser` hook to check the user's sign-in status and perform the redirection if necessary.
-</Note>
+A React component that renders a sign-in page. It can be displayed as a full page or embedded within another component.
 
-![Sign In Component](../imgs/sign-in.png)
+## Parameters
 
-## Props
-- `fullPage` (boolean): Determines whether the component should occupy the full page. Default is `false`.
+- `fullPage` (optional): `boolean` - Determines whether the sign-in page should be rendered as a full page. Default value is `false`.
+
+## Returns
+
+Returns a React component that displays a sign-in page.
+
+## Example
+
+```tsx
+import { SignIn } from '@stackframe/stack';
+
+// Render as an embedded component
+function App() {
+  return (
+    <div>
+      <h1>Welcome to our app</h1>
+      <SignIn />
+    </div>
+  );
+}
+
+// Render as a full page
+function FullPageSignIn() {
+  return <SignIn fullPage={true} />;
+}
+```  return <SignIn fullPage={true} />;
+}
+```
