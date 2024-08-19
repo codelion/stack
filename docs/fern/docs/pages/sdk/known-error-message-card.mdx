@@ -1,0 +1,31 @@
+---
+title: KnownErrorMessageCard
+---
+
+# KnownErrorMessageCard
+
+A component that displays a message card for known errors. It shows the error code and message, and provides a button to redirect to the home page.
+
+## Parameters
+
+- `error`: `KnownError` - The error object to display. It should have `errorCode` and `message` properties.
+- `fullPage` (optional): `boolean` - Determines if the message card should be displayed in full-page mode. Default is `false`.
+
+## Example
+
+```tsx
+import { KnownErrorMessageCard } from '@stackframe/stack';
+
+const MyComponent = () => {
+  const error = {
+    errorCode: 'ERR_001',
+    message: 'An unexpected error occurred'
+  };
+
+  // Basic usage
+  return <KnownErrorMessageCard error={error} />;
+
+  // With fullPage option
+  // return <KnownErrorMessageCard error={error} fullPage={true} />;
+};
+```
