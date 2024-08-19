@@ -1,0 +1,48 @@
+---
+title: BrowserScript
+---
+
+# BrowserScript
+
+A React component that renders a script tag with browser-specific initialization code. It uses the `SsrScript` component internally to handle server-side rendering.
+
+## Parameters
+
+- `props`: An object with the following property:
+  - `nonce` (optional): `string` - A nonce value to be applied to the script tag for additional security.
+
+## Example
+
+```tsx
+import { BrowserScript } from '@stackframe/stack';
+
+// Without nonce
+function App() {
+  return (
+    <div>
+      <BrowserScript />
+    </div>
+  );
+}
+
+// With nonce
+function SecureApp() {
+  return (
+    <div>
+      <BrowserScript nonce='random123' />
+    </div>
+  );
+}
+```// With nonce
+const MySecureComponent = () => (
+  <BrowserScript nonce='random123' />
+);
+```
+
+This component internally uses `SsrScript` to render the script with the provided nonce and a predefined script content.// With nonce
+const MySecureComponent = () => (
+  <BrowserScript nonce='random123' />
+);
+```
+
+This component internally uses `SsrScript` to render the script with the provided nonce and a predefined script content.
