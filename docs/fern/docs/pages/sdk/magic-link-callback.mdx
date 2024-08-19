@@ -1,0 +1,43 @@
+---
+title: MagicLinkCallback
+---
+
+# MagicLinkCallback
+
+A React component that handles the callback for magic link authentication. It processes the magic link code and displays appropriate messages based on the authentication result.
+
+## Parameters
+
+- `searchParams` (optional): `Record<string, string>` - An object containing search parameters. The component expects a `code` property within this object.
+  - `code` (optional): `string` - The magic link code. Default is an empty string.
+- `fullPage` (optional): `boolean` - Determines if the message should be displayed in full-page mode. Default is `false`.
+
+## Example
+
+```tsx
+import { MagicLinkCallback } from '@stackframe/stack';
+
+// Basic usage
+<MagicLinkCallback />
+
+// With search params and fullPage option
+<MagicLinkCallback 
+  searchParams={{ code: 'abc123' }} 
+  fullPage={true} 
+/>
+
+// Using with URL search params
+import { useSearchParams } from 'react-router-dom';
+
+function MagicLinkPage() {
+  const [searchParams] = useSearchParams();
+  return <MagicLinkCallback searchParams={Object.fromEntries(searchParams)} />;
+}
+```
+
+The component handles different scenarios:
+- If a user is already signed in, it displays a 'signed in' message.
+- If the magic link is invalid, expired, or already used, it shows appropriate error messages.
+- If the magic link is valid, it attempts to sign in the user.
+
+Note: This component uses React Suspense internally, so it should be wrapped in a Suspense boundary in the parent component.
