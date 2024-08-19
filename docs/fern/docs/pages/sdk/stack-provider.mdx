@@ -1,0 +1,31 @@
+---
+title: StackProvider
+---
+
+# StackProvider
+
+Provides a context and environment for Stack Client applications. This component is designed to wrap the main application, ensuring that necessary providers and fetchers are activated for the app.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The content to be rendered inside the provider.
+- `app`: `StackClientApp<true>` - The Stack Client application instance that the provider will use.
+
+## Example
+
+```tsx
+import { StackProvider } from '@stackframe/stack';
+import { StackClientApp } from '@stackframe/stack';
+
+const app = new StackClientApp({ /* configuration */ });
+
+function App() {
+  return (
+    <StackProvider app={app}>
+      <div>My Application</div>
+    </StackProvider>
+  );
+}
+```
+
+Wrap your main application with the `StackProvider` to ensure that all necessary contexts and fetchers are properly initialized.
