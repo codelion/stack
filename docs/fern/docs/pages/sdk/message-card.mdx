@@ -1,0 +1,40 @@
+---
+title: MessageCard
+---
+
+# MessageCard
+
+A component that displays a message card with optional primary and secondary actions. It can be displayed as a full-page or inline component.
+
+## Parameters
+
+- `children` (optional): `React.ReactNode` - The content to be displayed inside the message card.
+- `title`: `string` - The title of the message card.
+- `fullPage` (optional): `boolean` - If `true`, the message card is displayed as a full-page component. Defaults to `false`.
+- `primaryButtonText` (optional): `string` - The text for the primary action button.
+- `primaryAction` (optional): `() => Promise<void> | void` - The function to be called when the primary action button is clicked.
+- `secondaryButtonText` (optional): `string` - The text for the secondary action button.
+- `secondaryAction` (optional): `() => Promise<void> | void` - The function to be called when the secondary action button is clicked.
+
+## Example
+
+```tsx
+import { MessageCard } from '@stackframe/stack';
+
+<MessageCard
+  title='Welcome!'
+  primaryButtonText='Get Started'
+  primaryAction={() => alert('Primary action clicked!')}
+  secondaryButtonText='Learn More'
+  secondaryAction={() => alert('Secondary action clicked!')}
+>
+  <p>This is a message card with actions.</p>
+</MessageCard>
+
+<MessageCard
+  title='Inline Message'
+  fullPage={false}
+>
+  <p>This is an inline message card without actions.</p>
+</MessageCard>
+```
