@@ -1,0 +1,31 @@
+---
+title: SidebarLayout
+---
+
+# SidebarLayout
+
+Renders a sidebar layout that adapts to different screen sizes. Displays a desktop layout on larger screens and a mobile layout on smaller screens.
+
+## Parameters
+
+- `props`: `object` - The properties object.
+  - `items`: `Item[]` - An array of items to display in the sidebar.
+  - `title` (optional): `ReactNode` - An optional title to display in the sidebar.
+
+## Example
+
+```tsx
+import { SidebarLayout } from '@stackframe/stack';
+
+const items = [
+  { name: 'Item 1' },
+  { name: 'Item 2' },
+  { name: 'Item 3' }
+];
+
+// Without title
+<SidebarLayout items={items} />
+
+// With title
+<SidebarLayout items={items} title={<h1>My Sidebar</h1>} />
+```
