@@ -1,0 +1,31 @@
+---
+title: setCookie
+---
+
+# setCookie
+
+Sets a cookie with the specified name and value. This function handles both server-side and client-side cookie setting, adjusting for production environments and HTTPS requirements.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to set.
+- `value`: `string` - The value to store in the cookie.
+- `options` (optional): `SetCookieOptions` - An object containing additional options for setting the cookie.
+  - `maxAge` (optional): `number` - The maximum age of the cookie in seconds.
+
+## Example
+
+```tsx
+import { setCookie } from '@stackframe/stack';
+
+// Set a simple cookie
+setCookie('user', 'john_doe');
+
+// Set a cookie with maxAge
+setCookie('session', 'abc123', { maxAge: 3600 }); // Expires in 1 hour
+
+// Set a cookie with default options
+setCookie('preference', 'dark_mode', {});
+```
+
+Note: In production environments, cookies are automatically set as secure. Ensure your site is served over HTTPS in production to avoid errors when setting cookies.
