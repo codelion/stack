@@ -1,0 +1,30 @@
+---
+title: ErrorPage
+---
+
+# ErrorPage
+
+Renders an error page based on the provided search parameters. It displays different error messages depending on the error code and details provided.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - If `true`, the error page will be displayed in full-page mode. Defaults to `false`.
+- `searchParams`: `Record<string, string>` - An object containing search parameters. Must include `errorCode`, `message`, and `details`.
+
+## Example
+
+```tsx
+import { ErrorPage } from '@stackframe/stack';
+
+const searchParams = {
+  errorCode: 'OAuthConnectionAlreadyConnectedToAnotherUser',
+  message: 'Failed to connect account',
+  details: 'This account is already connected to another user.'
+};
+
+// Render the error page in full-page mode
+<ErrorPage fullPage={true} searchParams={searchParams} />;
+
+// Render the error page in default mode
+<ErrorPage searchParams={searchParams} />;
+```
