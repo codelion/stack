@@ -1,0 +1,25 @@
+---
+title: getCookie
+---
+
+# getCookie
+
+Retrieves the value of a specified cookie. Returns the cookie value as a string, or `null` if the cookie is not found.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to retrieve.
+
+## Example
+
+```tsx
+import { getCookie } from '@stackframe/stack';
+
+// Retrieve the value of a cookie named 'session'
+const sessionCookie = getCookie('session');
+// sessionCookie will be the cookie value or null if not found
+
+// Attempting to retrieve a non-existing cookie
+const missingCookie = getCookie('nonExisting');
+// missingCookie will be null
+```
