@@ -1,0 +1,28 @@
+---
+title: getVerifierAndState
+---
+
+# getVerifierAndState
+
+Retrieves the `codeVerifier` and `state` from cookies. Returns an object containing the `codeVerifier` and `state` values.
+
+## Parameters
+
+This function does not take any parameters.
+
+## Returns
+
+- `object`: An object containing:
+  - `codeVerifier`: `string` - The code verifier retrieved from the cookie.
+  - `state`: `string` - The state retrieved from the cookie.
+
+## Example
+
+```tsx
+import { getVerifierAndState } from '@stackframe/stack';
+
+const { codeVerifier, state } = getVerifierAndState();
+
+console.log(codeVerifier); // logs the code verifier
+console.log(state);         // logs the state
+```
