@@ -1,0 +1,31 @@
+---
+title: saveVerifierAndState
+---
+
+# saveVerifierAndState
+
+Generates and saves a code verifier, code challenge, and state. Returns an object containing the code challenge and state.
+
+## Parameters
+
+This function does not take any parameters.
+
+## Return Value
+
+Returns an object with the following properties:
+
+- `codeChallenge`: `string` - The generated PKCE code challenge.
+- `state`: `string` - The generated state.
+
+## Example
+
+```tsx
+import { saveVerifierAndState } from '@stackframe/stack';
+
+async function example() {
+  const { codeChallenge, state } = await saveVerifierAndState();
+  // Use codeChallenge and state as needed
+}
+
+example();
+```
