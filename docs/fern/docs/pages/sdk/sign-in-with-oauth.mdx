@@ -1,0 +1,42 @@
+---
+title: signInWithOAuth
+---
+
+# signInWithOAuth
+
+Initiates the OAuth sign-in process for a specified provider. This function redirects the user to the OAuth provider's authentication page and handles the necessary setup for the OAuth flow.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - The Stack client interface used to interact with the Stack API.
+- `options`: `Object` - An object containing the following properties:
+  - `provider`: `string` - The name of the OAuth provider to use for authentication.
+  - `redirectUrl`: `string` - The URL to redirect to after successful authentication.
+  - `errorRedirectUrl`: `string` - The URL to redirect to if an error occurs during authentication.
+  - `providerScope` (optional): `string` - Additional scopes to request from the OAuth provider.
+
+## Example
+
+```tsx
+import { signInWithOAuth } from '@stackframe/stack';
+
+// Assuming you have already initialized your Stack client
+const stackClient = /* ... */;
+
+// Basic usage
+await signInWithOAuth(stackClient, {
+  provider: 'google',
+  redirectUrl: 'https://your-app.com/auth-callback',
+  errorRedirectUrl: 'https://your-app.com/auth-error',
+});
+
+// With optional provider scope
+await signInWithOAuth(stackClient, {
+  provider: 'github',
+  redirectUrl: 'https://your-app.com/auth-callback',
+  errorRedirectUrl: 'https://your-app.com/auth-error',
+  providerScope: 'repo,user',
+});
+```
+
+Note: This function initiates a redirect to the OAuth provider and does not return. The application flow will continue at the specified `redirectUrl` after authentication.
