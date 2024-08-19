@@ -1,0 +1,30 @@
+---
+title: MaybeFullPage
+---
+
+# MaybeFullPage
+
+`MaybeFullPage` is a React component that wraps its children and optionally makes them take up the full page. It can be used to ensure that content adjusts its height to the viewport when required.
+
+## Parameters
+
+- `children`: `React.ReactNode` - The content to be wrapped by the component.
+- `fullPage` (optional): `boolean` - Determines if the children should take up the full page. Defaults to `true`.
+
+## Example
+
+```tsx
+import { MaybeFullPage } from '@stackframe/stack';
+
+const App = () => (
+  <MaybeFullPage>
+    <div>Your content here</div>
+  </MaybeFullPage>
+);
+
+const NonFullPageApp = () => (
+  <MaybeFullPage fullPage={false}>
+    <div>Your content here</div>
+  </MaybeFullPage>
+);
+```
