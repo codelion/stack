@@ -1,0 +1,40 @@
+---
+title: MagicLinkSignIn
+---
+
+# MagicLinkSignIn
+
+A form component that allows users to sign in using a magic link sent to their email. Utilizes form validation and submission handling.
+
+## Example
+
+```tsx
+import { MagicLinkSignIn } from '@stackframe/stack';
+
+function App() {
+  return (
+    <div>
+      <h1>Sign In</h1>
+      <MagicLinkSignIn />
+    </div>
+  );
+}
+```
+
+## Usage
+
+To use the `MagicLinkSignIn` component, import it into your project and include it within your JSX. The component handles form registration, submission, and error display internally.
+
+The form includes an email input field and a submit button. Upon submission, a magic link is sent to the provided email if it is valid.
+
+- **Email Input**: The user must provide a valid email address.
+- **Submit Button**: Sends the magic link to the provided email address.
+
+The component uses `useForm` from `react-hook-form` for form management and `yup` for validation schema resolution.
+
+## External Dependencies
+
+- `react-hook-form`
+- `yup`
+
+These dependencies are necessary for form validation and handling within the `MagicLinkSignIn` component.
