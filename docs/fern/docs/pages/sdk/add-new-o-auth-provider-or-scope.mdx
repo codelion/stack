@@ -1,0 +1,48 @@
+---
+title: addNewOAuthProviderOrScope
+---
+
+# addNewOAuthProviderOrScope
+
+Adds a new OAuth provider or scope to the current session. This function redirects the user to the OAuth provider's authorization page.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - The interface for the stack client.
+- `options`: `object` - An object containing the following properties:
+  - `provider`: `string` - The name of the OAuth provider.
+  - `redirectUrl`: `string` - The URL to redirect to after successful authorization.
+  - `errorRedirectUrl`: `string` - The URL to redirect to if an error occurs during authorization.
+  - `providerScope` (optional): `string` - The scope of the provider. If not provided, the default scope is used.
+- `session`: `InternalSession` - The current session object.
+
+## Example
+
+```tsx
+import { addNewOAuthProviderOrScope } from '@stackframe/stack';
+
+const iface = getStackClientInterface();
+const options = {
+  provider: 'google',
+  redirectUrl: 'https://example.com/success',
+  errorRedirectUrl: 'https://example.com/error',
+  providerScope: 'profile email'
+};
+const session = getCurrentSession();
+
+addNewOAuthProviderOrScope(iface, options, session);
+```
+
+```tsx
+import { addNewOAuthProviderOrScope } from '@stackframe/stack';
+
+const iface = getStackClientInterface();
+const options = {
+  provider: 'google',
+  redirectUrl: 'https://example.com/success',
+  errorRedirectUrl: 'https://example.com/error'
+};
+const session = getCurrentSession();
+
+addNewOAuthProviderOrScope(iface, options, session);
+```
