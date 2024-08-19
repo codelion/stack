@@ -1,0 +1,25 @@
+---
+title: FormWarningText
+---
+
+# FormWarningText
+
+Displays a warning text in red color if the `text` parameter is provided.
+
+## Parameters
+
+- `text` (optional): `string` - The warning text to be displayed. If not provided, nothing is rendered.
+
+## Example
+
+```tsx
+import { FormWarningText } from '@stackframe/stack';
+
+// Without text
+<FormWarningText />
+// Renders nothing
+
+// With text
+<FormWarningText text='This is a warning!' />
+// Renders: <div className='text-red-500 text-sm mt-1'>This is a warning!</div>
+```
