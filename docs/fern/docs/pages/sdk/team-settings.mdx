@@ -1,0 +1,25 @@
+---
+title: TeamSettings
+---
+
+# TeamSettings
+
+Renders the team settings view based on the provided properties. This component displays settings related to a team, including profile, members, and information about the team.
+
+## Parameters
+
+- `props`: `Object` - An object containing the properties for the component.
+  - `fullPage` (optional): `boolean` - If true, the team settings view is rendered within a full-page container. Default is `false`.
+  - `teamId`: `string` - The unique identifier for the team.
+
+## Usage
+
+```tsx
+import { TeamSettings } from '@stackframe/stack';
+
+// Basic usage with required teamId parameter
+<TeamSettings teamId='team123' />
+
+// Usage with optional fullPage parameter
+<TeamSettings teamId='team123' fullPage={true} />
+```
