@@ -1,0 +1,24 @@
+---
+title: SELECTED_BACKGROUND_COLORS
+---
+
+# SELECTED_BACKGROUND_COLORS
+
+A constant object that provides background colors for selected elements in both dark and light themes.
+
+## Properties
+
+- `dark`: `string` - The background color for selected elements in dark theme. Value: `'rgba(255, 255, 255, 0.1)'`
+- `light`: `string` - The background color for selected elements in light theme. Value: `'rgba(0, 0, 0, 0.04)'`
+
+## Example
+
+```tsx
+import { SELECTED_BACKGROUND_COLORS } from '@stackframe/stack';
+
+const darkThemeColor = SELECTED_BACKGROUND_COLORS.dark;
+// darkThemeColor is 'rgba(255, 255, 255, 0.1)'
+
+const lightThemeColor = SELECTED_BACKGROUND_COLORS.light;
+// lightThemeColor is 'rgba(0, 0, 0, 0.04)'
+```
