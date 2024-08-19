@@ -1,0 +1,30 @@
+---
+title: setOrDeleteCookie
+---
+
+# setOrDeleteCookie
+
+Sets or deletes a cookie based on the provided value. If the value is null, the cookie is deleted; otherwise, it is set with the given value and options.
+
+## Parameters
+
+- `name`: `string` - The name of the cookie to set or delete.
+- `value`: `string | null` - The value to set for the cookie. If null, the cookie will be deleted.
+- `options` (optional): `SetCookieOptions` - An object containing options for setting the cookie. Defaults to an empty object.
+
+## Example
+
+```tsx
+import { setOrDeleteCookie } from '@stackframe/stack';
+
+// Setting a cookie
+setOrDeleteCookie('user_preference', 'dark_mode');
+
+// Setting a cookie with options
+setOrDeleteCookie('session_id', '12345', { expires: new Date(Date.now() + 86400000) });
+
+// Deleting a cookie
+setOrDeleteCookie('temporary_data', null);
+```
+
+Note: The `SetCookieOptions` type should be imported from '@stackframe/stack' if you need to specify custom options.
