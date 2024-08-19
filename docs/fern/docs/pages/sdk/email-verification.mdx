@@ -1,0 +1,37 @@
+---
+title: EmailVerification
+---
+
+# EmailVerification
+
+A component that handles email verification processes, displaying appropriate messages based on the verification status.
+
+## Parameters
+
+- `searchParams` (optional): `Record<string, string>` - An object containing search parameters. It should include a `code` property for the verification code.
+  - `code` (optional): `string` - The email verification code. Default is an empty string.
+- `fullPage` (optional): `boolean` - Determines if the component should be displayed in full-page mode. Default is `false`.
+
+## Example
+
+```tsx
+import { EmailVerification } from '@stackframe/stack';
+
+// Basic usage with default values
+function VerificationPage() {
+  return <EmailVerification />;
+}
+
+// Usage with custom search params and full-page mode
+function VerificationPageWithParams() {
+  const searchParams = { code: 'abc123' };
+  return <EmailVerification searchParams={searchParams} fullPage={true} />;
+}
+
+// Usage in a Next.js page component
+export default function Page({ searchParams }: { searchParams: { code?: string } }) {
+  return <EmailVerification searchParams={searchParams} />;
+}
+```
+
+This component handles different scenarios of email verification, including invalid codes, expired links, and successful verifications. It uses the `useStackApp` hook internally to interact with the Stack application context.
