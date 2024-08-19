@@ -1,0 +1,33 @@
+---
+title: saveVerifierAndState
+---
+
+# saveVerifierAndState
+
+Generates and saves a code verifier and state for PKCE (Proof Key for Code Exchange) authentication. Returns an object containing the code challenge and state.
+
+## Parameters
+
+This function does not take any parameters.
+
+## Returns
+
+An object with the following properties:
+- `codeChallenge`: `string` - The calculated PKCE code challenge.
+- `state`: `string` - A randomly generated state value.
+
+## Example
+
+```tsx
+import { saveVerifierAndState } from '@stackframe/stack';
+
+async function initializeAuthentication() {
+  const { codeChallenge, state } = await saveVerifierAndState();
+  
+  // Use codeChallenge and state in your authentication flow
+  console.log('Code Challenge:', codeChallenge);
+  console.log('State:', state);
+}
+```
+
+Note: This function also sets cookies for the code verifier and state, which are automatically handled internally.
