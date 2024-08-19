@@ -1,0 +1,24 @@
+---
+title: UserSetter
+---
+
+# UserSetter
+
+The `UserSetter` function sets the current user in the application using a promise that resolves to user data. This function is typically used within a React component to manage user state.
+
+## Parameters
+
+- `props`: `object`
+  - `userJsonPromise`: `Promise<CurrentUserCrud['Client']['Read'] | null>` - A promise that resolves to the current user data or `null`.
+
+## Example
+
+```tsx
+import { UserSetter } from '@stackframe/stack';
+
+const userPromise = fetchUserFromApi(); // Assume this returns a promise that resolves to user data
+
+function App() {
+  return <UserSetter userJsonPromise={userPromise} />;
+}
+```
