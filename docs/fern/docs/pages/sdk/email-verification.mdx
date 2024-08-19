@@ -1,0 +1,28 @@
+---
+title: EmailVerification
+---
+
+# EmailVerification
+
+The `EmailVerification` component handles email verification based on the provided verification code. It displays appropriate messages for invalid, expired, or already used verification links, and shows a success message if the verification is successful.
+
+## Parameters
+
+- `searchParams` (optional): `Record<string, string>` - An object containing search parameters. The `code` parameter is used for email verification. Default is an empty object.
+  - `code` (optional): `string` - The verification code to validate. Default is an empty string.
+- `fullPage` (optional): `boolean` - A boolean to determine if the message should be displayed as a full page. Default is `false`.
+
+## Example
+
+```tsx
+import { EmailVerification } from '@stackframe/stack';
+
+// Basic usage with parameters
+<EmailVerification
+  searchParams={{ code: '123456' }}
+  fullPage
+/>
+
+// Usage without optional parameters
+<EmailVerification />
+```
