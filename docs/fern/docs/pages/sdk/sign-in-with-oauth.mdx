@@ -1,0 +1,33 @@
+---
+title: signInWithOAuth
+---
+
+# signInWithOAuth
+
+Initiates the OAuth sign-in process using the specified provider and redirects the user to the appropriate URL. This function does not return a value.
+
+## Parameters
+
+- `iface`: `StackClientInterface` - The interface for interacting with the stack client.
+- `options`: `object` - An object containing the following properties:
+  - `provider`: `string` - The OAuth provider to use for sign-in.
+  - `redirectUrl`: `string` - The URL to redirect to after successful authentication.
+  - `errorRedirectUrl`: `string` - The URL to redirect to if an error occurs during authentication.
+  - `providerScope` (optional): `string` - The scope of the provider. If not provided, the default scope is used.
+
+## Example
+
+```tsx
+import { signInWithOAuth } from '@stackframe/stack';
+
+const iface = getStackClientInterface();
+const options = {
+  provider: 'google',
+  redirectUrl: 'https://example.com/success',
+  errorRedirectUrl: 'https://example.com/error',
+  providerScope: 'profile email'
+};
+
+signInWithOAuth(iface, options);
+// The user is redirected to the OAuth provider's sign-in page.
+```
