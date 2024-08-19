@@ -1,0 +1,26 @@
+---
+title: TeamInvitation
+---
+
+# TeamInvitation
+
+Renders a team invitation interface based on the provided parameters and user authentication status.
+
+## Parameters
+
+- `fullPage` (optional): `boolean` - Indicates whether the component should be rendered in full-page mode. Defaults to `false`.
+- `searchParams`: `Record<string, string>` - An object containing search parameters, including the invitation code.
+
+## Example
+
+```tsx
+import { TeamInvitation } from '@stackframe/stack';
+
+const searchParams = { code: 'INVITATION_CODE' };
+
+// Basic usage
+<TeamInvitation searchParams={searchParams} />;
+
+// Full-page mode
+<TeamInvitation fullPage={true} searchParams={searchParams} />;
+```
