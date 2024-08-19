@@ -1,0 +1,34 @@
+---
+title: validateEmail
+---
+
+# validateEmail
+
+Validates whether a given string is a valid email address. Returns a boolean indicating if the email is valid.
+
+## Parameters
+
+- `email`: `string` - The email address to validate.
+
+## Example
+
+```tsx
+import { validateEmail } from '@stackframe/stack';
+
+const validEmail = 'user@example.com';
+const invalidEmail = 'not-an-email';
+
+const isValid = validateEmail(validEmail);
+// isValid is true
+
+const isInvalid = validateEmail(invalidEmail);
+// isInvalid is false
+
+// Throws an error if the input is not a string
+// validateEmail(123); // Error: Email must be a string
+```const isInvalid = validateEmail(invalidEmail);
+// isInvalid is false
+
+// Throws an error if a non-string value is provided
+// validateEmail(123); // Error: Email must be a string
+```
