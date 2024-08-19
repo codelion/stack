@@ -1,0 +1,31 @@
+---
+title: SidebarNavItem
+---
+
+# SidebarNavItem
+
+Renders a sidebar navigation item as a button. The button can be styled based on whether it is selected and can handle click events.
+
+## Parameters
+
+- `props`: `object` - The properties object.
+  - `item`: `Item` - The item to be displayed. Must have `icon` and `title` properties.
+  - `selected`: `boolean` - Indicates if the item is currently selected.
+  - `onClick`: `() => void` - The function to call when the item is clicked.
+
+## Example
+
+```tsx
+import { SidebarNavItem } from '@stackframe/stack';
+
+const item = {
+  icon: SomeIconComponent,
+  title: 'Dashboard'
+};
+
+function handleClick() {
+  console.log('Item clicked');
+}
+
+<SidebarNavItem item={item} selected={true} onClick={handleClick} />
+```
