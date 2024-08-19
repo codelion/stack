@@ -1,0 +1,45 @@
+---
+title: UserAvatar
+---
+
+# UserAvatar
+
+`UserAvatar` is a component that displays a user's avatar. It includes the user's profile image, initials, or a fallback icon. The avatar size and user details can be customized via props.
+
+## Parameters
+
+- `props`: `{
+  size?: number;
+  user?: {
+    profileImageUrl?: string | null;
+    displayName?: string | null;
+    primaryEmail?: string | null;
+  } | null;
+}` - The props object for the component.
+
+  - `size` (optional): `number` - The size of the avatar. Defaults to a standard size if not provided.
+  - `user` (optional): `{ profileImageUrl?: string | null; displayName?: string | null; primaryEmail?: string | null; } | null` - The user details.
+    - `profileImageUrl` (optional): `string | null` - URL of the user's profile image. If null or not provided, a fallback will be used.
+    - `displayName` (optional): `string | null` - The user's display name. If null or not provided, the primary email will be used or initials will be displayed.
+    - `primaryEmail` (optional): `string | null` - The user's primary email.
+
+## Example
+
+```tsx
+import { UserAvatar } from '@stackframe/stack';
+
+const user = {
+  profileImageUrl: 'https://example.com/image.jpg',
+  displayName: 'John Doe',
+  primaryEmail: 'john.doe@example.com'
+};
+
+// With all props
+<UserAvatar size={40} user={user} />;
+
+// With only size
+<UserAvatar size={40} />;
+
+// Without any props
+<UserAvatar />;
+```
