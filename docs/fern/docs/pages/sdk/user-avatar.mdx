@@ -1,0 +1,41 @@
+---
+title: UserAvatar
+---
+
+# UserAvatar
+
+Renders a user avatar component with an image or fallback initials. If no user data is provided, it displays a default user icon.
+
+## Parameters
+
+- `props`: An object with the following properties:
+  - `size` (optional): `number` - The size of the avatar in pixels.
+  - `user` (optional): `object | null` - An object containing user information:
+    - `profileImageUrl` (optional): `string | null` - The URL of the user's profile image.
+    - `displayName` (optional): `string | null` - The display name of the user.
+    - `primaryEmail` (optional): `string | null` - The primary email of the user.
+
+## Example
+
+```tsx
+import { UserAvatar } from '@stackframe/stack';
+
+// With all user information
+const user = {
+  profileImageUrl: 'https://example.com/profile.jpg',
+  displayName: 'John Doe',
+  primaryEmail: 'john@example.com'
+};
+
+<UserAvatar size={40} user={user} />
+
+// With partial user information
+const partialUser = {
+  displayName: 'Jane Smith'
+};
+
+<UserAvatar user={partialUser} />
+
+// Without user information
+<UserAvatar />
+```
