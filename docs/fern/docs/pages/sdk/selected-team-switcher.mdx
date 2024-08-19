@@ -1,0 +1,30 @@
+---
+title: SelectedTeamSwitcher
+---
+
+# SelectedTeamSwitcher
+
+A component for switching between selected teams. It allows users to select their team from a dropdown, with options to handle the selection and navigation accordingly.
+
+## Parameters
+
+- `props`: `SelectedTeamSwitcherProps` - The properties for the SelectedTeamSwitcher component.
+  - `selectedTeam` (optional): `Team` - The currently selected team. If not provided, the user's selected team is used by default.
+  - `noUpdateSelectedTeam` (optional): `boolean` - If true, the selected team will not be updated. Default is false.
+  - `urlMap` (optional): `(team: Team) => string` - A function that maps a team to a URL for navigation.
+
+## Usage
+
+```tsx
+import { SelectedTeamSwitcher } from '@stackframe/stack';
+
+function MyComponent() {
+  const props = {
+    selectedTeam: { id: 'team1', displayName: 'Team 1' },
+    noUpdateSelectedTeam: false,
+    urlMap: (team) => `/teams/${team.id}`
+  };
+
+  return <SelectedTeamSwitcher {...props} />;
+}
+```
