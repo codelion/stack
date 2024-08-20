@@ -1,0 +1,32 @@
+---
+title: StackTheme
+---
+
+# StackTheme
+
+A component to apply a custom theme to your Stack application. It wraps your app and provides theme context.
+
+## Parameters
+
+- `theme` (optional): `ThemeConfig` - Custom theme configuration to override default values.
+- `children` (optional): `React.ReactNode` - Child components to be wrapped by the theme provider.
+- `nonce` (optional): `string` - A nonce for the inline script and style tags for added security.
+
+## Example
+
+```tsx
+import { StackTheme } from '@stackframe/stack';
+
+function App() {
+  const customTheme = {
+    light: { backgroundColor: '#f0f0f0' },
+    dark: { backgroundColor: '#1a1a1a' }
+  };
+
+  return (
+    <StackTheme theme={customTheme}>
+      <YourAppComponents />
+    </StackTheme>
+  );
+}
+```
