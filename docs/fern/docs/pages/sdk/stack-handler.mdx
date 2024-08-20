@@ -1,16 +1,31 @@
 ---
-slug: sdk/stack-handler
+title: StackHandler
 ---
 
-The `StackHandler` component is designed to manage navigation for all pages under the `/handler/*` route. It serves as a wrapper component that determines which page to display based on the URL path and configurations in the `StackApp`.
+# StackHandler
 
-<Note>
-  By default, this component will redirect users to appropriate pages. For example, if a user is not signed in and tries to access the account settings page, it will redirect the user to the sign-in page.
-</Note>
+Handles routing for various authentication and user management pages in a Stack application.
 
-## Props
+## Parameters
 
-- `app` (StackServerApp): The component relies on the configurations from `app` to determine the correct page URLs and handle redirections.
-- `params` (object): This should be passed down from the parent component to relay any URL parameters.
-- `searchParams` (object): This should be passed down from the parent component to relay any search parameters from the URL.
-- `fullPage` (boolean): Determines whether the component should occupy the full page. The default value is `false`.
+- `app`: `StackServerApp<HasTokenStore>` - The Stack server application instance.
+- `params` (optional): `{ stack?: string[] }` - URL parameters, where `stack` is an array of path segments.
+- `searchParams` (optional): `Record<string, string>` - Query parameters as key-value pairs.
+- `fullPage` (optional): `boolean` - Whether to render the component as a full page.
+
+## Example
+
+```tsx
+import { StackHandler } from '@stackframe/stack';
+
+const App = ({ app }) => {
+  return (
+    <StackHandler
+      app={app}
+      params={{ stack: ['sign-in'] }}
+      searchParams={{ redirect: '/dashboard' }}
+      fullPage={true}
+    />
+  );
+};
+```
