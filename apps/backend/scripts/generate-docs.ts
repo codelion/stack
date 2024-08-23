@@ -5,6 +5,7 @@ import { HTTP_METHODS } from '@stackframe/stack-shared/dist/utils/http';
 import fs from 'fs';
 import { glob } from 'glob';
 import yaml from 'yaml';
+import path from 'path';
 
 async function main() {
   console.log("Started docs schema generator");
@@ -22,7 +23,7 @@ async function main() {
         const midfix = suffix.slice(0, suffix.lastIndexOf("/route."));
         const importPath = `${importPathPrefix}${suffix}`;
         const urlPath = midfix.replaceAll("[", "{").replaceAll("]", "}");
-        const myModule = require(importPath);
+        const myModule = require(path.normalize(importPath));
         const handlersByMethod = new Map(
           HTTP_METHODS.map(method => [method, myModule[method]] as const)
             .filter(([_, handler]) => isSmartRouteHandler(handler))
