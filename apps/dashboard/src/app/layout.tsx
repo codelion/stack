@@ -59,7 +59,6 @@ export default function RootLayout({
           const { tagName, attributes, innerHTML } = tag;
           return React.createElement(tagName, {
             key: index,
-            dangerouslySetInnerHTML: { __html: innerHTML ?? "" },
             ...attributes,
           });
         })}
