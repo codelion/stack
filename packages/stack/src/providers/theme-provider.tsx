@@ -74,7 +74,6 @@ function convertColorsToCSS(theme: Theme) {
   }`;
 }
 
-
 export function StackTheme({
   theme,
   children,
@@ -92,15 +91,14 @@ export function StackTheme({
   };
 
   return (
-    <>
+    <> 
       <BrowserScript nonce={nonce} />
       <style
         suppressHydrationWarning
         nonce={nonce}
-        dangerouslySetInnerHTML={{
-          __html: globalCSS + "\n" + convertColorsToCSS(themeValue),
-        }}
-      />
+      >
+        {globalCSS + "\n" + convertColorsToCSS(themeValue)}
+      </style>
       {children}
     </>
   );
