@@ -5,22 +5,20 @@ export class AccessToken {
   constructor(
     public readonly token: string,
   ) {
-    if (token === "undefined") {
+    if (crypto.timingSafeEqual(Buffer.from(token, 'utf-8'), Buffer.from("undefined", 'utf-8'))) {
       throw new StackAssertionError("Access token is the string 'undefined'; it's unlikely this is the correct value. They're supposed to be unguessable!");
     }
   }
 }
-
 export class RefreshToken {
   constructor(
     public readonly token: string,
   ) {
-    if (token === "undefined") {
+    if (crypto.timingSafeEqual(Buffer.from(token, 'utf-8'), Buffer.from("undefined", 'utf-8'))) {
       throw new StackAssertionError("Refresh token is the string 'undefined'; it's unlikely this is the correct value. They're supposed to be unguessable!");
     }
   }
 }
-
 /**
  * An InternalSession represents a user's session, which may or may not be valid. It may contain an access token, a refresh token, or both.
  *
