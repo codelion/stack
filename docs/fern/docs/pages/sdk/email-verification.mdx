@@ -1,0 +1,31 @@
+---
+title: EmailVerification
+---
+
+# EmailVerification
+
+A component for handling email verification processes. It displays different messages based on the verification status.
+
+## Props
+
+- `searchParams` (optional): `Record<string, string>` - An object containing search parameters. It should have a `code` property for the verification code.
+- `fullPage` (optional): `boolean` - Determines if the component should be displayed in full-page mode. Default is `false`.
+
+## Example
+
+```tsx
+import { EmailVerification } from '@stackframe/stack';
+
+// Basic usage
+<EmailVerification />
+
+// With search params and full-page mode
+<EmailVerification
+  searchParams={{ code: 'abc123' }}
+  fullPage={true}
+/>
+
+// Using with URL search params
+const searchParams = new URLSearchParams(window.location.search);
+<EmailVerification searchParams={Object.fromEntries(searchParams)} />
+```
