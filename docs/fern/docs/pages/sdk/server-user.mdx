@@ -1,0 +1,76 @@
+# ServerUser
+
+Represents a server-side user object with extended functionality and properties.
+
+## Properties
+
+- **`id`**: `string`  
+  Unique identifier for the user.
+
+- **`displayName`**: `string`  
+  User's display name.
+
+- **`primaryEmail`**: `string`  
+  User's primary email address.
+
+- **`primaryEmailVerified`**: `boolean`  
+  Indicates if the primary email is verified.
+
+- **`profileImageUrl`**: `string`  
+  URL of the user's profile image.
+
+- **`signedUpAt`**: `Date`  
+  Date when the user signed up.
+
+- **`clientMetadata`**: `any`  
+  Custom metadata for client use.
+
+- **`clientReadOnlyMetadata`**: `any`  
+  Read-only custom metadata for client use.
+
+- **`emailAuthEnabled`**: `boolean`  
+  Indicates if email authentication is enabled.
+
+- **`hasPassword`**: `boolean`  
+  Indicates if the user has set a password.
+
+- **`oauthProviders`**: `{ id: string }[]`  
+  Array of connected OAuth providers.
+
+- **`isMultiFactorRequired`**: `boolean`  
+  Indicates if multi-factor authentication is required.
+
+- **`selectedTeam`**: `Object`  
+  Information about the user's selected team.
+
+## Methods
+
+ServerUser includes various methods for user management, team operations, and permission handling. Some key methods include:
+
+- **`setPrimaryEmail`**
+- **`updatePassword`**
+- **`setDisplayName`**
+- **`sendVerificationEmail`**
+- **`createTeam`**
+- **`leaveTeam`**
+- **`hasPermission`**
+- **`grantPermission`**
+- **`revokePermission`**
+
+## Example
+
+```tsx
+import { ServerUser } from '@stackframe/stack';
+
+// Assuming you have a ServerUser instance
+const user: ServerUser = /* ... */;
+
+console.log(user.displayName);
+console.log(user.primaryEmail);
+
+// Update user's display name
+await user.setDisplayName('New Name');
+
+// Check if user has a specific permission
+const hasPermission = await user.hasPermission('read:documents');
+```
