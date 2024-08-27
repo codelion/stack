@@ -1,0 +1,29 @@
+---
+title: SelectedTeamSwitcher
+---
+
+# SelectedTeamSwitcher
+
+A component that allows users to switch between teams and manage team-related actions.
+
+## Props
+
+- `urlMap` (optional): A function that takes a `Team` object and returns a URL string for navigation.
+- `selectedTeam` (optional): `Team` - The currently selected team.
+- `noUpdateSelectedTeam` (optional): `boolean` - If true, prevents updating the selected team when a new team is chosen.
+
+## Example
+
+```tsx
+import { SelectedTeamSwitcher } from '@stackframe/stack';
+
+function TeamManagement() {
+  return (
+    <SelectedTeamSwitcher
+      urlMap={(team) => `/team/${team.id}`}
+      selectedTeam={currentTeam}
+      noUpdateSelectedTeam={false}
+    />
+  );
+}
+```
