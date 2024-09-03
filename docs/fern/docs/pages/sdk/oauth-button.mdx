@@ -1,0 +1,27 @@
+---
+title: OAuthButton
+---
+
+# OAuthButton
+
+Renders a customized OAuth button for different providers.
+
+## Props
+
+- `provider`: `string` - The OAuth provider (e.g., 'google', 'github', 'facebook', 'microsoft', 'spotify').
+- `type`: `'sign-in' | 'sign-up'` - Determines whether the button is for sign-in or sign-up.
+
+## Example
+
+```tsx
+import { OAuthButton } from '@stackframe/stack';
+
+function LoginPage() {
+  return (
+    <div>
+      <OAuthButton provider="google" type="sign-in" />
+      <OAuthButton provider="github" type="sign-up" />
+    </div>
+  );
+}
+```
