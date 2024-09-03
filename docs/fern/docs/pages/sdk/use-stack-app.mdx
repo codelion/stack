@@ -1,16 +1,44 @@
 ---
-slug: sdk/use-stack-app
+title: useStackApp
 ---
 
-The `useStackApp` hook returns the `StackClientApp` object that you can use to interact with the Stack API. If you want to learn more about the `StackClientApp` object, check out the [App](./stack-app.mdx) documentation.
+# useStackApp
 
-Example:
+A custom React hook for managing a stack of items with loading state.
 
-```jsx
-import { useStackApp } from "@stackframe/stack";
+## Props
+
+This hook doesn't accept any props.
+
+## Example
+
+```tsx
+import { useStackApp } from '@stackframe/stack';
 
 function MyComponent() {
-  const stackApp = useStackApp();
-  return <div>Sign In URL: {stackApp.urls.signIn}</div>;
+  const { items, loading, push, pop } = useStackApp();
+
+  const handlePush = () => {
+    push({ id: Date.now(), value: 'New Item' });
+  };
+
+  const handlePop = async () => {
+    const poppedItem = await pop();
+    console.log('Popped item:', poppedItem);
+  };
+
+  return (
+    <div>
+      <button onClick={handlePush}>Push Item</button>
+      <button onClick={handlePop} disabled={loading}>
+        {loading ? 'Popping...' : 'Pop Item'}
+      </button>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.value}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 ```
