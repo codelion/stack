@@ -1,0 +1,27 @@
+---
+title: StackProvider
+---
+
+# StackProvider
+
+A React component that provides Stack authentication context to its children.
+
+## Props
+
+- `children`: `React.ReactNode` - The child components to be wrapped by the StackProvider.
+- `app`: `StackClientApp<true>` - The Stack client app instance.
+
+## Example
+
+```tsx
+import { StackProvider } from '@stackframe/stack';
+import { app } from './stackApp'; // Your Stack app instance
+
+function App() {
+  return (
+    <StackProvider app={app}>
+      <YourApp />
+    </StackProvider>
+  );
+}
+```
