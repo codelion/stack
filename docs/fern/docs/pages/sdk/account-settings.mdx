@@ -1,0 +1,27 @@
+---
+title: AccountSettings
+---
+
+# AccountSettings
+
+A component that renders account settings with various sections in a sidebar layout. It can be displayed as a full page or embedded.
+
+## Props
+
+- `fullPage` (optional): `boolean` - If true, wraps the component in a container for full-page display. Default is `false`.
+
+## Example
+
+```tsx
+import { AccountSettings } from '@stackframe/stack';
+
+// Embedded version
+function MyComponent() {
+  return <AccountSettings />;
+}
+
+// Full-page version
+function MyFullPageComponent() {
+  return <AccountSettings fullPage={true} />;
+}
+```

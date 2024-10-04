@@ -1,46 +1,45 @@
 ---
-slug: sdk/use-user
+title: useUser
 ---
 
-`useUser` is a hook that returns the user object if the user is authenticated; otherwise, it returns `null` by default. However, if you pass in `{ or: "redirect" }` or `{ or: "throw" }` as an option, it will redirect to the login page or throw an error respectively when the user is not authenticated.
+# useUser
 
-If you want to learn more about the `User` object, check out the [User](./current-user.mdx) documentation.
+Retrieves the current user information based on the provided options.
 
-## Default Usage
+## Parameters
 
-Check if the user is authenticated and display the user's name.
-```jsx
-import { useUser } from "@stackframe/stack";
+- `options` (optional): `GetUserOptions` - Configuration options for user retrieval.
+  - `or`: `'redirect' | 'throw' | 'return-null'` - Specifies behavior when user is not found.
+  - `tokenStore`: `'cookie' | 'nextjs-cookie' | 'memory' | { headers: { get: {} } } | { accessToken: string, refreshToken: string }` - Defines how to store authentication tokens.
+  - `projectIdMustMatch`: `string` - Ensures the project ID matches the specified value.
 
-function MyComponent() {
-  const user = useUser(); // user can be null
-  if (!user) {
-    return <div>Not authenticated</div>;
-  }
-  return <div>Hello, {user.name}</div>;
+## Example
+
+```tsx
+import { useUser } from '@stackframe/stack';
+
+// Basic usage
+const user = useUser();
+
+// With options
+const internalUser = useUser({
+  or: 'throw',
+  tokenStore: 'cookie',
+  projectIdMustMatch: 'internal'
+});
+
+// Accessing user properties
+if (user) {
+  console.log(user.displayName);
+  console.log(user.primaryEmail);
 }
-```
 
-## Redirect when not authenticated
-By passing `{ or: "redirect" }` to the hook, it will redirect to the login page if the user is not authenticated. You can configure the login page in the StackApp component.
-```jsx
-import { useUser } from "@stackframe/stack";
-
-function MyComponent() {
-  const user = useUser({ or: "redirect" }); // user is garanteed to be non-null
-  return <div>Hello, {user.name}</div>;
+// Using user methods
+if (internalUser) {
+  await internalUser.setDisplayName('New Name');
+  const team = await internalUser.createTeam({ name: 'New Team' });
 }
-```
-
-The same hook can also be used to protect a page. (You might also want to check out the server-side version [here](../getting-started/users.mdx))
-```jsx
-import { useUser } from "@stackframe/stack";
-
-function MyProtectedPage() {
-  useUser({ or: "redirect" });
-  return <div>You can only see this if you are authenticated</div>;
-}
-```
+``````
 
 ## Throw an error when not authenticated
 

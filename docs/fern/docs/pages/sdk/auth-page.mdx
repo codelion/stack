@@ -1,0 +1,35 @@
+---
+title: AuthPage
+---
+
+# AuthPage
+
+Renders an authentication page for sign-in or sign-up functionality.
+
+## Props
+
+- `fullPage` (optional): `boolean` - Whether to render the auth page in full-page mode. Defaults to `false`.
+- `type`: `'sign-in' | 'sign-up'` - The type of authentication page to render.
+- `automaticRedirect` (optional): `boolean` - Whether to automatically redirect after successful authentication.
+- `mockProject` (optional): `object` - Mock project configuration for testing purposes.
+  - `config`: `object`
+    - `signUpEnabled`: `boolean`
+    - `credentialEnabled`: `boolean`
+    - `magicLinkEnabled`: `boolean`
+    - `oauthProviders`: `Array<{ id: string }>`
+
+## Example
+
+```tsx
+import { AuthPage } from '@stackframe/stack';
+
+// Sign-in page
+<AuthPage type='sign-in' />
+
+// Sign-up page with full-page mode and automatic redirect
+<AuthPage
+  type='sign-up'
+  fullPage={true}
+  automaticRedirect={true}
+/>
+```

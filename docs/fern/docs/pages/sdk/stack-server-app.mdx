@@ -1,0 +1,56 @@
+# StackServerApp
+
+Type definition for the server-side application object in the Stack framework.
+
+## Props
+
+- **`createTeam`**: `(data: ServerTeamCreateOptions) => Promise<ServerTeam>`  
+  Creates a new team.
+
+- **`getServerUser`**: `() => Promise<ProjectCurrentServerUser<ProjectId> | null>`  
+  Deprecated. Use `getUser()` instead.
+
+- **`createUser`**: `(options: ServerUserCreateOptions) => Promise<ServerUser>`  
+  Creates a new user.
+
+- **`useUser`**:
+  - `(options: GetUserOptions<HasTokenStore> & { or: 'redirect' }) => ProjectCurrentServerUser<ProjectId>`
+  - `(options: GetUserOptions<HasTokenStore> & { or: 'throw' }) => ProjectCurrentServerUser<ProjectId>`
+  - `(options?: GetUserOptions<HasTokenStore>) => ProjectCurrentServerUser<ProjectId> | null`
+
+- **`getUser`**:
+  - `(options: GetUserOptions<HasTokenStore> & { or: 'redirect' }) => Promise<ProjectCurrentServerUser<ProjectId>>`
+  - `(options: GetUserOptions<HasTokenStore> & { or: 'throw' }) => Promise<ProjectCurrentServerUser<ProjectId>>`
+  - `(options?: GetUserOptions<HasTokenStore>) => Promise<ProjectCurrentServerUser<ProjectId> | null>`
+
+- **`users`**: AsyncStoreProperty for managing users.
+
+- **`team`**: AsyncStoreProperty for managing a single team.
+
+- **`teams`**: AsyncStoreProperty for managing multiple teams.
+
+## Example
+
+```tsx
+import { StackServerApp } from '@stackframe/stack';
+
+const app: StackServerApp = {
+  async createTeam(data) {
+    // Implementation
+  },
+  async getUser(options) {
+    // Implementation
+  },
+  async createUser(options) {
+    // Implementation
+  },
+  useUser(options) {
+    // Implementation
+  },
+  // ... other properties and methods
+};
+
+// Using the app
+const newTeam = await app.createTeam({ name: 'My Team' });
+const currentUser = await app.getUser();
+```
