@@ -14,7 +14,12 @@ Returns the StackServerApp instance for the current project. Must be used within
 ## Example
 
 ```tsx
-import { useStackApp } from '@stackframe/stack';
+import { useStackApp, StackServerApp } from '@stackframe/stack';
+
+// Initialize the StackServerApp
+export const stackServerApp = new StackServerApp({
+  tokenStore: "nextjs-cookie",
+});
 
 function MyComponent() {
   // Basic usage
