@@ -10,7 +10,9 @@ Example:
 import { withStackApp } from "@stackframe/stack";
 
 function MyComponent({ stack }) {
-  return <div>Sign In URL: {stack.urls.signIn}</div>;
+  // Access StackServerApp properties and methods
+  const signInUrl = stack.getSignInUrl();
+  return <div>Sign In URL: {signInUrl}</div>;
 }
 
 export default withStackApp(MyComponent);
