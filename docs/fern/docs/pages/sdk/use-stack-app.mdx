@@ -24,12 +24,12 @@ function MyComponent() {
   const app = useStackApp({ projectIdMustMatch: 'my-project-id' });
 
   // Using the app
-  const user = app.useUser();
-  const project = app.useProject();
+  const user = app.auth.useUser();
+  const project = app.projects.useProject();
 
   // Redirect example
   const handleSignOut = () => {
-    app.redirectToSignOut();
+    app.auth.signOut();
   };
 
   // ... rest of your component
