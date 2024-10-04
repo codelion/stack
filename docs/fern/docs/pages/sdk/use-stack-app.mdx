@@ -2,15 +2,18 @@
 slug: sdk/use-stack-app
 ---
 
-The `useStackServerApp` hook returns the `StackServerApp` object that you can use to interact with the Stack API. If you want to learn more about the `StackServerApp` object, check out the [App](./stack-app.mdx) documentation.
+The `StackServerApp` object allows you to interact with the Stack API. You can access it using the `stack` prop provided by the `withStackApp` higher-order component.
 
 Example:
 
 ```jsx
-import { useStackServerApp } from "@stackframe/stack";
+import { withStackApp } from "@stackframe/stack";
 
-function MyComponent() {
-  const stackApp = useStackServerApp();
-  return <div>Sign In URL: {stackApp.urls.signIn}</div>;
+function MyComponent({ stack }) {
+  return <div>Sign In URL: {stack.urls.signIn}</div>;
 }
+
+export default withStackApp(MyComponent);
 ```
+
+For more information about the `StackServerApp` object, refer to the [App](./stack-app.mdx) documentation.
