@@ -72,7 +72,7 @@ export default function PasswordResetForm(props: {
   }
 
   return (
-    <MaybeFullPage fullPage={!!props.fullPage}>
+    <MaybeFullPage>
       <div className="text-center mb-6" style={{ width: '380px', padding: props.fullPage ? '1rem' : 0 }}>
         <Typography type='h2'>Reset Your Password</Typography>
       </div>
